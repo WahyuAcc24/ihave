@@ -12,16 +12,7 @@
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="280dp"
-            android:id="@+id/lst_hari"
-            ></android.support.v7.widget.RecyclerView>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:id="@+id/lst_jam"
-
-            ></android.support.v7.widget.RecyclerView>
-
+            android:id="@+id/lst_jadwal"/>
 
         <ProgressBar
             android:id="@+id/progressBar"

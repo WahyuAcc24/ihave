@@ -1,14 +1,19 @@
 package com.example.sony.tes.Adapter;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.sony.tes.Model.Jadwal;
 import com.example.sony.tes.R;
+import com.example.sony.tes.util.TimeListener;
 
 import java.util.List;
 
@@ -17,12 +22,18 @@ import java.util.List;
  */
 public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.Holder> {
 
-    public static String urlFoto = "http://192.168.43.140/nice/images/";
-
     private List<Jadwal> jadwals;
+    private Context context;
 
-    public DetailOrderAdapter(List<Jadwal> jadwals) {
+    private TimeListener listener;
+
+    public DetailOrderAdapter(Context context, List<Jadwal> jadwals) {
+        this.context = context;
         this.jadwals = jadwals;
+    }
+
+    public void setListener(TimeListener listener) {
+        this.listener = listener;
     }
 
     @Override
@@ -32,17 +43,22 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
 
     @Override
     public void onBindViewHolder(final Holder holder, final int position) {
-        Jadwal jadwal = jadwals.get(position);
+        final Jadwal jadwal = jadwals.get(position);
         holder.txtHari.setText(jadwal.getDay_name());
-//        holder.btnJam.setText(String.valueOf(jadwal.getHours()));
-
-//
-//        Glide.with(holder.imgFoto.getContext())
-//                .load(urlFoto + votes.get(position).getImages())
-//                .error(R.mipmap.nice_logo)
-//                .placeholder(R.mipmap.nice_logo)
-//                .into(holder.imgFoto);
-
+        for (final Integer eachTime: jadwal.getHours()) {
+            Button bt = new Button(context);
+            bt.setText(String.valueOf(eachTime));
+            bt.setBackgroundColor(Color.WHITE);
+            bt.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT));
+            holder.viewgroupJam.addView(bt);
+            bt.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    listener.onTimeClicked(v, jadwal.getDay_name(), jadwal.getDay_number(), eachTime);
+                }
+            });
+        }
     }
 
     @Override
@@ -52,21 +68,13 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
 
     class Holder extends RecyclerView.ViewHolder {
 
-
-        TextView txtHari;
-        ImageView imgFoto;
+        private TextView txtHari;
+        private ViewGroup viewgroupJam;
 
         public Holder(View itemView) {
             super(itemView);
-            txtHari = (TextView) itemView.findViewById(R.id.txtHari);
-
-            imgFoto = (ImageView) itemView.findViewById(R.id.imgGuru);
-
+            txtHari = (TextView) itemView.findViewById(R.id.txt_hari);
+            viewgroupJam = (LinearLayout) itemView.findViewById(R.id.viewgroup_jam);
         }
     }
 }
-
-//        String time = ""; //contoh doang pake button yang sama, harusnya button btnJam di generate lagi sesuai banyaknya jam
-//        for (Integer hour: jadwal.getHours()) {
-//            time = time + ", " + hour;
-//        }
