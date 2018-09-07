@@ -1,0 +1,84 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#B0C4DE">
+
+    <LinearLayout
+        android:id="@+id/linear3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/btnLevelSD"
+            android:text="SD"
+            android:paddingTop="20dp"
+            android:textAlignment="center"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/text_rounded"
+            />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="SMP"
+            android:id="@+id/btnLevelSMP"
+            android:paddingTop="20dp"
+            android:textAlignment="center"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/text_rounded"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="SMA"
+            android:id="@+id/btnLevelSMA"
+            android:paddingTop="20dp"
+            android:textAlignment="center"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/text_rounded"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="SMK"
+            android:id="@+id/btnLevelSMK"
+            android:paddingTop="20dp"
+            android:textAlignment="center"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/text_rounded"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="D3"
+            android:paddingTop="20dp"
+            android:textAlignment="center"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/text_rounded"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="S1"
+            android:paddingTop="20dp"
+            android:textAlignment="center"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/text_rounded"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="Lainnya"
+            android:id="@+id/lainnya"
+            android:paddingTop="20dp"
+            android:textAlignment="center"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/text_rounded"/>
+
+    </LinearLayout>
+
+</HorizontalScrollView>

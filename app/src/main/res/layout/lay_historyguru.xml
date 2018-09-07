@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_3">
+
+    <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_below="@+id/top"
+        android:id="@+id/linearHistoryGuru1"
+        android:background="#b1fffefe"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/imgGuruhistory"
+            android:src="@drawable/ihave_logo_blue"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Murid : Fulan " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mata Pelajaran :  Matematika  (SD)" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal : 20 Agustus 2018" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jam : 09:00 - 10:00 WIB" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="L I V E"
+                android:textColor="#ffff"
+                android:id="@+id/btnlive"
+                android:layout_below="@+id/jam"
+                android:layout_alignEnd="@+id/mp"
+                android:background="#fe4343"
+                android:paddingRight="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_below="@+id/linearHistoryGuru1"
+        android:id="@+id/linearHistoryGuru2"
+        android:background="#b1fffefe"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/imgGuruhistory2"
+            android:src="@drawable/ihave_logo_blue"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Murid : Fulan " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mata Pelajaran :  Matematika  (SD)" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal : 20 Agustus 2018" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jam : 09:00 - 10:00 WIB" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="W A I T"
+                android:textColor="#ffff"
+                android:id="@+id/btnlive2"
+                android:layout_below="@+id/jam2"
+                android:layout_alignEnd="@+id/mp2"
+                android:background="#7081ff"
+                android:paddingRight="10dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_below="@+id/linearHistoryGuru2"
+        android:id="@+id/linearHistoryGuru3"
+        android:background="#b1fffefe"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/imgGuruhistory3"
+            android:src="@drawable/ihave_logo_blue"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Murid : Fulan " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mata Pelajaran :  Matematika  (SD)" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal : 20 Agustus 2018" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jam : 09:00 - 10:00 WIB" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="D O N E"
+                android:textColor="#ffff"
+                android:id="@+id/btnlive3"
+                android:layout_below="@+id/jam3"
+                android:layout_alignEnd="@+id/mp3"
+                android:background="#b5b5b5"
+                android:paddingRight="10dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <include layout="@layout/layout_bottomenu"
+        android:id="@+id/include"
+
+        />
+
+
+</RelativeLayout>

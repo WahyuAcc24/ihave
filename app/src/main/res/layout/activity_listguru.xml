@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/bg_3">
+
+    <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout2">
+
+        <!--<TextView-->
+            <!--android:id="@+id/main_title_sd"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Matematika"-->
+            <!--android:textSize="15pt"-->
+            <!--android:textColor="#fff"-->
+            <!--android:shadowColor="#000"-->
+            <!--android:shadowRadius="10"-->
+            <!--android:shadowDy="5"-->
+            <!--android:background="#B0C4DE"-->
+            <!--android:layout_marginBottom="10dp"/>-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Daftar Guru"
+            android:textSize="15pt"
+            android:textColor="#fff"
+            android:shadowColor="#000"
+            android:shadowRadius="10"
+            android:shadowDy="5"
+            android:layout_marginBottom="5dp"/>
+
+
+
+    </LinearLayout>
+    <include layout="@layout/list_guru_rv" android:id="@+id/gurulist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout2"/>
+
+
+    <include layout="@layout/layout_bottomenu"
+        android:id="@+id/include" />
+
+
+</RelativeLayout>

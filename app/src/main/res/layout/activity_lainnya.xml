@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_3">
+
+    <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/sv"
+        android:layout_below="@+id/top"
+        android:layout_above="@+id/include">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear2"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lembaga Pendidikan dan Keterampilan"
+            android:id="@+id/txtlpk"
+            android:textSize="30px"
+            android:textAlignment="center"
+            android:padding="10dp"
+            />
+
+    <Button
+       android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/label"
+        android:layout_marginTop="5px"
+        android:text="LPK Laksamana Pintar"
+        android:textSize="30px"
+        android:layout_marginBottom="10px"
+        android:background="@drawable/edittext_rounded">
+
+    </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label2"
+            android:layout_marginTop="1dp"
+            android:text="LPK Multimedia interstudi"
+            android:textSize="30px"
+            android:layout_marginBottom="10px"
+            android:background="@drawable/edittext_rounded">
+
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label2.1"
+            android:layout_marginTop="1dp"
+            android:text="LPK Ilmu Kita"
+            android:textSize="30px"
+            android:layout_marginBottom="10px"
+            android:background="@drawable/edittext_rounded">
+
+        </Button>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Konsultan"
+            android:id="@+id/txtkonsultan"
+            android:textSize="30px"
+            android:textAlignment="center"
+            android:padding="10dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label3"
+            android:layout_marginTop="5px"
+            android:text="Arsitektur"
+            android:textSize="30px"
+            android:layout_marginBottom="10px"
+            android:background="@drawable/edittext_rounded">
+
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label4"
+            android:layout_marginTop="1dp"
+            android:text="Asuransi Jiwa"
+            android:textSize="30px"
+            android:layout_marginBottom="10px"
+            android:background="@drawable/edittext_rounded">
+
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label4.1"
+            android:layout_marginTop="1dp"
+            android:text="Perencanaan keuangan"
+            android:textSize="30px"
+            android:layout_marginBottom="10px"
+            android:background="@drawable/edittext_rounded">
+
+        </Button>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seni Dan Musik"
+            android:id="@+id/txtsenidanmusik"
+            android:textSize="30px"
+            android:textAlignment="center"
+            android:padding="10dp"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label5"
+            android:layout_marginTop="5px"
+            android:text="Gitar"
+            android:textSize="30px"
+            android:layout_marginBottom="10px"
+            android:background="@drawable/edittext_rounded">
+
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label6"
+            android:layout_marginTop="1dp"
+            android:text="Vokal"
+            android:textSize="30px"
+            android:layout_marginBottom="10px"
+            android:background="@drawable/edittext_rounded">
+
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label6.1"
+            android:layout_marginTop="1dp"
+            android:text="Menari"
+            android:textSize="30px"
+            android:layout_marginBottom="10px"
+            android:background="@drawable/edittext_rounded">
+
+        </Button>
+
+
+
+    </LinearLayout>
+</ScrollView>
+
+    <include layout="@layout/layout_bottomenu"
+        android:id="@+id/include"
+
+
+        />
+</RelativeLayout>

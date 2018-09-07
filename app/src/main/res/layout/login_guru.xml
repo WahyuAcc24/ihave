@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_3"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:src="@drawable/ihave_logo_blue"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgLogo"
+        android:text="Membuka Jendela Dunia Melalui Pendidikan"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:textSize="8pt"
+        android:layout_centerInParent="false"/>
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_below="@id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:layout_alignParentStart="true">
+
+        <EditText
+            android:id="@+id/txtEmail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Guru"
+            android:background="@drawable/edittext_rounded"
+            android:padding="10dp"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/txtPassword"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password Guru"
+            android:background="@drawable/edittext_rounded"
+            android:padding="10dp"
+            android:layout_marginTop="24dp"
+            android:inputType="textPassword"
+            android:layout_below="@+id/txtEmail"
+            android:layout_alignParentStart="true" />
+
+        <!--<EditText-->
+            <!--android:id="@+id/txtCode"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="Kode Guru"-->
+            <!--android:background="@drawable/edittext_rounded"-->
+            <!--android:padding="10dp"-->
+            <!--android:layout_marginTop="24dp"-->
+            <!--android:inputType="textPassword"-->
+            <!--android:layout_below="@+id/txtPassword"-->
+            <!--android:layout_alignParentStart="true" />-->
+
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtPassword"
+            android:layout_marginTop="20dp"
+            android:background="#B0E0E6"
+            android:weightSum="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/linearLayout">
+
+
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radiogroupLogin"
+                android:orientation="horizontal"
+                android:layout_marginStart="90dp"
+                android:checkedButton="@+id/radioGuru"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Murid"
+
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioMurid"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Pengajar"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioGuru"
+                    />
+
+
+            </RadioGroup>
+
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masuk"
+            android:id="@+id/buttonLogin"
+            android:background="#fff"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            android:onClick="Masuk"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0000"
+            android:hint="Lupa Password"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/LupaBtnGuru"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0000"
+            android:hint="Buat Akun"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/RegisBtnGuru"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

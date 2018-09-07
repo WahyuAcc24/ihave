@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/bg_3">
+
+    <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
+    <include layout="@layout/layout_jumbotron_kelas_smp" android:layout_below="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear2"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Class"
+            android:textSize="15pt"
+            android:textColor="#fff"
+            android:shadowColor="#000"
+            android:shadowRadius="10"
+            android:shadowDy="5"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/list_pelajaransmp_rv" android:id="@+id/pelajaranlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout2"/>
+
+    <include layout="@layout/layout_bottomenu"
+        android:id="@+id/include" />
+
+
+</RelativeLayout>

@@ -1,0 +1,1273 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="#c6c6c6"
+    >
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/lay_senin"
+    android:background="#ffff"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Senin"
+        android:id="@+id/txtSenin"
+        android:textSize="20sp"
+        />
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lay_jamSenin"
+        >
+
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@drawable/button_bg"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="13dp"
+        android:text="09:00"
+        android:id="@+id/senin9"
+
+
+        />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@drawable/button_bg"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:id="@+id/senin10"
+
+        android:text="10:00"
+
+        />
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_select"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/senin11"
+            android:text="11:00"
+
+            />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_select"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/senin12"
+            android:text="12:00"
+
+            />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_select"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/senin13"
+            android:text="13:00"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lay_jamSenin2"
+        >
+
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_select"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="13dp"
+            android:text="14:00"
+            android:id="@+id/senin14"
+
+            />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_select"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/senin15"
+            android:text="15:00"
+
+            />
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_select"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/senin16"
+            android:text="16:00"
+
+            />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_select"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/senin17"
+            android:text="17:00"
+
+            />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_select"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/senin18"
+            android:text="18:00"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lay_jamSenin3"
+        >
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_select"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="13dp"
+            android:id="@+id/senin19"
+            android:text="19:00"
+
+            />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_select"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/senin20"
+            android:text="20:00"
+
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lay_selasa"
+        android:background="#ffff"
+        android:layout_marginTop="20dp"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Selasa"
+            android:id="@+id/txtSelasa"
+            android:textSize="20sp"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamSelasa"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="09:00"
+                android:id="@+id/selasa9"
+
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/selasa10"
+                android:text="10:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/selasa11"
+                android:text="11:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/selasa12"
+                android:text="12:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/selasa13"
+                android:text="13:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamSelasa2"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="14:00"
+                android:id="@+id/selasa14"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/selasa15"
+                android:text="15:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/selasa16"
+                android:text="16:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/selasa17"
+                android:text="17:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/selasa18"
+                android:text="18:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamSelasa3"
+            >
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:id="@+id/selasa19"
+                android:text="19:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/selasa20"
+                android:text="20:00"
+
+                />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lay_rabu"
+        android:background="#ffff"
+        android:layout_marginTop="20dp"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Rabu"
+            android:id="@+id/txtRabu"
+            android:textSize="20sp"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamRabu"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="09:00"
+                android:id="@+id/rabu9"
+
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/rabu10"
+                android:text="10:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/rabu11"
+                android:text="11:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/rabu12"
+                android:text="12:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/rabu13"
+                android:text="13:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamRabu2"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="14:00"
+                android:id="@+id/rabu14"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/rabu15"
+                android:text="15:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/rabu16"
+                android:text="16:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/rabu17"
+                android:text="17:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/rabu18"
+                android:text="18:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamRabu3"
+            >
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:id="@+id/rabu19"
+                android:text="19:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/rabu20"
+                android:text="20:00"
+
+                />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lay_kamis"
+        android:background="#ffff"
+        android:layout_marginTop="20dp"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Kamis"
+            android:id="@+id/txtKamis"
+            android:textSize="20sp"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamKamis"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="09:00"
+                android:id="@+id/kamis9"
+
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/kamis10"
+                android:text="10:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/kamis11"
+                android:text="11:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/kamis12"
+                android:text="12:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/kamis13"
+                android:text="13:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamKamis2"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="14:00"
+                android:id="@+id/kamis14"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/kamis15"
+                android:text="15:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/kamis16"
+                android:text="16:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/kamis17"
+                android:text="17:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/kamis18"
+                android:text="18:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamkamis3"
+            >
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:id="@+id/kamis19"
+                android:text="19:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/kamis20"
+                android:text="20:00"
+
+                />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lay_jumat"
+        android:background="#ffff"
+        android:layout_marginTop="20dp"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Jumat"
+            android:id="@+id/txtJumat"
+            android:textSize="20sp"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamJumat"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="09:00"
+                android:id="@+id/jumat9"
+
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/jumat10"
+                android:text="10:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/jumat11"
+                android:text="11:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/jumat12"
+                android:text="12:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/jumat13"
+                android:text="13:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamJumat2"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="14:00"
+                android:id="@+id/jumat14"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/jumat15"
+                android:text="15:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/jumat16"
+                android:text="16:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/jumat17"
+                android:text="17:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/jumat18"
+                android:text="18:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamJumat3"
+            >
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:id="@+id/jumat19"
+                android:text="19:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/jumat20"
+                android:text="20:00"
+
+                />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lay_sabtu"
+        android:background="#ffff"
+        android:layout_marginTop="20dp"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Sabtu"
+            android:id="@+id/txtSabtu"
+            android:textSize="20sp"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamSabtu"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="09:00"
+                android:id="@+id/sabtu9"
+
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/sabtu10"
+                android:text="10:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/sabtu11"
+                android:text="11:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/sabtu12"
+                android:text="12:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/sabtu13"
+                android:text="13:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamSabtu2"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="14:00"
+                android:id="@+id/sabtu14"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/sabtu15"
+                android:text="15:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/sabtu16"
+                android:text="16:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/sabtu17"
+                android:text="17:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/sabtu18"
+                android:text="18:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamSabtu3"
+            >
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:id="@+id/sabtu19"
+                android:text="19:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/sabtu20"
+                android:text="20:00"
+
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lay_minggu"
+        android:background="#ffff"
+        android:layout_marginTop="20dp"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Minggu"
+            android:id="@+id/txtMinggu"
+            android:textSize="20sp"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamMinggu"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="09:00"
+                android:id="@+id/minggu9"
+
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/minggu10"
+                android:text="10:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/minggu11"
+                android:text="11:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/minggu12"
+                android:text="12:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/minggu13"
+                android:text="13:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamMinggu2"
+            >
+
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:text="14:00"
+                android:id="@+id/minggu14"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/minggu15"
+                android:text="15:00"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/minggu16"
+                android:text="16:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/minggu17"
+                android:text="17:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/minggu18"
+                android:text="18:00"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lay_jamMinggu3"
+            >
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:id="@+id/minggu19"
+                android:text="19:00"
+
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="#00ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/minggu20"
+                android:text="20:00"
+
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+</ScrollView>

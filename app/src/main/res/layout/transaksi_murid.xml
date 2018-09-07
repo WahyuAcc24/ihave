@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/bg_3"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_top"
+            android:id="@+id/top"
+        >
+
+            </include>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nomor Invoice
+        xxxxx"
+        android:id="@+id/txtnmr"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/top"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lakukan Pembayaran sebelum"
+        android:layout_below="@+id/txtnmr"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:id="@+id/txtlps"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selasa, 20 Agustus 2018"
+        android:layout_below="@+id/txtlps"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:id="@+id/txttgl"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BANK TRANSFER"
+        android:layout_below="@+id/txttgl"
+        android:layout_marginTop="10dp"
+
+        android:id="@+id/txtbt"
+        android:layout_centerHorizontal="true" />
+
+<ImageView
+    android:layout_width="120dp"
+    android:layout_height="80dp"
+    android:layout_below="@+id/txtbt"
+    android:layout_centerHorizontal="true"
+    android:src="@drawable/payment_bri"
+    android:id="@+id/bri"
+
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="41029200121290
+atas nama pt xxxx"
+        android:layout_below="@+id/bri"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:id="@+id/txtnmrrek"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="jumlah tagihan"
+        android:layout_below="@+id/txtnmrrek"
+        android:layout_marginTop="10dp"
+
+        android:id="@+id/txtjmlh"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp. 0"
+        android:layout_below="@+id/txtjmlh"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:id="@+id/txttotal"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cara melakukan pembayaran BRI :"
+        android:layout_below="@+id/txttotal"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:id="@+id/txtcara"
+         />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:background="#ffff"
+        android:layout_below="@id/txtcara"
+        android:id="@+id/lntrf"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Transfer Atm"
+            android:paddingTop="6dp"
+            android:layout_marginStart="10dp"
+
+
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="1dp"
+        android:background="#ffff"
+        android:layout_below="@id/lntrf"
+        android:id="@+id/mb"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Mobile Bangking"
+            android:paddingTop="6dp"
+            android:layout_marginStart="10dp"
+
+
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="1dp"
+        android:background="#ffff"
+        android:layout_below="@id/mb"
+        android:id="@+id/teler"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Teller"
+            android:paddingTop="6dp"
+            android:layout_marginStart="10dp"
+
+
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/teler"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="OK"
+        android:id="@+id/btnOkmrd"
+
+        />
+
+
+
+</RelativeLayout>

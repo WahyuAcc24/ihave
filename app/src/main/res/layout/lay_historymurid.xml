@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_3"
+    >
+    <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/top"
+        android:id="@+id/linearHistory"
+        android:background="#b1fffefe">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/imgGuruhistory"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Guru : Yusi Pudjiastuti"
+            android:id="@+id/nama"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mata Pelajaran :  Matematika  (SD)"
+            android:id="@+id/mp"
+            android:layout_below="@+id/nama"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal : 20 Agustus 2018"
+                android:id="@+id/tgl"
+                android:layout_below="@+id/mp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jam : 09:00 - 10:00 WIB"
+                android:id="@+id/jam"
+                android:layout_below="@+id/tgl"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total : Rp. 0"
+                android:id="@+id/total"
+                android:layout_below="@+id/jam"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="L I V E"
+                android:textColor="#ffff"
+                android:id="@+id/btnlive"
+                android:layout_below="@+id/jam"
+                android:layout_alignEnd="@+id/mp"
+                android:background="#fe4343" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="3dp"
+        android:layout_below="@+id/linearHistory"
+        android:id="@+id/linearHistory2"
+        android:background="#b1fffefe">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/imgGuruhistory2"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Guru : Yusi Pudjiastuti"
+                android:id="@+id/nama2"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mata Pelajaran :  Matematika  (SD)"
+                android:id="@+id/mp2"
+                android:layout_below="@+id/nama2"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal : 20 Agustus 2018"
+                android:id="@+id/tgl2"
+                android:layout_below="@+id/mp2"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jam : 09:00 - 10:00 WIB"
+                android:id="@+id/jam2"
+                android:layout_below="@+id/tgl2"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total : Rp. 0"
+                android:id="@+id/total2"
+                android:layout_below="@+id/jam2"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="W A I T"
+                android:textColor="#ffff"
+                android:id="@+id/btnlive2"
+                android:layout_below="@+id/jam2"
+                android:layout_alignEnd="@+id/mp2"
+                android:background="#7081ff" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="3dp"
+        android:layout_below="@+id/linearHistory2"
+        android:id="@+id/linearHistory3"
+        android:background="#b1fffefe">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/imgGuruhistory3"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Guru : Yusi Pudjiastuti"
+                android:id="@+id/nama3"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mata Pelajaran :  Matematika  (SD)"
+                android:id="@+id/mp3"
+                android:layout_below="@+id/nama3"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal : 1 Agustus 2018"
+                android:id="@+id/tgl3"
+                android:layout_below="@+id/mp3"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jam : 09:00 - 10:00 WIB"
+                android:id="@+id/jam3"
+                android:layout_below="@+id/tgl3"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total : Rp. 0"
+                android:id="@+id/total3"
+                android:layout_below="@+id/jam3"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="D O N E"
+                android:textColor="#ffff"
+                android:id="@+id/btnlive3"
+                android:layout_below="@+id/jam3"
+                android:layout_alignEnd="@+id/mp3"
+                android:background="#b5b5b5" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+    <include layout="@layout/layout_bottomenu"
+        android:id="@+id/include"
+
+
+        />
+
+
+</RelativeLayout>

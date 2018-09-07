@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/bg_3">
+
+    <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/txtnama_guru"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Guru"
+            android:textSize="15pt"
+            android:textColor="#fff"
+            android:shadowColor="#000"
+            android:shadowRadius="10"
+            android:shadowDy="5"
+            android:background="#B0C4DE"
+            android:paddingLeft="7dp"
+            android:layout_marginBottom="10dp"/>
+
+        <include layout="@layout/layout_infoguru_top" android:id="@+id/igtop" />
+
+        <include layout="@layout/layout_infoguru" android:id="@+id/ig" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textSize="9pt"
+            android:text="Jadwal :"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/list_jadwal_rv"
+                android:id="@+id/jadwal"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"/>
+
+            <Button
+                android:id="@+id/btnOK"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffff"
+                android:text="OK"
+                android:textSize="80px"
+                android:layout_below="@+id/jadwal"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_bottomenu" android:id="@+id/include" />
+
+</RelativeLayout>

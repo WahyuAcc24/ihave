@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_3"
+        android:layout_height="match_parent">
+
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Transfer ATM"
+        android:id="@+id/tm"
+        android:textColor="#ff000000"
+        android:layout_below="@+id/lnMrd"
+            />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bri"
+        android:text="Mobile Banking"
+        android:layout_marginTop="5dp"
+        android:textColor="#ff000000"
+        android:id="@+id/txtmb"
+            />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bcapay"
+        android:text="Mini Market Transfer"
+        android:layout_marginTop="5dp"
+        android:textColor="#ff000000"
+        android:id="@+id/MiniMarketTransfer"
+            />
+
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/indomaret"
+        android:text="Kartu Kredit"
+        android:layout_marginTop="5dp"
+        android:textColor="#ff000000"
+        android:id="@+id/kredit"
+            />
+
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:id="@+id/atmbersama"
+        android:layout_below="@+id/tm"
+        android:background="#c6ffffff">
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="14dp"
+            android:src="@drawable/payment_atm_bersama"
+
+            />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#c6ffffff"
+        android:layout_below="@+id/atmbersama"
+        android:id="@+id/bca"
+            >
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/payment_bca"
+
+            />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#c6ffffff"
+        android:layout_below="@+id/bca"
+        android:id="@+id/bni"
+            >
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/payment_bni"
+
+            />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#c6ffffff"
+        android:layout_below="@+id/bni"
+        android:id="@+id/bri"
+            >
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+
+            android:src="@drawable/payment_bri"
+
+            />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#c6ffffff"
+        android:layout_below="@+id/txtmb"
+        android:id="@+id/bcapay"
+            >
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+
+            android:src="@drawable/payment_bca_klikpay"
+
+            />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#c6ffffff"
+        android:layout_below="@+id/MiniMarketTransfer"
+        android:id="@+id/indomaret"
+            >
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+
+            android:src="@drawable/payment_indomaret"
+
+            />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#c6ffffff"
+        android:layout_below="@+id/kredit"
+        android:id="@+id/cc"
+            >
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+
+            android:src="@drawable/payment_mastercard"
+
+            />
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
