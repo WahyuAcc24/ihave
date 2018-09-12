@@ -1,7 +1,10 @@
 package com.example.sony.tes.Murid;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -21,7 +25,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sony.tes.Adapter.DetailOrderAdapter;
-import com.example.sony.tes.Adapter.JamAdapter;
 import com.example.sony.tes.BuildConfig;
 import com.example.sony.tes.Model.DetailOrder;
 import com.example.sony.tes.R;
@@ -30,6 +33,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,14 +48,19 @@ public class DetailOrderActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private com.google.gson.Gson gson;
     private RecyclerView lstJadwal;
+    ProgressDialog pDialog;
     ProgressBar pgList;
     public List<DetailOrder> detailorders;
+    ConnectivityManager conMgr;
 
     public TextView txt_namaguru, txt_mp, txt_rp, txt_hobi;
     private DetailOrderAdapter adapterJadwal;
+    private static final String TAG = DetailOrderActivity.class.getSimpleName();
+    String tag_json_obj = "json_obj_req";
 
     private String url;
 
+    private String urlSave = "http://demo.t-hisyam.net/ihave/api/order/save_order";
     /**
      * @TODO(Silahkan diganti sesuai kebutuhan)
      */
@@ -68,6 +77,9 @@ public class DetailOrderActivity extends AppCompatActivity {
         lstJadwal = (RecyclerView) findViewById(R.id.lst_jadwal);
         lstJadwal.setLayoutManager(new LinearLayoutManager(this));
 
+        collectTime = new HashMap<>();
+
+        conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         requestQueue = Volley.newRequestQueue(this);
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
@@ -75,6 +87,7 @@ public class DetailOrderActivity extends AppCompatActivity {
         detailorders = new ArrayList<>();
 
         ambilGuru();
+
 
         histori = (ImageView) findViewById(R.id.imgMenuHistory);
         histori.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +122,8 @@ public class DetailOrderActivity extends AppCompatActivity {
         txt_hobi = (TextView) findViewById(R.id.txthobi);
         txt_rp = (TextView) findViewById(R.id.txtRpOrder);
 
+//        txt_namaguru.setText(getIntent().getStringExtra("blaa"));
+
 
         //tombol back
         ImageView backButton = (ImageView) this.findViewById(R.id.btn_back);
@@ -122,33 +137,47 @@ public class DetailOrderActivity extends AppCompatActivity {
 
         //untuk tombol OK, ambil semua informasi order
         findViewById(R.id.btnOK).setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
                 String idMurid = Rak.grab("id"); //ini ane reference dari LoginMuridActivity
                 String idLesson = getIntent().getStringExtra("lessonId"); //dari intent
                 String idGuru = getIntent().getStringExtra("guruId"); //dari intent
-
-                String fullData = "";
-                for (Map.Entry<String, List<Integer>> data: collectTime.entrySet()) {
-                    fullData = fullData + data.getKey() + ":";
-                    for (Integer time: data.getValue()) {
-                        fullData = fullData + "," + time;
+                List<String> day = new ArrayList<>();
+                String times = "";
+                for (Map.Entry<String, List<Integer>> data : collectTime.entrySet()) {
+                    for (Integer time : data.getValue()) {
+                        times = time + ",";
                     }
-                    fullData = fullData + "\n";
+                    times = times.substring(0, times.length() - 1);
+                    day.add(times);
                 }
 
-                /**
-                 * @TODO(silahkan diganti dengan post ke API pada data-data dibawah ini)
-                 */
-                Toast.makeText(getApplicationContext(),
-                         "ID Murid : " + idMurid + "\n" +
-                         "ID Lesson : " + idLesson + "\n" +
-                         "ID Guru : " + idGuru + "\n" +
-                         "Daftar Jam Pilihan : " + "\n" +
-                         fullData,
-                         Toast.LENGTH_LONG).show();
+                for (String t: day) {
+                    Log.d("hari", t);
+                }
+
+//                if (conMgr.getActiveNetworkInfo() != null
+//                        && conMgr.getActiveNetworkInfo().isAvailable()
+//                        && conMgr.getActiveNetworkInfo().isConnected()) {
+//                    //Order(idMurid, idLesson, idGuru, fullData);
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "cek internet anda", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }
+
+//
+//
+//                //contoh, data yang di dapetin dan di butuhin di API (sesuai postman yang ente kirim ke ane di whastapp, udah ku grab semua, abang tinggal olah data-data ini, misal taroh di body post.
+//                Toast.makeText(getApplicationContext(),
+//                         "ID Murid : " + idMurid + "\n" +
+//                         "ID Lesson : " + idLesson + "\n" +
+//                         "ID Guru : " + idGuru + "\n" +
+//                         "Daftar Jam Pilihan : " + "\n" +
+//                         fullData,
+//                         Toast.LENGTH_LONG).show();
+//            }
 
     private void ambilGuru() {
         //mengambil dengan method GET dan sesuaikan dengan url
@@ -157,7 +186,7 @@ public class DetailOrderActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e(BuildConfig.APPLICATION_ID, url+"\n"+response);
+                        Log.e(BuildConfig.APPLICATION_ID, url + "\n" + response);
                         pgList = (ProgressBar) findViewById(R.id.progressBar);
                         pgList.setVisibility(View.GONE);
                         try {
@@ -170,7 +199,8 @@ public class DetailOrderActivity extends AppCompatActivity {
                             adapterJadwal = new DetailOrderAdapter(getApplicationContext(), result.getJadwal());
 
                             adapterJadwal.setListener(new TimeListener() {
-                                @Override public void onTimeClicked(View view, String dayName, int dayNumber, Integer timeSelected) {
+                                @Override
+                                public void onTimeClicked(View view, String dayName, int dayNumber, Integer timeSelected) {
                                     if (inMap(collectTime, dayName, timeSelected)) {
                                         collectTime.get(dayName).remove(timeSelected);
                                         view.setBackgroundColor(Color.WHITE);
@@ -212,5 +242,64 @@ public class DetailOrderActivity extends AppCompatActivity {
         return values != null && values.contains(value);
     }
 
-}
+    private void Order(final String idMurid, final String idGuru, final String idLesson, final String fulldata) {
 
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Registrasi sedang diproses...");
+        showDialog();
+
+        StringRequest strReq = new StringRequest(Request.Method.POST, urlSave, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e(TAG, "Mendaftar Merespon: " + response.toString());
+
+
+                try {
+                    Rak.entry("id", idMurid);
+                    Rak.entry("lessonId", idLesson);
+                    Rak.entry("guruId", idGuru);
+                    Rak.entry("fulldata", fulldata);
+
+                    startActivity(new Intent(DetailOrderActivity.this, HistoryMuridActivity.class));
+
+                } catch (Exception e) {
+                    Log.e("haha", e.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Login Error :" + error.getMessage());
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("id_lesson", idLesson);
+                params.put("id_murid", idMurid);
+                params.put("id_guru", idGuru);
+                params.put("jadwal[]", fulldata);
+
+                return params;
+            }
+
+
+        };
+        AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
+}
