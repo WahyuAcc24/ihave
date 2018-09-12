@@ -34,6 +34,7 @@ import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -77,7 +78,7 @@ public class DetailOrderActivity extends AppCompatActivity {
         lstJadwal = (RecyclerView) findViewById(R.id.lst_jadwal);
         lstJadwal.setLayoutManager(new LinearLayoutManager(this));
 
-        collectTime = new HashMap<>();
+        collectTime = new LinkedHashMap<>();
 
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         requestQueue = Volley.newRequestQueue(this);
@@ -143,26 +144,21 @@ public class DetailOrderActivity extends AppCompatActivity {
                 String idLesson = getIntent().getStringExtra("lessonId"); //dari intent
                 String idGuru = getIntent().getStringExtra("guruId"); //dari intent
                 List<String> day = new ArrayList<>();
-                String times = "";
                 for (Map.Entry<String, List<Integer>> data : collectTime.entrySet()) {
+                    String times = "";
                     for (Integer time : data.getValue()) {
-                        times = time + ",";
+                        times = times + "," + time;
                     }
-                    times = times.substring(0, times.length() - 1);
-                    day.add(times);
+                    day.add(times.substring(1));
                 }
 
-                for (String t: day) {
-                    Log.d("hari", t);
+                if (conMgr.getActiveNetworkInfo() != null
+                        && conMgr.getActiveNetworkInfo().isAvailable()
+                        && conMgr.getActiveNetworkInfo().isConnected()) {
+                    Order(idMurid, idLesson, idGuru, day);
+                } else {
+                    Toast.makeText(getApplicationContext(), "cek internet anda", Toast.LENGTH_SHORT).show();
                 }
-
-//                if (conMgr.getActiveNetworkInfo() != null
-//                        && conMgr.getActiveNetworkInfo().isAvailable()
-//                        && conMgr.getActiveNetworkInfo().isConnected()) {
-//                    //Order(idMurid, idLesson, idGuru, fullData);
-//                } else {
-//                    Toast.makeText(getApplicationContext(), "cek internet anda", Toast.LENGTH_SHORT).show();
-//                }
             }
         });
     }
@@ -242,7 +238,7 @@ public class DetailOrderActivity extends AppCompatActivity {
         return values != null && values.contains(value);
     }
 
-    private void Order(final String idMurid, final String idGuru, final String idLesson, final String fulldata) {
+    private void Order(final String idMurid, final String idGuru, final String idLesson, final List<String> time) {
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -252,25 +248,13 @@ public class DetailOrderActivity extends AppCompatActivity {
         StringRequest strReq = new StringRequest(Request.Method.POST, urlSave, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Mendaftar Merespon: " + response.toString());
-
-
-                try {
-                    Rak.entry("id", idMurid);
-                    Rak.entry("lessonId", idLesson);
-                    Rak.entry("guruId", idGuru);
-                    Rak.entry("fulldata", fulldata);
-
-                    startActivity(new Intent(DetailOrderActivity.this, HistoryMuridActivity.class));
-
-                } catch (Exception e) {
-                    Log.e("haha", e.getMessage());
-                }
+                hideDialog();
+                startActivity(new Intent(DetailOrderActivity.this, HistoryMuridActivity.class));
+                finish();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Login Error :" + error.getMessage());
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                 hideDialog();
             }
@@ -281,8 +265,9 @@ public class DetailOrderActivity extends AppCompatActivity {
                 params.put("id_lesson", idLesson);
                 params.put("id_murid", idMurid);
                 params.put("id_guru", idGuru);
-                params.put("jadwal[]", fulldata);
-
+                for (int i=0; i<time.size(); i++) {
+                    params.put("jadwal[" + (i+1) + "]", time.get(i));
+                }
                 return params;
             }
 
