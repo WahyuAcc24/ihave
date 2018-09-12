@@ -37,8 +37,8 @@ public class SettingGuruActivity extends AppCompatActivity {
 //            }
 //        });
 //
-//        history = (ImageView) findViewById(R.id.imgMenuHistory);
-//        history.setOnClickListener(new View.OnClickListener() {
+//        History = (ImageView) findViewById(R.id.imgMenuHistory);
+//        History.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                Intent i = new Intent(SettingGuruActivity.this, HistoryGuruActivity.class);

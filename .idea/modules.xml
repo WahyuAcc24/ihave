@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Tes.iml" filepath="$PROJECT_DIR$/Tes.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Tes.iml" filepath="$PROJECT_DIR$/Tes.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ihave.iml" filepath="$PROJECT_DIR$/ihave.iml" />
       <module fileurl="file://$PROJECT_DIR$/sinch-android-rtc-3.12.5/sinch-android-rtc-3.12.5.iml" filepath="$PROJECT_DIR$/sinch-android-rtc-3.12.5/sinch-android-rtc-3.12.5.iml" />

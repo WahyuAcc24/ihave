@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/bg_3"
+    tools:context=".Murid.HistoryDetailActivity">
+
+    <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nama guru"
+        android:textColor="#000000"
+        android:textSize="40px"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/txtnama_guru"
+        android:layout_below="@+id/top"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Matpel"
+        android:textColor="#000000"
+        android:textSize="40px"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/txtnama_matpel"
+        android:layout_below="@+id/txtnama_guru"
+        android:layout_alignParentStart="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal"
+        android:textColor="#000000"
+        android:textSize="40px"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/txtTglDetail"
+        android:layout_below="@+id/txtnama_matpel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total "
+        android:textColor="#000000"
+        android:textSize="40px"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/txtTotalDetail"
+        android:layout_below="@+id/txtTglDetail"
+        android:layout_alignParentStart="true" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/txtTotalDetail"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:id="@+id/jadwalDetail"
+            android:textSize="9pt"
+            android:layout_marginTop="20dp"
+            android:textColor="#000000"
+            android:text="Jadwal "/>
+        <include layout="@layout/list_detailjadwal_rv"
+            android:id="@+id/jadwal"
+            android:layout_below="@+id/jadwalDetail"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"/>
+
+        <Button
+            android:id="@+id/btnOK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:text="OK"
+            android:textSize="20sp"
+            android:layout_below="@+id/jadwal"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
+

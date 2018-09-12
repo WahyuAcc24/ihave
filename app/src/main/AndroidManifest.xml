@@ -5,8 +5,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
@@ -14,21 +15,25 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- PubNub Dependencies -->
-    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <permission android:name="your.package.name.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+
+    <permission
+        android:name="your.package.name.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
     <uses-permission android:name="your.package.name.permission.C2D_MESSAGE" />
 
     <application
         android:name=".Murid.AppController"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/logo_ihave"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:hardwareAccelerated="false"
-        android:largeHeap="true">
+        android:theme="@style/AppTheme">
         <activity android:name=".Flash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,44 +41,44 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Murid.HomeMuridActivity"/>
-        <activity android:name=".Murid.LoginMuridActivity"/>
-        <activity android:name=".Login.ForgotActivity"/>
-        <activity android:name=".Murid.RegisterMuridActivity"/>
-        <activity android:name=".Video.VideoChatActivity"/>
-        <activity android:name=".Pelajaran.PelajaranActivity"/>
-        <activity android:name=".Guru.DetailGuruActivity"/>
-        <activity android:name=".Guru.ForgotGuruActivity"/>
+        <activity android:name=".Murid.HomeMuridActivity" />
+        <activity android:name=".Murid.LoginMuridActivity" />
+        <activity android:name=".Login.ForgotActivity" />
+        <activity android:name=".Murid.RegisterMuridActivity" />
+        <activity android:name=".Video.VideoChatActivity" />
+        <activity android:name=".Pelajaran.PelajaranActivity" />
+        <activity android:name=".Guru.DetailGuruActivity" />
+        <activity android:name=".Guru.ForgotGuruActivity" />
         <activity android:name=".Murid.ForgotMuridActivity" />
-        <activity android:name=".Guru.LoginGuruActivity"/>
-        <activity android:name=".Guru.RegisterGuruActivity"/>
-        <activity android:name=".Video.VideoCallActivity"/>
-        <activity android:name=".Video.VideoCallGuruActivity"/>
-        <activity android:name=".Guru.SettingGuruActivity"/>
-        <activity android:name=".Murid.HistoryMuridActivity"/>
-        <activity android:name=".Guru.HistoryGuruActivity"/>
-        <activity android:name=".Murid.SettingMuridActivity"/>
-        <activity android:name=".Murid.TransaksiMuridActivity"/>
-        <activity android:name=".Guru.HomeGuruActivity"/>
-        <activity android:name=".Guru.TransaksiGuruActivity"/>
-        <activity android:name=".Murid.BayarMuridActivity"/>
-        <activity android:name=".Murid.LainnyaActivity"/>
-        <activity android:name=".Murid.LpkActivity"/>
-        <activity android:name=".Pelajaran.PelajaranSdActivity"/>
-        <activity android:name=".Pelajaran.PelajaranSmaActivity"/>
-        <activity android:name=".Pelajaran.PelajaranSmpActivity"/>
-        <activity android:name=".Murid.ListGuruSdActivity"/>
-        <activity android:name=".Pelajaran.Coba"/>
-        <activity android:name=".Murid.DetailOrderActivity"/>
-        <activity android:name=".Murid.ListGuruSmpActivity"/>
-        <activity android:name=".Murid.ListGuruSmaActivity"/>
-
+        <activity android:name=".Guru.LoginGuruActivity" />
+        <activity android:name=".Guru.RegisterGuruActivity" />
+        <activity android:name=".Video.VideoCallActivity" />
+        <activity android:name=".Video.VideoCallGuruActivity" />
+        <activity android:name=".Guru.SettingGuruActivity" />
+        <activity android:name=".Murid.HistoryMuridActivity" />
+        <activity android:name=".Guru.HistoryGuruActivity" />
+        <activity android:name=".Murid.SettingMuridActivity" />
+        <activity android:name=".Murid.TransaksiMuridActivity" />
+        <activity android:name=".Guru.HomeGuruActivity" />
+        <activity android:name=".Guru.TransaksiGuruActivity" />
+        <activity android:name=".Murid.BayarMuridActivity" />
+        <activity android:name=".Murid.LainnyaActivity" />
+        <activity android:name=".Murid.LpkActivity" />
+        <activity android:name=".Pelajaran.PelajaranSdActivity" />
+        <activity android:name=".Pelajaran.PelajaranSmaActivity" />
+        <activity android:name=".Pelajaran.PelajaranSmpActivity" />
+        <activity android:name=".Murid.ListGuruSdActivity" />
+        <activity android:name=".Pelajaran.Coba" />
+        <activity android:name=".Murid.DetailOrderActivity" />
+        <activity android:name=".Murid.ListGuruSmpActivity" />
+        <activity android:name=".Murid.ListGuruSmaActivity" />
+        <activity android:name=".Murid.HistoryDetailActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
-            android:grantUriPermissions="true" >
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
