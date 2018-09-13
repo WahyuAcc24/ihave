@@ -123,6 +123,15 @@ public class TransaksiMuridActivity extends AppCompatActivity {
         });
 
 
+        LinearLayout formpembayaran = (LinearLayout) findViewById(R.id.lnHistori);
+        formpembayaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TransaksiMuridActivity.this, FormPembayaranActivity.class);
+//                i.putExtra("data", new Gson().toJson(TopUp.class));
+                startActivity(i);
+            }
+        });
 
         //  tombol back
         ImageView backButton = (ImageView) this.findViewById(R.id.btn_back);
@@ -163,8 +172,6 @@ public class TransaksiMuridActivity extends AppCompatActivity {
             //gambar loading akan menghilang ketika proses berjalan dengan baik
 
             Log.d("ini json", response);
-
-
             Saldo saldo = new Gson().fromJson(response, Saldo.class);
 
             txtSaldo = (TextView) findViewById(R.id.totalsaldo);

@@ -72,7 +72,7 @@
         <activity android:name=".Murid.DetailOrderActivity" />
         <activity android:name=".Murid.ListGuruSmpActivity" />
         <activity android:name=".Murid.ListGuruSmaActivity" />
-        <activity android:name=".Murid.HistoryDetailActivity"/>
+        <activity android:name=".Murid.HistoryDetailActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -84,6 +84,7 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
+        <activity android:name=".Murid.FormPembayaranActivity"></activity>
     </application>
 
 </manifest>
