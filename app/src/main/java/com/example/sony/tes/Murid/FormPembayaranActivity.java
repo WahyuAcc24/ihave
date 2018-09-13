@@ -2,9 +2,12 @@ package com.example.sony.tes.Murid;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.sony.tes.R;
+
+import io.isfaaghyth.rak.Rak;
 
 public class FormPembayaranActivity extends AppCompatActivity {
 
@@ -20,13 +23,15 @@ public class FormPembayaranActivity extends AppCompatActivity {
         txtInvoice = (TextView) findViewById(R.id.txtinvoice);
         txtSaldo = (TextView) findViewById(R.id.txttotal);
 
-        txtInvoice.setText(getIntent().getStringExtra("nomor_invoice"));
-        txtSaldo.setText(String.format("Rp.%d", getIntent().getIntExtra("total", 0)));
+        txtInvoice.setText((String) Rak.grab("nomor_invoice"));
+        txtSaldo.setText(String.format("Rp. %d", (Integer) Rak.grab("total")));
 
-//        topUps = new Gson().fromJson(getIntent().getStringExtra("data"), TopUp.class);
-
-//        txtInvoice.setText(topUps.getInvoice());
-//        txtSaldo.setText(topUps.getSubtotal());
+        boolean isBayar = Rak.grab("bayar");
+        if (isBayar) { //button ok nya di sembunyiin klau dah bayar
+            findViewById(R.id.btnOkmrd).setVisibility(View.VISIBLE);
+        } else {
+            findViewById(R.id.btnOkmrd).setVisibility(View.GONE);
+        }
     }
 
 }

@@ -77,10 +77,13 @@ public class NominalDialogFragment extends BottomSheetDialogFragment {
                     Rak.entry("saldo_topup", saldo);
 
                     Pembayaran pembayaran = new Gson().fromJson(response, Pembayaran.class);
+                    Rak.grab("bayar", true); //belum bayar (true), sudah bayar(false)
+                    Rak.grab("nomor_invoice", pembayaran.getInvoice());
+                    Rak.grab("total", pembayaran.getData().getSubtotal());
+
                     Intent i = new Intent(getActivity(),FormPembayaranActivity.class);
-                    i.putExtra("nomor_invoice", pembayaran.getInvoice());
-                    i.putExtra("total", pembayaran.getData().getSubtotal());
                     startActivity(i);
+
                 } catch (Exception e) {
                     Log.e("erorr boss", e.getMessage());
                 }

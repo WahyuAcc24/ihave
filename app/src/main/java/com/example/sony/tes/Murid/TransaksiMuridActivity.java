@@ -67,7 +67,6 @@ public class TransaksiMuridActivity extends AppCompatActivity {
         saldo = new ArrayList<>();
 
         fotoRek = (ImageView) findViewById(R.id.imgSaldo);
-        namaRek = (TextView) findViewById(R.id.namaSaldo);
 
         txtNama = (TextView) findViewById(R.id.namaSaldo);
         txtNama.setText((String) Rak.grab("fullname"));
@@ -117,8 +116,12 @@ public class TransaksiMuridActivity extends AppCompatActivity {
         bca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NominalDialogFragment dialog = NominalDialogFragment.getInstance();
-                dialog.show(getSupportFragmentManager(), "Home");
+                if (!Rak.isExist("bayar")) return;
+                boolean isBayar = Rak.grab("bayar");
+                if (isBayar) {
+                    NominalDialogFragment dialog = NominalDialogFragment.getInstance();
+                    dialog.show(getSupportFragmentManager(), "Home");
+                }
             }
         });
 
