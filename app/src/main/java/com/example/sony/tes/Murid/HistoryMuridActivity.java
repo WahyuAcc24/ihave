@@ -122,6 +122,13 @@ public class HistoryMuridActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        requestQueue = Volley.newRequestQueue(this);
+        ambilHistory();
+    }
+
     //menagmbil data dari database mysql dengan gson JSON
     private void ambilHistory() {
         //mengambil dengan method GET dan sesuaikan dengan url

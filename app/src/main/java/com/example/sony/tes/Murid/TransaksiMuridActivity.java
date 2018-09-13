@@ -66,6 +66,8 @@ public class TransaksiMuridActivity extends AppCompatActivity {
 
         saldo = new ArrayList<>();
 
+        fotoRek = (ImageView) findViewById(R.id.imgSaldo);
+        namaRek = (TextView) findViewById(R.id.namaSaldo);
 
         txtNama = (TextView) findViewById(R.id.namaSaldo);
         txtNama.setText((String) Rak.grab("fullname"));
@@ -111,8 +113,8 @@ public class TransaksiMuridActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout bersama = (LinearLayout) findViewById(R.id.atmbersama);
-        bersama.setOnClickListener(new View.OnClickListener() {
+        LinearLayout bca = (LinearLayout) findViewById(R.id.bca);
+        bca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NominalDialogFragment dialog = NominalDialogFragment.getInstance();
@@ -131,8 +133,6 @@ public class TransaksiMuridActivity extends AppCompatActivity {
             }
         });
 
-        fotoRek = (ImageView) findViewById(R.id.imgSaldo);
-        namaRek = (TextView) findViewById(R.id.namaSaldo);
 
 
     }
@@ -168,6 +168,7 @@ public class TransaksiMuridActivity extends AppCompatActivity {
             Saldo saldo = new Gson().fromJson(response, Saldo.class);
 
             txtSaldo = (TextView) findViewById(R.id.totalsaldo);
+            Rak.entry("saldo", saldo.getSaldo());
             txtSaldo.setText(saldo.getSaldo());
 
 

@@ -12,6 +12,8 @@ public class History {
     @SerializedName("invoice")
     private String invoice;
 
+    @SerializedName("id_guru") private String id_guru;
+
     @SerializedName("status")
     private String status;
 
@@ -44,6 +46,10 @@ public class History {
 
     public List<JadwalHistory> getJadwal() {
         return jadwal;
+    }
+
+    public String getId_guru() {
+        return id_guru;
     }
 
     public String getInvoice() {
