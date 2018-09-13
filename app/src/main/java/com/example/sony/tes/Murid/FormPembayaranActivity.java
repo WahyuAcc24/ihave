@@ -20,6 +20,8 @@ public class FormPembayaranActivity extends AppCompatActivity {
         txtInvoice = (TextView) findViewById(R.id.txtinvoice);
         txtSaldo = (TextView) findViewById(R.id.txttotal);
 
+        txtInvoice.setText(getIntent().getStringExtra("nomor_invoice"));
+        txtSaldo.setText(String.format("Rp.%d", getIntent().getIntExtra("total", 0)));
 
 //        topUps = new Gson().fromJson(getIntent().getStringExtra("data"), TopUp.class);
 

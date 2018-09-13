@@ -18,6 +18,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.sony.tes.Model.Pembayaran;
 import com.example.sony.tes.R;
 import com.google.gson.Gson;
 
@@ -71,15 +72,15 @@ public class NominalDialogFragment extends BottomSheetDialogFragment {
         StringRequest strReq = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Mohon Tunggu : " + response.toString());
-
+                Log.e(TAG, "Mohon Tunggu : " + response);
                 try {
-
                     Rak.entry("saldo_topup", saldo);
 
+                    Pembayaran pembayaran = new Gson().fromJson(response, Pembayaran.class);
                     Intent i = new Intent(getActivity(),FormPembayaranActivity.class);
+                    i.putExtra("nomor_invoice", pembayaran.getInvoice());
+                    i.putExtra("total", pembayaran.getData().getSubtotal());
                     startActivity(i);
-
                 } catch (Exception e) {
                     Log.e("erorr boss", e.getMessage());
                 }
