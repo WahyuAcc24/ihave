@@ -75,6 +75,17 @@ public class HistoryDetailActivity extends AppCompatActivity {
                     //intent ke nonton video
                 }
             });
+        } else if (history.getStatus().equalsIgnoreCase("paid")) {
+            btnOk.setText("BAYAR KELAS");
+            btnOk.setBackgroundColor(Color.BLUE);
+            btnOk.setTextColor(Color.WHITE);
+            btnOk.setEnabled(true);
+            btnOk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //api disini untuk bayar
+                }
+            });
         }
 
         //  tombol back

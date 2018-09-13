@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="@drawable/bg_3"
     android:layout_height="match_parent"
@@ -30,25 +35,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama : "
+                android:text="nama"
                 android:id="@+id/namaSaldo"
                 />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No Rekening : XXXXXXXXX"
-                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Saldo Anda : Rp. 0"
+                android:text="Saldo Anda"
+                android:id="@+id/totalsaldo"
+                android:layout_marginTop="10dp"
                 />
 
         </LinearLayout>
 
+
     </LinearLayout>
+
 
     <include layout="@layout/layout_saldo_atmlist" android:id="@+id/atmlist"
         android:layout_width="match_parent"
@@ -57,4 +61,9 @@
 
     <include layout="@layout/layout_bottomenu" android:id="@+id/bottom" />
 
+
+    <!--<include layout="@layout/buttom_sheet" android:id="@+id/btmSheet"/>-->
+
 </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
