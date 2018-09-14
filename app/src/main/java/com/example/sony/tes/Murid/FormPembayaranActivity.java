@@ -26,12 +26,13 @@ public class FormPembayaranActivity extends AppCompatActivity {
         txtInvoice.setText((String) Rak.grab("nomor_invoice"));
         txtSaldo.setText(String.format("Rp. %d", (Integer) Rak.grab("total")));
 
-        boolean isBayar = Rak.grab("bayar");
-        if (isBayar) { //button ok nya di sembunyiin klau dah bayar
-            findViewById(R.id.btnOkmrd).setVisibility(View.VISIBLE);
-        } else {
-            findViewById(R.id.btnOkmrd).setVisibility(View.GONE);
+        if (Rak.isExist("bayar")) {
+            boolean isBayar = Rak.grab("bayar");
+            if (isBayar) { //button ok nya di sembunyiin klau dah bayar
+                findViewById(R.id.btnOkmrd).setVisibility(View.VISIBLE);
+            } else {
+                findViewById(R.id.btnOkmrd).setVisibility(View.GONE);
+            }
         }
     }
-
 }

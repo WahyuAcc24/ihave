@@ -185,7 +185,7 @@ public class LoginMuridActivity extends AppCompatActivity {
                     Rak.entry("birthdate", res.getData_Mrd().getBirthdate());
                     Rak.entry("birthplace", res.getData_Mrd().getBirthplace());
                     Rak.entry("phone", res.getData_Mrd().getPhone());
-                    Rak.entry("address", res.getData_Mrd().getAddress());
+//                    Rak.entry("address", res.getData_Mrd().getAddress());
 //                    Rak.entry("gender", res.getData_Mrd().getGender());
 //                    Rak.entry("hobby", res.getData_Mrd().getHobby());
                     Rak.entry("images", res.getData_Mrd().getImages());

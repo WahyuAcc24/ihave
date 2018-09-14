@@ -153,7 +153,7 @@ public class RegisterMuridActivity extends AppCompatActivity {
 
                 String email = txt_email.getText().toString();
                 String password = txt_pass.getText().toString();
-                String nama = txt_nama.getText().toString();
+                String fullname = txt_nama.getText().toString();
                 String Hp = txt_hp.getText().toString();
                 String jk = txt_jk.getText().toString();
                 String TmptLahir = txt_tempat.getText().toString();
@@ -163,7 +163,7 @@ public class RegisterMuridActivity extends AppCompatActivity {
                     if (conMgr.getActiveNetworkInfo() != null
                             && conMgr.getActiveNetworkInfo().isAvailable()
                             && conMgr.getActiveNetworkInfo().isConnected()) {
-                        uploadImage(email, password, nama, Hp, TmptLahir, jk, tglLahir);
+                        uploadImage(email, password, fullname, Hp, TmptLahir, jk, tglLahir);
 
                     } else {
                         Toast.makeText(getApplicationContext(), "cek internet anda", Toast.LENGTH_SHORT).show();
@@ -287,7 +287,7 @@ public class RegisterMuridActivity extends AppCompatActivity {
         return encodedImage;
     }
 
-    private void uploadImage(final String email, final String fullname, final String password, final String  Hp, final String TmptLahir, final String  jk, final String tglLahir) {
+    private void uploadImage(final String email, final String password, final String fullname, final String  Hp, final String TmptLahir, final String  jk, final String tglLahir) {
         //menampilkan progress dialog
 //        ProgressDialog.show(this, "Uploading...", "Please wait...", false, false);
         VolleyMultipartRequest req = new VolleyMultipartRequest(Request.Method.POST,url, new Response.Listener<NetworkResponse>() {

@@ -116,12 +116,14 @@ public class TransaksiMuridActivity extends AppCompatActivity {
         bca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!Rak.isExist("bayar")) return;
-                boolean isBayar = Rak.grab("bayar");
-                if (isBayar) {
-                    NominalDialogFragment dialog = NominalDialogFragment.getInstance();
-                    dialog.show(getSupportFragmentManager(), "Home");
-                }
+//                if (Rak.isExist("bayar")) {
+//                    boolean isBayar = Rak.grab("bayar");
+//                    if (isBayar) {
+                        NominalDialogFragment dialog = NominalDialogFragment.getInstance();
+                        dialog.show(getSupportFragmentManager(), "Home");
+//                    }
+//                }
+
             }
         });
 
