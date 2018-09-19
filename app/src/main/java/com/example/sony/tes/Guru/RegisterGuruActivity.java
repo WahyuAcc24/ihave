@@ -288,7 +288,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
         return encodedImage;
     }
 
-    private void uploadImage(final String email, final String fullname, final String password, final String  Hp, final String TmptLahir, final String  jk, final String tglLahir) {
+    private void uploadImage(final String email, final String password,final String fullname, final String  Hp, final String TmptLahir, final String  jk, final String tglLahir) {
         //menampilkan progress dialog
 //        ProgressDialog.show(this, "Uploading...", "Please wait...", false, false);
         VolleyMultipartRequest req = new VolleyMultipartRequest(Request.Method.POST,url, new Response.Listener<NetworkResponse>() {

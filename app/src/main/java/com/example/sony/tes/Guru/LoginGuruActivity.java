@@ -22,7 +22,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.sony.tes.Model.LoginGuru;
 import com.example.sony.tes.Murid.AppController;
 import com.example.sony.tes.Murid.ForgotMuridActivity;
-import com.example.sony.tes.Murid.HomeMuridActivity;
 import com.example.sony.tes.Murid.LoginMuridActivity;
 import com.example.sony.tes.R;
 import com.example.sony.tes.Server.server;
@@ -93,15 +92,15 @@ public class LoginGuruActivity extends AppCompatActivity {
         passwordS = sharedpreferences.getString(TAG_PASSWORD, null);
         emailS = sharedpreferences.getString(TAG_EMAIL, null);
 
-//        if (Rak.isExist("login")) {
-//            if (Rak.grab("login")) {
-//                startActivity(new Intent(this, HomeGuruActivity.class));
-//                finish();
-//            }
-//        }
+        if (Rak.isExist("login")) {
+            if (Rak.grab("login")) {
+                startActivity(new Intent(this, HomeGuruActivity.class));
+                finish();
+            }
+        }
 
         if (session) {
-            Intent intent = new Intent(LoginGuruActivity.this, HomeMuridActivity.class);
+            Intent intent = new Intent(LoginGuruActivity.this, GuruActivity.class);
             intent.putExtra(TAG_PASSWORD, passwordS);
             intent.putExtra(TAG_EMAIL, emailS);
             startActivity(intent);
@@ -178,27 +177,29 @@ public class LoginGuruActivity extends AppCompatActivity {
         StringRequest strReq = new StringRequest(Request.Method.POST, url+"?email="+email+"&password="+password, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "LoginMurid Response: " + response.toString());
+                Log.e(TAG, "LoginGuru Response: " + response.toString());
 
                 LoginGuru res = new Gson().fromJson(response, LoginGuru.class);
 
                 if (res.isStatus()) {
-//                    Rak.entry("id", res.getData_Guru().getId());
-//                    Rak.entry("email", res.getData_Guru().getEmail());
-//                    Rak.entry("passsword", res.getData_Guru().getPassword());
-//                    Rak.entry("fullname", res.getData_Guru().getFullname());
-//                    Rak.entry("birthdate", res.getData_Guru().getBirthdate());
-//                    Rak.entry("birthplace", res.getData_Guru().getBirthplace());
-//                    Rak.entry("phone", res.getData_Guru().getPhone());
-//                    Rak.entry("address", res.getData_Guru().getAddress());
-//                    Rak.entry("gender", res.getData_Guru().getGender());
-////                    Rak.entry("hobby", res.getData_Mrd().getHobby());
-//                    Rak.entry("images", res.getData_Guru().getImages());
-//                    Rak.entry("login", true);
+                    Rak.entry("id", res.getData_Guru().getId());
+                    Rak.entry("email", res.getData_Guru().getEmail());
+                    Rak.entry("passsword", res.getData_Guru().getPassword());
+                    Rak.entry("fullname", res.getData_Guru().getFullname());
+                    Rak.entry("birthdate", res.getData_Guru().getBirthdate());
+                    Rak.entry("birthplace", res.getData_Guru().getBirthplace());
+                    Rak.entry("phone", res.getData_Guru().getPhone());
+                    if (res.getData_Guru().getAddress() != null) {
+                        Rak.entry("address", res.getData_Guru().getAddress());
+                    }
+                    Rak.entry("gender", res.getData_Guru().getGender());
+                    Rak.entry("hobby", res.getData_Guru().getHobby());
+                    Rak.entry("images", res.getData_Guru().getImages());
+                    Rak.entry("login", true);
 
 
                     hideDialog();
-                    startActivity(new Intent(LoginGuruActivity.this, HomeGuruActivity.class));
+                    startActivity(new Intent(LoginGuruActivity.this, GuruActivity.class));
                     finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "gagal bro", Toast.LENGTH_SHORT).show();
@@ -248,6 +249,10 @@ public class LoginGuruActivity extends AppCompatActivity {
     private void hideDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
 }

@@ -146,7 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#0000"
-            android:hint="Buat Akun"
+            android:hint="Buat Akun Murid"
             android:layout_marginRight="20dp"
             android:layout_alignParentEnd="true"
             android:id="@+id/RegisBtnMurid"/>
