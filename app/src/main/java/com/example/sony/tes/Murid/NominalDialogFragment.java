@@ -56,11 +56,14 @@ public class NominalDialogFragment extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Rak.initialize(getContext());
         edtNominal = (EditText) view.findViewById(R.id.edt_nominal);
         view.findViewById(R.id.btnOK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Rak.entry("bayar", true); //belum bayar (true), sudah bayar(false)
                 String idMurid = Rak.grab("id");
+//                String invoice = Rak.grab("nomor_invoice");
                 String saldo = edtNominal.getText().toString();
                 isiSaldo(saldo,idMurid);
 
@@ -72,14 +75,15 @@ public class NominalDialogFragment extends BottomSheetDialogFragment {
         StringRequest strReq = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Mohon Tunggu : " + response);
+                Log.e(TAG, "Silahkan : " + response);
                 try {
                     Rak.entry("saldo_topup", saldo);
+//                    Rak.entry("nomor_invoice",invoice);
 
                     Pembayaran pembayaran = new Gson().fromJson(response, Pembayaran.class);
-                    Rak.grab("bayar", true); //belum bayar (true), sudah bayar(false)
-                    Rak.grab("nomor_invoice", pembayaran.getInvoice());
-                    Rak.grab("total", pembayaran.getData().getSubtotal());
+
+                    Rak.entry("nomor_invoice", pembayaran.getInvoice());
+                    Rak.entry("total", pembayaran.getData().getSubtotal());
 
                     Intent i = new Intent(getActivity(),FormPembayaranActivity.class);
                     startActivity(i);

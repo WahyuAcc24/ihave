@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#ffff"
-            android:text="OK"
+            android:text="Menunggu komfirmasi guru"
             android:textSize="20sp"
             android:layout_below="@+id/jadwal"
             android:layout_centerHorizontal="true" />

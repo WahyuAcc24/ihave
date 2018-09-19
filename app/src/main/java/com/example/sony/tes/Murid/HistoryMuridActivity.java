@@ -30,6 +30,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import io.isfaaghyth.rak.Rak;
+
 /**
  * Created by SONY on 7/8/2018.
  */
@@ -37,7 +39,7 @@ public class HistoryMuridActivity extends AppCompatActivity {
 
     LinearLayout lnHistory;
     ImageView imageView, home, transaksi, logout, setting;
-    public static String url = "http://demo.t-hisyam.net/ihave/api/order/list_order_murid?id_murid=1";
+    public String url;
 
     private RecyclerView lstHistori;
     ProgressBar pgList;
@@ -55,6 +57,10 @@ public class HistoryMuridActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lay_historymurid);
 
+        Rak.initialize(this);
+        url = "http://demo.t-hisyam.net/ihave/api/order/list_order_murid?id_murid=" + Rak.grab("id");
+
+        Log.d("TAG", url);
 
         lstHistori = (RecyclerView) findViewById(R.id.lst_historyMurid);
 

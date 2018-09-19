@@ -7,6 +7,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import io.isfaaghyth.rak.Rak;
+
 /**
  * Created by Wahyu ACC on 26/03/2018.
  */
@@ -21,6 +23,7 @@ public class AppController extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Rak.initialize(this);
         mInstance = this;
     }
 

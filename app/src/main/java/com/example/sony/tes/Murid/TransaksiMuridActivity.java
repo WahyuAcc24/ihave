@@ -116,27 +116,28 @@ public class TransaksiMuridActivity extends AppCompatActivity {
         bca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (Rak.isExist("bayar")) {
-//                    boolean isBayar = Rak.grab("bayar");
-//                    if (isBayar) {
-                        NominalDialogFragment dialog = NominalDialogFragment.getInstance();
-                        dialog.show(getSupportFragmentManager(), "Home");
-//                    }
-//                }
-
+                boolean isBayar = (Rak.isExist("bayar")) ? (Boolean) Rak.grab("bayar") : false;
+                Log.d("TAG", Boolean.valueOf(isBayar).toString());
+                if (!isBayar) {
+                    NominalDialogFragment dialog = NominalDialogFragment.getInstance();
+                    dialog.show(getSupportFragmentManager(), "Home");
+                } else {
+                    Intent i = new Intent(getApplicationContext(), FormPembayaranActivity.class);
+                    startActivity(i);
+                }
             }
         });
 
 
-        LinearLayout formpembayaran = (LinearLayout) findViewById(R.id.lnHistori);
-        formpembayaran.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(TransaksiMuridActivity.this, FormPembayaranActivity.class);
-//                i.putExtra("data", new Gson().toJson(TopUp.class));
-                startActivity(i);
-            }
-        });
+//        LinearLayout formpembayaran = (LinearLayout) findViewById(R.id.lnHistori);
+//        formpembayaran.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(TransaksiMuridActivity.this, FormPembayaranActivity.class);
+////                i.putExtra("data", new Gson().toJson(TopUp.class));
+//                startActivity(i);
+//            }
+//        });
 
         //  tombol back
         ImageView backButton = (ImageView) this.findViewById(R.id.btn_back);

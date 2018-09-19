@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -63,11 +64,13 @@ public class HistoryDetailActivity extends AppCompatActivity {
         lstJadwal = (RecyclerView) findViewById(R.id.lst_jadwal);
         btnOk = (Button) findViewById(R.id.btnOK);
 
-        url = "http://demo.t-hisyam.net/ihave/api/order/approved_order"; //TODO(ganti untuk verifikasi aja)
+        url = "http://demo.t-hisyam.net/ihave/api/order/pay_order"; //TODO(ganti untuk verifikasi aja)
 
         final RequestQueue queue = Volley.newRequestQueue(this);
 
         history = new Gson().fromJson(getIntent().getStringExtra("data"), History.class);
+
+        Log.e("tag", getIntent().getStringExtra("data"));
 
         txt_namaguru.setText(history.getNama_guru());
         txt_mp.setText(history.getNama_pelajaran());
@@ -77,7 +80,7 @@ public class HistoryDetailActivity extends AppCompatActivity {
         lstJadwal.setLayoutManager(new LinearLayoutManager(this));
         lstJadwal.setAdapter(new JadwalAdapter(history.getJadwal()));
 
-        if (history.getStatus().equalsIgnoreCase("waiting") || history.getStatus().equalsIgnoreCase("wait")) {
+        if (history.getStatus().equalsIgnoreCase("conf")) {
             btnOk.setText("BAYAR KELAS");
             btnOk.setBackgroundColor(Color.BLUE);
             btnOk.setTextColor(Color.WHITE);
@@ -112,6 +115,8 @@ public class HistoryDetailActivity extends AppCompatActivity {
                                 .setPositiveButton("YA", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
+
+                                        Log.e("TAG", history.getId_guru()+"\n"+history.getInvoice()+"\n");
                                         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                                             @Override
                                             public void onResponse(String response) {
@@ -126,7 +131,7 @@ public class HistoryDetailActivity extends AppCompatActivity {
                                             @Override
                                             protected Map<String, String> getParams() throws AuthFailureError {
                                                 Map<String, String> params = new HashMap<>();
-                                                params.put("id_guru", history.getId_guru()); //TODO(minta ke yang bikin API)
+                                                params.put("id_murid", history.getId_murid()); //TODO(minta ke yang bikin API)
                                                 params.put("invoice", history.getInvoice());
                                                 return params;
                                             }
