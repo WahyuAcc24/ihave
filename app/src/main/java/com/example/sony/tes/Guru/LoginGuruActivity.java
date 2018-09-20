@@ -100,7 +100,7 @@ public class LoginGuruActivity extends AppCompatActivity {
         }
 
         if (session) {
-            Intent intent = new Intent(LoginGuruActivity.this, GuruActivity.class);
+            Intent intent = new Intent(LoginGuruActivity.this, HomeGuruActivity.class);
             intent.putExtra(TAG_PASSWORD, passwordS);
             intent.putExtra(TAG_EMAIL, emailS);
             startActivity(intent);
@@ -199,7 +199,7 @@ public class LoginGuruActivity extends AppCompatActivity {
 
 
                     hideDialog();
-                    startActivity(new Intent(LoginGuruActivity.this, GuruActivity.class));
+                    startActivity(new Intent(LoginGuruActivity.this, HomeGuruActivity.class));
                     finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "gagal bro", Toast.LENGTH_SHORT).show();

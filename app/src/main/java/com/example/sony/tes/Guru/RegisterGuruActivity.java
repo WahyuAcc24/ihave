@@ -59,7 +59,7 @@ import io.isfaaghyth.rak.Rak;
  */
 public class RegisterGuruActivity extends AppCompatActivity {
 
-    EditText txt_email,txt_pass, txt_nama, txt_hp, txt_jk, txt_tempat, txt_tgllahir;
+    EditText txt_email,txt_pass, txt_nama, txt_hp, txt_jk, txt_tempat, txt_tgllahir, txthobi, txtlulusan;
 
     private Connector cn;
 
@@ -138,6 +138,8 @@ public class RegisterGuruActivity extends AppCompatActivity {
         txt_pass = (EditText) findViewById(R.id.txtPassword);
         txt_tempat = (EditText) findViewById(R.id.txtBirthplace);
         txt_tgllahir = (EditText) findViewById(R.id.txtBirthday);
+        txthobi = (EditText) findViewById(R.id.txtHobbi);
+        txtlulusan = (EditText) findViewById(R.id.txtSertifikat);
         user = (ImageView) findViewById(R.id.imgUser);
 
         ubahFoto.setOnClickListener(new View.OnClickListener() {
@@ -159,6 +161,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
                 String jk = txt_jk.getText().toString();
                 String TmptLahir = txt_tempat.getText().toString();
                 String tglLahir = txt_tgllahir.getText().toString();
+//                String sertifikat = txtlulusan.getText().toString();
 
                 if (email.trim().length() > 0 && password.trim().length() > 0) {
                     if (conMgr.getActiveNetworkInfo() != null
