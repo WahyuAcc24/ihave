@@ -42,6 +42,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder> 
         holder.txtTgl.setText(historis.get(position).getOrder_date());
         holder.txtStatus.setText(historis.get(position).getStatus());
 
+
         holder.itemVote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

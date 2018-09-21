@@ -72,7 +72,8 @@
         <activity android:name=".Murid.DetailOrderActivity" />
         <activity android:name=".Murid.ListGuruSmpActivity" />
         <activity android:name=".Murid.ListGuruSmaActivity" />
-        <activity android:name=".Murid.HistoryDetailActivity" />
+        <activity android:name=".Murid.HistoryMuridDetailActivity" />
+        <activity android:name=".Guru.HistoryGuruDetailActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

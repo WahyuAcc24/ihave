@@ -8,15 +8,15 @@ import com.google.gson.annotations.SerializedName;
 public class JadwalHistory {
 
     @SerializedName("date") private String date;
-    @SerializedName("day") private String day;
+    @SerializedName("day_name") private String day_name;
     @SerializedName("hours") private String hours;
 
     public String getDate() {
         return date;
     }
 
-    public String getDay() {
-        return day;
+    public String getDay_name() {
+        return day_name;
     }
 
     public String getHours() {

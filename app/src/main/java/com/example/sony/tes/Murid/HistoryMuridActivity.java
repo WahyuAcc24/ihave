@@ -174,7 +174,7 @@ public class HistoryMuridActivity extends AppCompatActivity {
             adapter.setListener(new ItemClickListener<History>() {
                 @Override
                 public void onClicked(History History, int position, View view) {
-                    Intent i = new Intent(HistoryMuridActivity.this, HistoryDetailActivity.class);
+                    Intent i = new Intent(HistoryMuridActivity.this, HistoryMuridDetailActivity.class);
                     i.putExtra("data", new Gson().toJson(History));
                     startActivity(i);
                 }

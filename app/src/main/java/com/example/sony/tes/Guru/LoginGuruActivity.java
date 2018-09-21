@@ -183,7 +183,7 @@ public class LoginGuruActivity extends AppCompatActivity {
 
                 if (res.isStatus()) {
                     if (res != null) {
-                        Rak.entry("id", res.getId());
+                        Rak.entry("id_guru", res.getId());
                         Rak.entry("email", res.getEmail());
                         Rak.entry("passsword", res.getPassword());
                         Rak.entry("fullname", res.getFullname());

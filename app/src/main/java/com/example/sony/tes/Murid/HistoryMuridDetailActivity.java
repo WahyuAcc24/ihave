@@ -34,7 +34,7 @@ import java.util.Map;
 
 import io.isfaaghyth.rak.Rak;
 
-public class HistoryDetailActivity extends AppCompatActivity {
+public class HistoryMuridDetailActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
     private Gson gson;
@@ -46,7 +46,7 @@ public class HistoryDetailActivity extends AppCompatActivity {
     public TextView txt_namaguru, txt_mp, txt_rp, txtTglDetail;
     private Button btnOk;
     private JadwalAdapter adapter;
-    private static final String TAG = HistoryDetailActivity.class.getSimpleName();
+    private static final String TAG = HistoryMuridDetailActivity.class.getSimpleName();
     String tag_json_obj = "json_obj_req";
 
     private String url;
@@ -55,7 +55,7 @@ public class HistoryDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history_detail);
+        setContentView(R.layout.activity_historymurid_detail);
 
         txt_namaguru = (TextView) findViewById(R.id.txtnama_guru);
         txt_mp = (TextView) findViewById(R.id.txtnama_matpel);
@@ -93,7 +93,7 @@ public class HistoryDetailActivity extends AppCompatActivity {
                     int total = Integer.valueOf(history.getTotal());
 
                     if (mySaldo == 0) {
-                        new AlertDialog.Builder(HistoryDetailActivity.this)
+                        new AlertDialog.Builder(HistoryMuridDetailActivity.this)
                                 .setTitle(R.string.app_name)
                                 .setMessage("Maaf, saldo anda tidak cukup")
                                 .setNegativeButton("OK", new DialogInterface.OnClickListener() {
@@ -105,7 +105,7 @@ public class HistoryDetailActivity extends AppCompatActivity {
                     }
 
                     if (mySaldo >= total) {
-                        new AlertDialog.Builder(HistoryDetailActivity.this)
+                        new AlertDialog.Builder(HistoryMuridDetailActivity.this)
                                 .setTitle(R.string.app_name)
                                 .setMessage("apakah yakin ingin membayar?")
                                 .setNegativeButton("BATALKAN", new DialogInterface.OnClickListener() {
@@ -141,7 +141,7 @@ public class HistoryDetailActivity extends AppCompatActivity {
                                 })
                                 .show();
                     } else {
-                        new AlertDialog.Builder(HistoryDetailActivity.this)
+                        new AlertDialog.Builder(HistoryMuridDetailActivity.this)
                                 .setTitle(R.string.app_name)
                                 .setMessage("Maaf, saldo anda tidak cukup")
                                 .setNegativeButton("OK", new DialogInterface.OnClickListener() {

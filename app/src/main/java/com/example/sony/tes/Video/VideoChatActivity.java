@@ -25,8 +25,8 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class VideoChatActivity extends AppCompatActivity implements Session.SessionListener, PublisherKit.PublisherListener{
 
     private static String API_KEY = "46171282";
-    private static String SESSION_ID = "2_MX40NjE3MTI4Mn5-MTUzNDc0Njc5MTA2NH5zb0lKT2xuUFNnbFFQL1JhdXVHMU5CNGN-fg";
-    private static String TOKEN = "T1==cGFydG5lcl9pZD00NjE3MTI4MiZzaWc9ZmVhMmY0NjhlYjc0YTdmZWY3NTgyNmRlZGJkODhlM2U5NjUzNzNlODpzZXNzaW9uX2lkPTJfTVg0ME5qRTNNVEk0TW41LU1UVXpORGMwTmpjNU1UQTJOSDV6YjBsS1QyeHVVRk5uYkZGUUwxSmhkWFZITVU1Q05HTi1mZyZjcmVhdGVfdGltZT0xNTM0NzQ2ODUwJm5vbmNlPTAuNzc5NDk4ODM2NTQxODM5NiZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTM3MzM4ODU2JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9";
+    private static String SESSION_ID = "1_MX40NjE3MTI4Mn5-MTUzNzUyMDUwMjY3M35HMzgrMU5yZ1RpTERUWnRuV3JtU1dpRHh-UH4";
+    private static String TOKEN = "T1==cGFydG5lcl9pZD00NjE3MTI4MiZzaWc9NDM3MWQxOGYyMGIxZGFjYzkxNjUwY2NiMDE2OGMwNzU0YmE2OTJiYzpzZXNzaW9uX2lkPTFfTVg0ME5qRTNNVEk0TW41LU1UVXpOelV5TURVd01qWTNNMzVITXpnck1VNXlaMVJwVEVSVVduUnVWM0p0VTFkcFJIaC1VSDQmY3JlYXRlX3RpbWU9MTUzNzUyMDU3MCZub25jZT0wLjI4OTc3NjU4Mzc3NjA2MTk3JnJvbGU9cHVibGlzaGVyJmV4cGlyZV90aW1lPTE1NDAxMTI1NjgmaW5pdGlhbF9sYXlvdXRfY2xhc3NfbGlzdD0=";
     private static final String LOG_TAG = VideoChatActivity.class.getSimpleName();
     private static final int RC_SETTINGS_SCREEN_PERM = 123;
     private static final int RC_VIDEO_APP_PERM = 124;
@@ -134,16 +134,11 @@ public class VideoChatActivity extends AppCompatActivity implements Session.Sess
     }
 
     public void onBackPressed() {
-
-        if(subscriber !=null){
-            subscriber = null;
-            sb.removeAllViews();
-        }
-        Intent startMain = new Intent(VideoChatActivity.this, HomeMuridActivity.class);
-        startMain.addCategory(Intent.CATEGORY_HOME);
-        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(startMain);
-
+        finish();
     }
 
 }
+//if(subscriber !=null){
+//        subscriber = null;
+//        sb.removeAllViews();
+//        }

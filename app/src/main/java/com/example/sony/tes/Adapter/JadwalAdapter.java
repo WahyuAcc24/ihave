@@ -29,7 +29,7 @@ public class JadwalAdapter extends RecyclerView.Adapter<JadwalAdapter.Holder> {
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-        holder.txtDay.setText(jadwals.get(position).getDay());
+        holder.txtDay.setText(jadwals.get(position).getDay_name());
         holder.txtHour.setText(jadwals.get(position).getHours());
     }
 
