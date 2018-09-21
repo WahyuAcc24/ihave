@@ -92,8 +92,8 @@ public class LoginGuruActivity extends AppCompatActivity {
         passwordS = sharedpreferences.getString(TAG_PASSWORD, null);
         emailS = sharedpreferences.getString(TAG_EMAIL, null);
 
-        if (Rak.isExist("login")) {
-            if (Rak.grab("login")) {
+        if (Rak.isExist("loginguru")) {
+            if (Rak.grab("loginguru")) {
                 startActivity(new Intent(this, HomeGuruActivity.class));
                 finish();
             }
@@ -177,25 +177,28 @@ public class LoginGuruActivity extends AppCompatActivity {
         StringRequest strReq = new StringRequest(Request.Method.POST, url+"?email="+email+"&password="+password, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "LoginGuru Response: " + response.toString());
+                Log.e(TAG, "LoginGuru : " +response);
 
                 LoginGuru res = new Gson().fromJson(response, LoginGuru.class);
 
                 if (res.isStatus()) {
-                    Rak.entry("id", res.getData_Guru().getId());
-                    Rak.entry("email", res.getData_Guru().getEmail());
-                    Rak.entry("passsword", res.getData_Guru().getPassword());
-                    Rak.entry("fullname", res.getData_Guru().getFullname());
-                    Rak.entry("birthdate", res.getData_Guru().getBirthdate());
-                    Rak.entry("birthplace", res.getData_Guru().getBirthplace());
-                    Rak.entry("phone", res.getData_Guru().getPhone());
-                    if (res.getData_Guru().getAddress() != null) {
-                        Rak.entry("address", res.getData_Guru().getAddress());
+                    if (res != null) {
+                        Rak.entry("id", res.getId());
+                        Rak.entry("email", res.getEmail());
+                        Rak.entry("passsword", res.getPassword());
+                        Rak.entry("fullname", res.getFullname());
+                        Rak.entry("birthdate", res.getBirthdate());
+                        Rak.entry("lulusan", res.getLulusan());
+                        Rak.entry("birthplace", res.getBirthplace());
+                        Rak.entry("phone", res.getPhone());
+                        Rak.entry("address", res.getAddress());
+                        Rak.entry("gender", res.getGender());
+                        Rak.entry("hobby", res.getHobby());
+                        Rak.entry("images", res.getImages());
+                        Rak.entry("pelajaran", res.getPelajaran());
+                        Rak.entry("jadwal", res.getJadwal());
                     }
-                    Rak.entry("gender", res.getData_Guru().getGender());
-                    Rak.entry("hobby", res.getData_Guru().getHobby());
-                    Rak.entry("images", res.getData_Guru().getImages());
-                    Rak.entry("login", true);
+                    Rak.entry("loginguru", true);
 
 
                     hideDialog();
@@ -204,9 +207,7 @@ public class LoginGuruActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "gagal bro", Toast.LENGTH_SHORT).show();
                     hideDialog();
-
                 }
-
 
             }
         }, new Response.ErrorListener() {

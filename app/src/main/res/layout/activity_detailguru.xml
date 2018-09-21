@@ -26,9 +26,9 @@
             android:paddingLeft="7dp"
             android:layout_marginBottom="10dp"/>
 
-        <include layout="@layout/layout_infoguru_top" android:id="@+id/igtop" />
+        <include layout="@layout/layout_infoguru_order" android:id="@+id/igtop" />
 
-        <include layout="@layout/layout_infoguru" android:id="@+id/ig" />
+        <include layout="@layout/layout_orderguru" android:id="@+id/ig" />
 
         <TextView
             android:layout_width="match_parent"

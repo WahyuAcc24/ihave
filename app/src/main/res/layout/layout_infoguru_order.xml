@@ -8,7 +8,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/imgGuru"
+        android:id="@+id/imgGuruorder"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/ihave_logo_blue" />
 
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:textColor="#000000"
-            android:id="@+id/txtMatpelguru"
+            android:id="@+id/txtMatpelOrder"
             android:paddingLeft="20dp"
             android:text="Tes"/>
 

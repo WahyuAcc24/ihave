@@ -1,10 +1,12 @@
 package com.example.sony.tes.Guru;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sony.tes.Murid.LoginMuridActivity;
@@ -18,19 +20,33 @@ import io.isfaaghyth.rak.Rak;
 public class HomeGuruActivity extends AppCompatActivity {
 
     ImageView home, history, setting , transaksi, logout, imageView;
+    TextView txtjudulguru, txtmatpelguru,txtrpguru, txthobiguru;
 
 
-    public static String urlGambar = "http://hardrockfm.com/wp-content/uploads/2016/06/raisa.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_guru);
+        Rak.initialize(this);
+
+        txtjudulguru = (TextView) findViewById(R.id.judulGuru);
+        txtjudulguru.setText((String)Rak.grab("fullname"));
+
+        txtmatpelguru = (TextView) findViewById(R.id.txtMatpelguru);
+        txtmatpelguru.setText((String)Rak.grab("pelajaran"));
+
+        txtrpguru = (TextView) findViewById(R.id.txtRpguru);
+        txtrpguru.setText((String)Rak.grab("lulusan"));
+
+        txthobiguru = (TextView) findViewById(R.id.txthobiguru);
+        txthobiguru.setText((String)Rak.grab("hobby"));
+
 
         imageView = (ImageView) findViewById(R.id.imgGuru);
-        Glide.with(HomeGuruActivity.this)
-                .load(urlGambar)
-                .placeholder(R.drawable.clock_loading)
+        Glide.with(imageView.getContext())
+                .load(Rak.grab("images"))
+                .error(R.drawable.ihave_logo_blue)
                 .into(imageView);
 
         //  tombol back

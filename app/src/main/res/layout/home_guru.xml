@@ -13,10 +13,10 @@
         android:id="@+id/linearLayout2">
 
         <TextView
-            android:id="@+id/main_title"
+            android:id="@+id/judulGuru"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Yusi Pudjiastuti"
+            android:text="nama guru"
             android:textSize="15pt"
             android:textColor="#fff"
             android:shadowColor="#000"
@@ -46,15 +46,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="160dp"/>
 
-            <Button
-                android:id="@+id/btnOK"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffff"
-                android:text="OK"
-                android:textSize="80px"
-                android:layout_below="@+id/jadwal"
-                android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
 

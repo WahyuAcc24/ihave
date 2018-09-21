@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:id="@+id/txtRpguru"
+            android:id="@+id/txtRpOrder"
             android:textColor="#000000"
             android:paddingLeft="10dp"
             android:text="tes"/>
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:textColor="#000000"
-            android:id="@+id/txthobiguru"
+            android:id="@+id/txthobi"
             android:textSize="15sp"
             android:text="tes"/>
 
