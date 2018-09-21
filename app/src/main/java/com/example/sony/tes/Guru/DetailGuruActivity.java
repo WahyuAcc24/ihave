@@ -62,7 +62,7 @@ public class DetailGuruActivity extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(DetailGuruActivity.this, HomeMuridActivity.class);
+                Intent i = new Intent(DetailGuruActivity.this, HomeGuruActivity.class);
                 startActivity(i);
             }
         });
@@ -71,7 +71,7 @@ public class DetailGuruActivity extends AppCompatActivity {
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(DetailGuruActivity.this, HistoryMuridActivity.class);
+                Intent i = new Intent(DetailGuruActivity.this, HistoryGuruActivity.class);
                 startActivity(i);
             }
         });
@@ -80,7 +80,7 @@ public class DetailGuruActivity extends AppCompatActivity {
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(DetailGuruActivity.this, SettingMuridActivity.class);
+                Intent i = new Intent(DetailGuruActivity.this, SettingGuruActivity.class);
                 startActivity(i);
             }
         });
@@ -89,7 +89,7 @@ public class DetailGuruActivity extends AppCompatActivity {
         transaksi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(DetailGuruActivity.this, TransaksiMuridActivity.class);
+                Intent i = new Intent(DetailGuruActivity.this, TransaksiGuruActivity.class);
                 startActivity(i);
             }
         });
