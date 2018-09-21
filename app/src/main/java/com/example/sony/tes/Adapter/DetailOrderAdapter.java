@@ -48,6 +48,7 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
         for (final Integer eachTime: jadwal.getHours()) {
             Button bt = new Button(context);
             bt.setText(String.valueOf(eachTime));
+            bt.setTextColor(Color.BLACK);
             bt.setBackgroundColor(Color.WHITE);
             bt.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,

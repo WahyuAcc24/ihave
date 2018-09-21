@@ -2,6 +2,7 @@ package com.example.sony.tes.Murid;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.sony.tes.Adapter.JadwalAdapter;
 import com.example.sony.tes.Model.History;
 import com.example.sony.tes.R;
+import com.example.sony.tes.Video.VideoChatActivity;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
@@ -160,7 +162,9 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
             btnOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //intent ke nonton video
+                    Intent i = new Intent(HistoryMuridDetailActivity.this, VideoChatActivity.class);
+                    startActivity(i);
+
                 }
             });
         }

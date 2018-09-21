@@ -288,6 +288,11 @@ public class RegisterMuridActivity extends AppCompatActivity {
     }
 
     private void uploadImage(final String email, final String password, final String fullname, final String  Hp, final String TmptLahir, final String  jk, final String tglLahir) {
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Mohon Tunggu sebentar ...");
+        showDialog();
+
         //menampilkan progress dialog
 //        ProgressDialog.show(this, "Uploading...", "Please wait...", false, false);
         VolleyMultipartRequest req = new VolleyMultipartRequest(Request.Method.POST,url, new Response.Listener<NetworkResponse>() {
@@ -315,6 +320,7 @@ public class RegisterMuridActivity extends AppCompatActivity {
 
 
                     Log.d("TAG", response.toString());
+                    hideDialog();
                     Toast.makeText(getApplicationContext(), "Berhasil daftar", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(RegisterMuridActivity.this, LoginMuridActivity.class));
                     finish();
@@ -358,6 +364,17 @@ public class RegisterMuridActivity extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
     }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
 
 
 }

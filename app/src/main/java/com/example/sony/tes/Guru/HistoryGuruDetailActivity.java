@@ -81,7 +81,7 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
         lstJadwal.setLayoutManager(new LinearLayoutManager(this));
         lstJadwal.setAdapter(new JadwalAdapter(history.getJadwal()));
 
-        if (history.getStatus().equalsIgnoreCase("wait")) {
+        if (history.getStatus().equalsIgnoreCase("wait"))  {
             btnOk.setText("KONFIRMASI");
             btnOk.setBackgroundColor(Color.BLUE);
             btnOk.setTextColor(Color.WHITE);
@@ -89,7 +89,7 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
             btnOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.e("TAG", history.getId_guru() + "\n" + history.getInvoice() + "\n");
+                    Log.e("TAG", "\n" + history.getId_guru() + "\n" + history.getInvoice() + "\n");
                     StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -113,7 +113,7 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
                 }
             });
 
-        } else if (history.getStatus().equalsIgnoreCase("paid")) {
+        } else if (history.getStatus().equalsIgnoreCase("paid") || history.getStatus().equalsIgnoreCase("live")) {
             btnOk.setText("Mulai Streaming");
             btnOk.setBackgroundColor(Color.YELLOW);
             btnOk.setTextColor(Color.BLACK);
@@ -146,25 +146,26 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
                     queue.add(request);
                 }
             });
-        } else if (history.getStatus().equalsIgnoreCase("live")) {
+        } else if (history.getStatus().equalsIgnoreCase("done")) {
             btnOk.setText("Mulai Streaming");
             btnOk.setBackgroundColor(Color.YELLOW);
             btnOk.setTextColor(Color.BLACK);
             btnOk.setEnabled(true);
-            btnOk.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(HistoryGuruDetailActivity.this, VideoChatActivity.class);
-                    startActivity(i);
-                }
-            });
-
-        }else if (history.getStatus().equalsIgnoreCase("done")) {
-            btnOk.setText("Terimakasih");
-            btnOk.setBackgroundColor(Color.BLACK);
-            btnOk.setTextColor(Color.WHITE);
-            btnOk.setEnabled(true);
+//            btnOk.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent i = new Intent(HistoryGuruDetailActivity.this, VideoChatActivity.class);
+//                    startActivity(i);
+//                }
+//            });
         }
+
+//        }else if (history.getStatus().equalsIgnoreCase("done")) {
+//            btnOk.setText("Terimakasih");
+//            btnOk.setBackgroundColor(Color.BLACK);
+//            btnOk.setTextColor(Color.WHITE);
+//            btnOk.setEnabled(true);
+//        }
             //  tombol back
             ImageView backButton = (ImageView) this.findViewById(R.id.btn_back);
             backButton.setOnClickListener(new View.OnClickListener() {

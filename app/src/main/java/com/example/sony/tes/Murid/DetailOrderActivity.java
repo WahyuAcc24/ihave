@@ -156,6 +156,8 @@ public class DetailOrderActivity extends AppCompatActivity {
                         && conMgr.getActiveNetworkInfo().isAvailable()
                         && conMgr.getActiveNetworkInfo().isConnected()) {
                     Order(idMurid, idLesson, idGuru, day);
+
+
                 } else {
                     Toast.makeText(getApplicationContext(), "cek internet anda", Toast.LENGTH_SHORT).show();
                 }
@@ -214,7 +216,8 @@ public class DetailOrderActivity extends AppCompatActivity {
                                     }
                                 }
                             });
-
+//                            Intent i = new Intent(DetailOrderActivity.this, HomeMuridActivity.class);
+//                            startActivity(i);
                             lstJadwal.setAdapter(adapterJadwal);
                         } catch (Exception e) {
                             e.printStackTrace();
