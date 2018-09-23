@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_3"
+        >
+
+        <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lengkapi Datamu"
+            android:gravity="center"
+            android:layout_below="@+id/top"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sertifikat"
+            android:textColor="#000000"
+            android:layout_alignBottom="@+id/edtSertifikat"
+            android:layout_marginBottom="48dp"
+            android:textSize="15sp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/edtSertifikat"
+            android:layout_below="@+id/top"
+            android:layout_marginTop="150dp"
+            android:background="#ffff"
+            android:hint="Upload Sertifikat"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jam Mengajar"
+            android:layout_below="@+id/edtSertifikat"
+            android:layout_marginTop="30dp"
+            android:textColor="#000000"
+            android:textSize="15sp"
+
+            android:id="@+id/textView3" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView3"
+            android:id="@+id/rvJam"
+            android:layout_alignParentStart="true">
+
+
+
+
+        </android.support.v7.widget.RecyclerView>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:text="OK"
+            android:id="@+id/btnOkUpdate"
+            android:layout_below="@+id/rvJam"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp" />
+
+    </RelativeLayout>
+</ScrollView>
