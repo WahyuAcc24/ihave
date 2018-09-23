@@ -44,8 +44,8 @@ public class HomeGuruActivity extends AppCompatActivity {
 
 
         imageView = (ImageView) findViewById(R.id.imgGuru);
-        Glide.with(imageView.getContext())
-                .load(Rak.grab("images"))
+        Glide.with(this)
+                .load("http:/lkselkge/" + Rak.grab("images"))
                 .error(R.drawable.ihave_logo_blue)
                 .into(imageView);
 
