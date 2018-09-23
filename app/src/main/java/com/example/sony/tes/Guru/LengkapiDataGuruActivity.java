@@ -74,6 +74,7 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
 
         detailorders = new ArrayList<>();
 
+        Edit();
 
 
 
@@ -97,7 +98,6 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
                 if (conMgr.getActiveNetworkInfo() != null
                         && conMgr.getActiveNetworkInfo().isAvailable()
                         && conMgr.getActiveNetworkInfo().isConnected()) {
-                    Edit(day);
 
 
                 } else {
@@ -108,13 +108,11 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
 
     }
 
-    private void Edit(List<String> day){
+    private void Edit(){
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.e(BuildConfig.APPLICATION_ID, url + "\n" + response);
-                pgList = (ProgressBar) findViewById(R.id.progressBar);
-                pgList.setVisibility(View.GONE);
                 try {
                     DetailOrder result = new Gson().fromJson(response, DetailOrder.class);
 
