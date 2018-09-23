@@ -1,11 +1,15 @@
 package com.example.sony.tes.Guru;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -28,17 +33,22 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sony.tes.Adapter.DetailOrderAdapter;
 import com.example.sony.tes.BuildConfig;
+import com.example.sony.tes.Model.DataPart;
 import com.example.sony.tes.Model.DetailOrder;
 import com.example.sony.tes.Model.Jadwal;
 import com.example.sony.tes.Murid.AppController;
 import com.example.sony.tes.R;
 import com.example.sony.tes.util.PathUtil;
 import com.example.sony.tes.util.TimeListener;
+import com.example.sony.tes.util.VolleyMultipartRequest;
+import com.google.common.io.Files;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,6 +62,12 @@ import cz.msebera.android.httpclient.entity.mime.MultipartEntityBuilder;
 import cz.msebera.android.httpclient.entity.mime.content.FileBody;
 
 public class LengkapiDataGuruActivity extends AppCompatActivity {
+
+    String[] permissions = new String[]{
+            Manifest.permission.INTERNET,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
 
     EditText edtSertifikat;
     RecyclerView listjam;
@@ -84,6 +100,8 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
 
         collectTime = new LinkedHashMap<>();
 
+        checkPermissions();
+
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         requestQueue = Volley.newRequestQueue(this);
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -100,7 +118,7 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
         edtSertifikat.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("file/*");
+                intent.setType("image/* video/* file/*");
                 startActivityForResult(intent, 123);
             }
         });
@@ -120,6 +138,23 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
                 requestLengkapiGuru("1", day, certificateFile);
             }
         });
+
+    }
+
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        for (String p : permissions) {
+            result = ContextCompat.checkSelfPermission(this, p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), 100);
+            return false;
+        }
+        return true;
     }
 
     private void setFile(Uri uri) {
@@ -147,49 +182,55 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
                 .setHours(jam);
     }
 
-    private void requestLengkapiGuru(final String guruId, final List<String> jadwal, File certificate) {
-
+    private void requestLengkapiGuru(final String guruId, final List<String> jadwal, final File certificate) {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         builder.addPart("certificate1", new FileBody(certificate));
         final HttpEntity partBody = builder.build();
 
-        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override public void onResponse(String response) {
-                Log.d("TAG", response);
+        VolleyMultipartRequest req = new VolleyMultipartRequest(Request.Method.POST,url,
+                new Response.Listener<NetworkResponse>() {
+            @Override
+            public void onResponse(NetworkResponse response) {
+                Log.e(TAG, "Daftar Response: " + response.statusCode);
             }
         }, new Response.ErrorListener() {
-            @Override public void onErrorResponse(VolleyError error) {
+            @Override
+            public void onErrorResponse(VolleyError error) {
                 Log.e("TAG", error.getMessage());
             }
         }) {
-
-            @Override protected Map<String, String> getParams() throws AuthFailureError {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("id_guru", guruId);
                 for (int i = 0; i < jadwal.size(); i++) {
-                    params.put("jadwal[" + (i+1) + "]", jadwal.get(i));
+                    params.put("jadwal[" + (i + 1) + "]", jadwal.get(i));
                 }
                 return params;
             }
 
-            @Override public String getBodyContentType() {
-                return partBody.getContentType().getValue();
-            }
-
-            @Override public byte[] getBody() throws AuthFailureError {
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                try {
-                    partBody.writeTo(bos);
-                } catch (IOException e) {
-                    e.printStackTrace();
+            @Override
+            protected Map<String, DataPart> getByteData() throws AuthFailureError {
+                Map<String, DataPart> params = new HashMap<>();
+                if (certificateFile != null) {
+                    byte[] bytesArray = new byte[(int) certificateFile.length()];
+                    try {
+                        FileInputStream fis = new FileInputStream(certificateFile);
+                        fis.read(bytesArray); //read file into bytes[]
+                        fis.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    params.put("certificate1", new DataPart(
+                            PathUtil.getFileName(getApplicationContext(), Uri.fromFile(certificateFile)),
+                            bytesArray)
+                    );
                 }
-                return bos.toByteArray();
+                return params;
             }
-
         };
 
-        AppController.getInstance().addToRequestQueue(request, tag_json_obj);
-
+        AppController.getInstance().addToRequestQueue(req, tag_json_obj);
     }
 
     private void Edit(){

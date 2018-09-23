@@ -312,8 +312,6 @@ public class RegisterGuruActivity extends AppCompatActivity {
                     Rak.entry("phone", Hp);
                     Rak.entry("gender", jk);
 
-//                    Rak.entry("password", password);
-
                     txt_email.setText("");
                     txt_nama.setText("");
                     txt_pass.setText("");
