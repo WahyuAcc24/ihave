@@ -29,4 +29,20 @@ public class Jadwal {
     public List<Integer> getHours() {
         return hours;
     }
+
+    public Jadwal setDay_name(String day_name) {
+        this.day_name = day_name;
+        return this;
+    }
+
+    public Jadwal setDay_number(int day_number) {
+        this.day_number = day_number;
+        return this;
+    }
+
+    public Jadwal setHours(List<Integer> hours) {
+        this.hours = hours;
+        return this;
+    }
+
 }

@@ -56,7 +56,9 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
             holder.viewgroupJam.addView(bt);
             bt.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
-                    listener.onTimeClicked(v, jadwal.getDay_name(), jadwal.getDay_number(), eachTime);
+                    listener.onTimeClicked(v, jadwal.getDay_name(),
+                            (jadwal.getDay_number() != 0 ? jadwal.getDay_number() : 0),
+                            eachTime);
                 }
             });
         }

@@ -54,6 +54,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
 
+    compile 'cz.msebera.android:httpclient:4.4.1.1'
     compile 'com.opentok.android:opentok-android-sdk:2.11.0'
 
     compile files('libs/vidyoclient.jar')
