@@ -43,6 +43,11 @@ public class LoginMurid {
         private String images;
         private String certificate;
         private String gender;
+        private int saldo;
+
+        public int getSaldo() {
+            return saldo;
+        }
 
         public String getId() {
             return id;

@@ -139,6 +139,14 @@ public class RegisterMuridActivity extends AppCompatActivity {
         txt_tgllahir = (EditText) findViewById(R.id.txtBirthday);
         user = (ImageView) findViewById(R.id.imgUser);
 
+//        txt_nama.setText("isfa");
+//        txt_email.setText("a@a.com");
+//        txt_hp.setText("123");
+//        txt_jk.setText("pria");
+//        txt_pass.setText("12345678");
+//        txt_tempat.setText("test");
+//        txt_tgllahir.setText("01-01-2018");
+
         ubahFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -352,7 +360,9 @@ public class RegisterMuridActivity extends AppCompatActivity {
             protected Map<String, DataPart> getByteData() throws AuthFailureError {
                 Map<String, DataPart> params = new HashMap<>();
                 long imagename = System.currentTimeMillis();
-                params.put("images", new DataPart(imagename + ".png", getFileDataFromDrawable(bitmap)));
+                if (bitmap != null) {
+                    params.put("images", new DataPart(imagename + ".png", getFileDataFromDrawable(bitmap)));
+                }
                 return params;
             }
         };

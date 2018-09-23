@@ -172,8 +172,7 @@ public class LoginMuridActivity extends AppCompatActivity {
         StringRequest strReq = new StringRequest(Request.Method.POST, url+"?email="+email+"&password="+password, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "LoginMurid Response: " + response.toString());
-
+                Log.e(TAG, "LoginMurid Response: " + response);
                 LoginMurid res = new Gson().fromJson(response, LoginMurid.class);
 
                 if (res.isStatus()) {
@@ -185,22 +184,19 @@ public class LoginMuridActivity extends AppCompatActivity {
                     Rak.entry("birthdate", res.getData_Mrd().getBirthdate());
                     Rak.entry("birthplace", res.getData_Mrd().getBirthplace());
                     Rak.entry("phone", res.getData_Mrd().getPhone());
-//                    Rak.entry("address", res.getData_Mrd().getAddress());
-                    Rak.entry("gender", res.getData_Mrd().getGender());
-                    Rak.entry("hobby", res.getData_Mrd().getHobby());
-                    Rak.entry("images", res.getData_Mrd().getImages());
+                    if (res.getData_Mrd().getAddress() != null) Rak.entry("address", res.getData_Mrd().getAddress());
+                    if (res.getData_Mrd().getGender() != null) Rak.entry("gender", res.getData_Mrd().getGender());
+                    if (res.getData_Mrd().getHobby() != null) Rak.entry("hobby", res.getData_Mrd().getHobby());
+                    if (res.getData_Mrd().getImages() != null) Rak.entry("images", res.getData_Mrd().getImages());
                     Rak.entry("login", true);
-
-
+                    Rak.entry("saldo", String.valueOf(res.getData_Mrd().getSaldo()));
                     hideDialog();
                     startActivity(new Intent(LoginMuridActivity.this, HomeMuridActivity.class));
                     finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "gagal bro", Toast.LENGTH_SHORT).show();
                     hideDialog();
-
                 }
-
 
             }
         }, new Response.ErrorListener() {

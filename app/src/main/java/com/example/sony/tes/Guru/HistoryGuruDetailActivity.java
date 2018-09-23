@@ -66,7 +66,7 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
         btnOk = (Button) findViewById(R.id.btnOK);
 
         url2 = "http://demo.t-hisyam.net/ihave/api/streaming/live_guru";
-        url = "http://demo.t-hisyam.net/ihave/api/order/approve_order"; //TODO(ganti untuk verifikasi aja)
+        url = "http://demo.t-hisyam.net/ihave/api/order/approved_order"; //TODO(ganti untuk verifikasi aja)
 
         final RequestQueue queue = Volley.newRequestQueue(this);
 

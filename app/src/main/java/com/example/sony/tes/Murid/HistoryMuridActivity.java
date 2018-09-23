@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,12 +23,14 @@ import com.android.volley.toolbox.Volley;
 import com.example.sony.tes.Adapter.HistoryAdapter;
 import com.example.sony.tes.Adapter.ItemClickListener;
 import com.example.sony.tes.Model.History;
+import com.example.sony.tes.Model.Histories;
 import com.example.sony.tes.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import io.isfaaghyth.rak.Rak;
@@ -160,27 +163,32 @@ public class HistoryMuridActivity extends AppCompatActivity {
     private final Response.Listener<String> onPostsLoaded = new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
+            Log.e("TAG", response);
             //gambar loading akan menghilang ketika proses berjalan dengan baik
 
-            Log.d("ini json", response);
+            Type collectionType = new TypeToken<Histories<History>>(){}.getType();
+            Histories<History> histories = new Gson().fromJson(response, collectionType);
 
-            pgList = (ProgressBar) findViewById(R.id.progressBar);
-            pgList.setVisibility(View.GONE);
+            if (histories.isStatus()) {
+                try {
+                    pgList = (ProgressBar) findViewById(R.id.progressBar);
+                    pgList.setVisibility(View.GONE);
 
-            final List<History> histori = Arrays.asList(gson.fromJson(response, History[].class));
+                    adapter = new HistoryAdapter(histories.getData());
 
-            adapter = new HistoryAdapter(histori);
-
-            adapter.setListener(new ItemClickListener<History>() {
-                @Override
-                public void onClicked(History History, int position, View view) {
-                    Intent i = new Intent(HistoryMuridActivity.this, HistoryMuridDetailActivity.class);
-                    i.putExtra("data", new Gson().toJson(History));
-                    startActivity(i);
-                }
-            });
-            lstHistori.setAdapter(adapter);
-
+                    adapter.setListener(new ItemClickListener<History>() {
+                        @Override
+                        public void onClicked(History History, int position, View view) {
+                            Intent i = new Intent(HistoryMuridActivity.this, HistoryMuridDetailActivity.class);
+                            i.putExtra("data", new Gson().toJson(History));
+                            startActivity(i);
+                        }
+                    });
+                    lstHistori.setAdapter(adapter);
+                } catch (Exception ignored) {}
+            } else {
+                Toast.makeText(HistoryMuridActivity.this, "Tidak ada data", Toast.LENGTH_LONG).show();
+            }
 
         }
 

@@ -356,7 +356,9 @@ public class RegisterGuruActivity extends AppCompatActivity {
             protected Map<String, DataPart> getByteData() throws AuthFailureError {
                 Map<String, DataPart> params = new HashMap<>();
                 long imagename = System.currentTimeMillis();
-                params.put("images", new DataPart(imagename + ".png", getFileDataFromDrawable(bitmap)));
+                if (bitmap != null) {
+                    params.put("images", new DataPart(imagename + ".png", getFileDataFromDrawable(bitmap)));
+                }
                 return params;
             }
         };
