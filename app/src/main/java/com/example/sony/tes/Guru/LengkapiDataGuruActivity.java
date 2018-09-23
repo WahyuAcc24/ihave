@@ -61,8 +61,8 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lengkapi_data_guru);
 
-        url = "http://demo.t-hisyam.net/ihave/api/schedule/list_jadwal?id_guru=" + getIntent().getStringExtra("guruId") + "&id_lesson=" + getIntent().getStringExtra("lessonId");
-        listjam = (RecyclerView) findViewById(R.id.lst_jadwal);
+        url = "http://demo.t-hisyam.net/ihave/api/schedule/list_jadwal?id_guru=1&id_lesson=1";
+        listjam = (RecyclerView) findViewById(R.id.rvJam);
         listjam.setLayoutManager(new LinearLayoutManager(this));
 
         collectTime = new LinkedHashMap<>();
