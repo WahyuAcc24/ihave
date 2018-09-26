@@ -195,6 +195,7 @@ public class LoginGuruActivity extends AppCompatActivity {
                         Rak.entry("gender", res.getGender());
                         Rak.entry("hobby", res.getHobby());
                         Rak.entry("images", res.getImages());
+                        Rak.entry("saldo", res.getSaldo());
                         Rak.entry("pelajaran", res.getPelajaran());
                         Rak.entry("jadwal", res.getJadwal());
                     }

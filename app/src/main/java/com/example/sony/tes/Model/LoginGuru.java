@@ -22,6 +22,7 @@ public class LoginGuru {
     @SerializedName("address") private String address;
     @SerializedName("gender") private String gender;
     @SerializedName("hobby") private String hobby;
+    @SerializedName("saldo") private String saldo;
     @SerializedName("images") private String images;
     @SerializedName("pelajaran") private String pelajaran;
     @SerializedName("jadwal") private List<Jadwal> jadwal;
@@ -86,6 +87,14 @@ public class LoginGuru {
 
     public String getBirthdate() {
         return birthdate;
+    }
+
+    public String getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(String saldo) {
+        this.saldo = saldo;
     }
 
     public void setBirthdate(String birthdate) {

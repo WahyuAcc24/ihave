@@ -39,23 +39,23 @@
         android:id="@+id/EdtRp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Rp. "
+        android:hint="Masukan jumlah yang diinginkan"
         android:background="@drawable/edittext_rounded"
         android:padding="10dp"
         android:layout_below="@+id/garis"
         android:layout_marginTop="70dp" />
 
 
-    <EditText
-        android:id="@+id/EdtCode"
-        android:inputType="textPassword"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password akun"
-        android:background="@drawable/edittext_rounded"
-        android:padding="10dp"
-        android:layout_below="@+id/EdtRp"
-        android:layout_marginTop="10dp" />
+    <!--<EditText-->
+        <!--android:id="@+id/EdtCode"-->
+        <!--android:inputType="textPassword"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="Password akun"-->
+        <!--android:background="@drawable/edittext_rounded"-->
+        <!--android:padding="10dp"-->
+        <!--android:layout_below="@+id/EdtRp"-->
+        <!--android:layout_marginTop="10dp" />-->
 
 
 
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:text="Tarik Tunai"
         android:id="@+id/button"
-        android:layout_below="@+id/EdtCode"
+        android:layout_below="@+id/EdtRp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="52dp" />
 
