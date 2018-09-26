@@ -204,7 +204,7 @@
 
         <EditText
             android:id="@+id/txtBirthday"
-            android:hint="DD/MM/YYYY"
+            android:hint="DD-MM-YYYY"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded"
