@@ -108,6 +108,21 @@ public class HistoryGuruActivity extends AppCompatActivity {
             }
         });
 
+        logout = (ImageView) findViewById(R.id.imgMenuLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HistoryGuruActivity.this, LoginGuruActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+                Rak.entry("loginguru", false);
+                Rak.removeAll(getApplicationContext());
+                finishAffinity();
+
+            }
+        });
 
 
 

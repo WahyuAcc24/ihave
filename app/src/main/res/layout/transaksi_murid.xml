@@ -16,6 +16,7 @@
         android:text="Nomor Invoice
         xxxxx"
         android:id="@+id/txtinvoice"
+        android:textColor="#000"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/top"
         android:layout_centerHorizontal="true" />
@@ -23,12 +24,30 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Silahkan lakukan pembayaran sesuai jummlah tagihan"
+        android:text="Cek Email anda untuk melihat tagihan pembayaran
+ Silahkan lakukan pembayaran sebelum tanggal"
         android:layout_below="@+id/txtinvoice"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
+        android:textColor="#000"
         android:id="@+id/txtlps"
+        android:gravity="center"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tgl"
+        android:id="@+id/txttgl"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp"
+        android:layout_below="@+id/txtlps"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+
+
+        />
 
 
     <TextView
@@ -36,8 +55,8 @@
         android:layout_height="wrap_content"
         android:text="BANK TRANSFER"
         android:layout_below="@+id/txtlps"
-        android:layout_marginTop="10dp"
-
+        android:layout_marginTop="40dp"
+        android:textColor="#000000"
         android:id="@+id/txtbt"
         android:layout_centerHorizontal="true" />
 
@@ -55,10 +74,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="123 456 7890"
+        android:text="123 456 7890
+ Atas Nama PT. Pendidikan Indonesia"
         android:layout_below="@+id/bri"
+        android:gravity="center"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
+        android:textColor="#000"
         android:id="@+id/txtnmrrek"
         android:layout_centerHorizontal="true" />
 
@@ -68,7 +90,7 @@
         android:text="Jumlah Tagihan"
         android:layout_below="@+id/txtnmrrek"
         android:layout_marginTop="10dp"
-
+        android:textColor="#000"
         android:id="@+id/txtjmlh"
         android:layout_centerHorizontal="true" />
 

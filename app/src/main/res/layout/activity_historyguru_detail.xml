@@ -76,6 +76,16 @@
             android:layout_below="@+id/jadwal"
             android:layout_centerHorizontal="true" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnselesai"
+            android:text="Selesai"
+            android:typeface="normal"
+            android:textStyle="bold"
+            android:layout_below="@+id/btnOK"
+            android:layout_centerHorizontal="true" />
+
     </RelativeLayout>
 
 

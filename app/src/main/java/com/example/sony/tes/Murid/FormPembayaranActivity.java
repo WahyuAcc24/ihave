@@ -13,7 +13,7 @@ import io.isfaaghyth.rak.Rak;
 
 public class FormPembayaranActivity extends AppCompatActivity {
 
-    TextView txtInvoice, txtSaldo;
+    TextView txtInvoice, txtSaldo, txttgl;
 //    public TopUp topUps;
     Button btnok;
 
@@ -36,8 +36,10 @@ public class FormPembayaranActivity extends AppCompatActivity {
         });
         txtInvoice = (TextView) findViewById(R.id.txtinvoice);
         txtSaldo = (TextView) findViewById(R.id.txttotal);
+        txttgl = (TextView) findViewById(R.id.txttgl);
 
         txtInvoice.setText((String) Rak.grab("nomor_invoice"));
         txtSaldo.setText(String.format("Rp. %d", (Integer) Rak.grab("total")));
+        txttgl.setText(Rak.grab("due_date") + "WIB");
     }
 }

@@ -82,6 +82,7 @@ public class NominalDialogFragment extends BottomSheetDialogFragment {
 
                     Pembayaran pembayaran = new Gson().fromJson(response, Pembayaran.class);
 
+                    Rak.entry("due_date", pembayaran.getDue_date());
                     Rak.entry("nomor_invoice", pembayaran.getInvoice());
                     Rak.entry("total", pembayaran.getData().getSubtotal());
 
