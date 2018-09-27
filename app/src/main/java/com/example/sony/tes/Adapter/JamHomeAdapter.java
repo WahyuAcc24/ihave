@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,14 +19,14 @@ import java.util.List;
 /**
  * Created by SONY on 6/9/2018.
  */
-public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.Holder> {
+public class JamHomeAdapter extends RecyclerView.Adapter<JamHomeAdapter.Holder> {
 
     private List<Jadwal> jadwals;
     private Context context;
 
     private TimeListener listener;
 
-    public DetailOrderAdapter(Context context, List<Jadwal> jadwals) {
+    public JamHomeAdapter(Context context, List<Jadwal> jadwals) {
         this.context = context;
         this.jadwals = jadwals;
     }
@@ -56,13 +55,6 @@ public class DetailOrderAdapter extends RecyclerView.Adapter<DetailOrderAdapter.
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));
             holder.viewgroupJam.addView(bt);
-            bt.setOnClickListener(new View.OnClickListener() {
-                @Override public void onClick(View v) {
-                    listener.onTimeClicked(v, jadwal.getDay_name(),
-                            (jadwal.getDay_number() != 0 ? jadwal.getDay_number() : 0),
-                            eachTime);
-                }
-            });
         }
     }
 

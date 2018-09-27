@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.android.volley.RequestQueue;
+import com.example.sony.tes.Guru.LoginGuruActivity;
 import com.example.sony.tes.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
@@ -84,6 +85,21 @@ public class LainnyaActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        logout = (ImageView) findViewById(R.id.imgMenuLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LainnyaActivity.this, LoginMuridActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+                Rak.entry("login", false);
+                Rak.removeAll(getApplicationContext());
+                finishAffinity();
+            }
+        });
+
 
 //        TextView lpk = (TextView) findViewById(R.id.btnLpk);
 //        lpk.setOnClickListener(new View.OnClickListener() {

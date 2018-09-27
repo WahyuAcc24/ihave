@@ -324,7 +324,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
                     Log.d("TAG", response.toString());
                     hideDialog();
                     Toast.makeText(getApplicationContext(), "Berhasil daftar", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(RegisterGuruActivity.this, LoginMuridActivity.class));
+                    startActivity(new Intent(RegisterGuruActivity.this, LoginGuruActivity.class));
                     finish();
 
                 } catch (Exception e) {

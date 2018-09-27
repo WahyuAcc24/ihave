@@ -197,13 +197,16 @@ public class LoginGuruActivity extends AppCompatActivity {
                         Rak.entry("images", res.getImages());
                         Rak.entry("saldo", res.getSaldo());
                         Rak.entry("pelajaran", res.getPelajaran());
+                        //Rak.entry("jadwal", new Gson().toJson(res.getJadwal()));
                         Rak.entry("jadwal", res.getJadwal());
                     }
                     Rak.entry("loginguru", true);
 
 
                     hideDialog();
-                    startActivity(new Intent(LoginGuruActivity.this, HomeGuruActivity.class));
+                    Intent i = new Intent(LoginGuruActivity.this, HomeGuruActivity.class);
+//                    i.putExtra("data", new Gson().toJson(LoginGuru));
+                    startActivity(i);
                     finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "gagal bro", Toast.LENGTH_SHORT).show();

@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">IHave</string>
+    <string-array name="Melalui_Atm">
+        <item>Melalui Atm</item>
+        <item>Transfer -> Masukan Jumlah Pembayaran -> Masukan No rek IHave -> Konfirmasi</item>
+    </string-array>
+
+    <string-array name="Internet_Bangking">
+        <item>Melalui Internet Bangking</item>
+        <item>Login -> Pilih Transfer Dana -> Klik Transfer Ker Rek Bca dan isi data -> Klik Lanjutkan -> Kirim </item>
+    </string-array>
+
+    <string-array name="Teller">
+        <item>Melalui Teller</item>
+        <item>Isi formulir slip transfer Bca -> Menyerahkan formulir Slip dan uang ke Teller</item>
+    </string-array>
+
+
+    <string-array name="Mb">
+        <item>Melalui Mobile Bangking</item>
+        <item>M-bca > m-transfer > Daftar Transfer(Antar Rekening) > Transfer(Antar Rekening) > Isi form > send </item>
+    </string-array>
+
 </resources>

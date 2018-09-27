@@ -26,6 +26,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sony.tes.Adapter.DetailOrderAdapter;
 import com.example.sony.tes.BuildConfig;
+import com.example.sony.tes.Guru.LoginGuruActivity;
 import com.example.sony.tes.Model.DetailOrder;
 import com.example.sony.tes.R;
 import com.example.sony.tes.util.TimeListener;
@@ -116,6 +117,22 @@ public class DetailOrderActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        logout = (ImageView) findViewById(R.id.imgMenuLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DetailOrderActivity.this, LoginMuridActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+                Rak.entry("login", false);
+                Rak.removeAll(getApplicationContext());
+                finishAffinity();
+            }
+        });
+
 
 
         txt_namaguru = (TextView) findViewById(R.id.txtnama_guru);

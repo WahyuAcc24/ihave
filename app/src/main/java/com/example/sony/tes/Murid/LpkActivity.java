@@ -12,9 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sony.tes.Guru.LoginGuruActivity;
 import com.example.sony.tes.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
+
+import io.isfaaghyth.rak.Rak;
 
 
 public class LpkActivity extends AppCompatActivity {
@@ -89,6 +92,21 @@ public class LpkActivity extends AppCompatActivity {
             }
         });
 
+
+        logout = (ImageView) findViewById(R.id.imgMenuLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LpkActivity.this, LoginMuridActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+                Rak.entry("login", false);
+                Rak.removeAll(getApplicationContext());
+                finishAffinity();
+            }
+        });
 
 
 //  tombol back

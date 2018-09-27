@@ -1,16 +1,48 @@
 package com.example.sony.tes.Guru;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Image;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.sony.tes.Adapter.DetailOrderAdapter;
+import com.example.sony.tes.Adapter.JamHomeAdapter;
+import com.example.sony.tes.BuildConfig;
+import com.example.sony.tes.Model.DetailOrder;
+import com.example.sony.tes.Model.Jadwal;
+import com.example.sony.tes.Model.LoginGuru;
 import com.example.sony.tes.Murid.LoginMuridActivity;
 import com.example.sony.tes.R;
+import com.example.sony.tes.util.TimeListener;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import io.isfaaghyth.rak.Rak;
 
@@ -22,6 +54,21 @@ public class HomeGuruActivity extends AppCompatActivity {
     ImageView home, history, setting , transaksi, logout, imageView;
     TextView txtjudulguru, txtmatpelguru,txtrpguru, txthobiguru;
 
+    private RequestQueue requestQueue;
+    private com.google.gson.Gson gson;
+    private RecyclerView lstJadwal;
+    ProgressDialog pDialog;
+    ProgressBar pgList;
+    public List<LoginGuru> loginguru;
+    ConnectivityManager conMgr;
+
+    private JamHomeAdapter adapterJadwal;
+    private static final String TAG = HomeGuruActivity.class.getSimpleName();
+    String tag_json_obj = "json_obj_req";
+
+    private String url;
+    private Map<String, List<Integer>> collectTime; //PENAMPUNG JAM YANG DI PILIH
+
 
 
     @Override
@@ -29,6 +76,20 @@ public class HomeGuruActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_guru);
         Rak.initialize(this);
+
+        url ="http://demo.t-hisyam.net/ihave/api/guru/get";
+        lstJadwal = (RecyclerView) findViewById(R.id.jadwal_home_guru);
+        lstJadwal.setLayoutManager(new LinearLayoutManager(this));
+
+        collectTime = new LinkedHashMap<>();
+
+        conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        requestQueue = Volley.newRequestQueue(this);
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gson = gsonBuilder.create();
+
+        loginguru = new ArrayList<>();
+
 
         txtjudulguru = (TextView) findViewById(R.id.judulGuru);
         txtjudulguru.setText((String)Rak.grab("fullname"));
@@ -41,6 +102,12 @@ public class HomeGuruActivity extends AppCompatActivity {
 
         txthobiguru = (TextView) findViewById(R.id.txthobiguru);
         txthobiguru.setText((String)Rak.grab("hobby"));
+
+        List<Jadwal> jadwalJson = Rak.grab("jadwal");
+        //List<Jadwal> jadwalGuru = new Gson().fromJson(jadwalJson, new TypeToken<List<Jadwal>>(){}.getType());
+
+        adapterJadwal = new JamHomeAdapter(getApplicationContext(), jadwalJson);
+        lstJadwal.setAdapter(adapterJadwal);
 
 
         imageView = (ImageView) findViewById(R.id.imgGuru);
@@ -109,8 +176,8 @@ public class HomeGuruActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
+
+
 }
 

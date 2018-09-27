@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+
+    >
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:background="@drawable/bg_3"
@@ -106,17 +112,40 @@
         android:layout_centerHorizontal="true" />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cara Pembayaran Bank BCA :"
+        android:textColor="#000"
+        android:layout_below="@+id/txttotal"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/txt1"
+         />
+
+    <Spinner
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:background="#ffff"
+        android:id="@+id/spinerAtm"
+        android:hint="Melalui Atm"
+        android:layout_below="@id/txt1"
+        android:entries="@array/Melalui_Atm"
+        android:layout_centerHorizontal="true" />
+
+
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/txttotal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
         android:text="OK"
         android:id="@+id/btnOkmrd"
 
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="69dp" />
 
 
 
 </RelativeLayout>
+    </ScrollView>

@@ -20,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sony.tes.Adapter.GuruSdAdapter;
 import com.example.sony.tes.Adapter.ItemClickListenerBebas;
+import com.example.sony.tes.Guru.LoginGuruActivity;
 import com.example.sony.tes.Model.Guru;
 import com.example.sony.tes.Model.GuruSd;
 import com.example.sony.tes.R;
@@ -28,6 +29,8 @@ import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.isfaaghyth.rak.Rak;
 
 /**
  * Created by SONY on 28/8/2018.
@@ -110,6 +113,22 @@ public class ListGuruSdActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        logout = (ImageView) findViewById(R.id.imgMenuLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ListGuruSdActivity.this, LoginMuridActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+                Rak.entry("loginguru", false);
+                Rak.removeAll(getApplicationContext());
+                finishAffinity();
+            }
+        });
+
 
 
 //  tombol back

@@ -20,6 +20,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.sony.tes.Guru.LoginGuruActivity;
+import com.example.sony.tes.Model.LoginMurid;
 import com.example.sony.tes.Model.Saldo;
 import com.example.sony.tes.R;
 import com.google.gson.Gson;
@@ -106,11 +108,16 @@ public class TransaksiMuridActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(TransaksiMuridActivity.this, LoginMuridActivity.class);
-                startActivity(i);
-
-            }
-        });
+                        Intent i = new Intent(TransaksiMuridActivity.this, LoginMuridActivity.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        Rak.entry("login", false);
+                        Rak.removeAll(getApplicationContext());
+                        finishAffinity();
+                    }
+                });
 
         LinearLayout bca = (LinearLayout) findViewById(R.id.bca);
         bca.setOnClickListener(new View.OnClickListener() {

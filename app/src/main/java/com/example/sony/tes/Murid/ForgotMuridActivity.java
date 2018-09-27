@@ -69,7 +69,7 @@ public class ForgotMuridActivity extends AppCompatActivity {
         }
 
 
-        edtemail = (EditText) findViewById(R.id.txtEmail);
+        edtemail = (EditText) findViewById(R.id.edtEmail);
 
 
         btnproses = (Button) findViewById(R.id.btnLupa);
@@ -103,7 +103,7 @@ public class ForgotMuridActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.e(TAG, "Email Merespon: " + response);
-                Intent i = new Intent(ForgotMuridActivity.this, HomeMuridActivity.class);
+                Intent i = new Intent(ForgotMuridActivity.this, LoginMuridActivity.class);
                 startActivity(i);
                 Toast.makeText(getApplicationContext(),"Silahkan cek email anda, permintaan anda sedang diproses",Toast.LENGTH_LONG).show();
 
