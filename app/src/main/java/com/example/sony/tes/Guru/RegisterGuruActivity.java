@@ -58,7 +58,7 @@ import io.isfaaghyth.rak.Rak;
  */
 public class RegisterGuruActivity extends AppCompatActivity {
 
-    EditText txt_email,txt_pass, txt_nama, txt_hp, txt_jk, txt_tempat, txt_tgllahir, txthobi;
+    EditText txt_email,txt_pass, txt_nama, txt_hp, txt_jk, txt_tempat, txt_tgllahir, txtlulusan,txthobi;
 
     private Connector cn;
 
@@ -137,6 +137,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
         txt_pass = (EditText) findViewById(R.id.txtPassword);
         txt_tempat = (EditText) findViewById(R.id.txtBirthplace);
         txt_tgllahir = (EditText) findViewById(R.id.txtBirthday);
+        txtlulusan = (EditText) findViewById(R.id.txtLulusan);
         txthobi = (EditText) findViewById(R.id.txtHobbi);
         user = (ImageView) findViewById(R.id.imgUser);
 
@@ -159,14 +160,14 @@ public class RegisterGuruActivity extends AppCompatActivity {
                 String jk = txt_jk.getText().toString();
                 String TmptLahir = txt_tempat.getText().toString();
                 String tglLahir = txt_tgllahir.getText().toString();
+                String lulusan = txtlulusan.getText().toString();
                 String hobi = txthobi.getText().toString();
-//                String sertifikat = txtlulusan.getText().toString();
 
                 if (email.trim().length() > 0 && password.trim().length() > 0) {
                     if (conMgr.getActiveNetworkInfo() != null
                             && conMgr.getActiveNetworkInfo().isAvailable()
                             && conMgr.getActiveNetworkInfo().isConnected()) {
-                        uploadImage(email, password, nama, Hp, TmptLahir, jk, tglLahir, hobi);
+                        uploadImage(email, password, nama, Hp, TmptLahir, jk, tglLahir, lulusan, hobi);
 
                     } else {
                         Toast.makeText(getApplicationContext(), "cek internet anda", Toast.LENGTH_SHORT).show();
@@ -290,7 +291,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
         return encodedImage;
     }
 
-    private void uploadImage(final String email, final String password,final String fullname, final String  Hp, final String TmptLahir, final String  jk, final String tglLahir, final String hobi) {
+    private void uploadImage(final String email, final String password,final String fullname, final String  Hp, final String TmptLahir, final String  jk, final String tglLahir, final String lulusan, final String hobi) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Mohon Tunggu sebentar ...");
@@ -310,6 +311,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
                     Rak.entry("birthplace", TmptLahir);
                     Rak.entry("phone", Hp);
                     Rak.entry("gender", jk);
+                    Rak.entry("lulusan", lulusan);
                     Rak.entry("hobby", hobi);
 
                     txt_email.setText("");
@@ -319,6 +321,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
                     txt_hp.setText("");
                     txt_jk.setText("");
                     txt_tgllahir.setText("");
+                    txtlulusan.setText("");
                     txthobi.setText("");
 
 
@@ -348,6 +351,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
                 params.put("birthplace", TmptLahir);
                 params.put("phone", Hp);
                 params.put("gender", jk);
+                params.put("lulsan", lulusan);
                 params.put("hobby", hobi);
                 return params;
             }

@@ -1,17 +1,13 @@
 package com.example.sony.tes.Murid;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.volley.RequestQueue;
 import com.example.sony.tes.Pelajaran.PelajaranSdActivity;
 import com.example.sony.tes.Pelajaran.PelajaranSmaActivity;
 import com.example.sony.tes.Pelajaran.PelajaranSmpActivity;
@@ -23,11 +19,6 @@ import io.isfaaghyth.rak.Rak;
 
 public class HomeMuridActivity extends AppCompatActivity {
 
-    private ProgressDialog pd;
-    private RecyclerView lstLevel;
-    private RequestQueue requestQueue;
-    private com.google.gson.Gson gson;
-    ProgressBar pgList;
 
     TextView lvlSD,lvlSMP,lvlSMA;
 
@@ -46,6 +37,7 @@ public class HomeMuridActivity extends AppCompatActivity {
         //  carousel
         carouselView = (CarouselView) findViewById(R.id.carouselView);
         carouselView.setPageCount(gambarSlide.length);
+
 
         carouselView.setImageListener(imageListener);
         View v = LayoutInflater.from(HomeMuridActivity.this).inflate(R.layout.layout_bottomenu, null);
@@ -136,6 +128,7 @@ public class HomeMuridActivity extends AppCompatActivity {
             @Override
             public void setImageForPosition(int position, ImageView imageView) {
                 imageView.setImageResource(gambarSlide[position]);
+                
 
             }
         };

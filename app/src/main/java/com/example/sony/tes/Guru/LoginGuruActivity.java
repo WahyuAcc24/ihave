@@ -189,6 +189,7 @@ public class LoginGuruActivity extends AppCompatActivity {
                         if (res.getFullname() != null)Rak.entry("fullname", res.getFullname());
                         if (res.getBirthdate() != null)Rak.entry("birthdate", res.getBirthdate());
                         if (res.getBirthplace() != null)Rak.entry("birthplace", res.getBirthplace());
+                        if (res.getLulusan() != null) Rak.entry("lulusan", res.getLulusan());
                         if (res.getPhone() != null)Rak.entry("phone", res.getPhone());
                         if (res.getGender() != null)Rak.entry("gender", res.getGender());
                         if (res.getHobby() != null) Rak.entry("hobby", res.getHobby());

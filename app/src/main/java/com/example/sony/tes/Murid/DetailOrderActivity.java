@@ -26,7 +26,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sony.tes.Adapter.DetailOrderAdapter;
 import com.example.sony.tes.BuildConfig;
-import com.example.sony.tes.Guru.LoginGuruActivity;
 import com.example.sony.tes.Model.DetailOrder;
 import com.example.sony.tes.R;
 import com.example.sony.tes.util.TimeListener;
@@ -158,8 +157,8 @@ public class DetailOrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String idMurid = Rak.grab("id"); //ini ane reference dari LoginMuridActivity
-                String idLesson = getIntent().getStringExtra("lessonId"); //dari intent
                 String idGuru = getIntent().getStringExtra("guruId"); //dari intent
+                String idLesson = getIntent().getStringExtra("lessonId"); //dari intent
                 List<String> day = new ArrayList<>();
                 for (Map.Entry<String, List<Integer>> data : collectTime.entrySet()) {
                     String times = "";
@@ -172,7 +171,7 @@ public class DetailOrderActivity extends AppCompatActivity {
                 if (conMgr.getActiveNetworkInfo() != null
                         && conMgr.getActiveNetworkInfo().isAvailable()
                         && conMgr.getActiveNetworkInfo().isConnected()) {
-                    Order(idMurid, idLesson, idGuru, day);
+                    Order(idMurid, idGuru,idLesson, day);
 
 
                 } else {
@@ -282,9 +281,9 @@ public class DetailOrderActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("id_lesson", idLesson);
                 params.put("id_murid", idMurid);
                 params.put("id_guru", idGuru);
+                params.put("id_lesson", idLesson);
                 for (int i=0; i<time.size(); i++) {
                     params.put("jadwal[" + (i+1) + "]", time.get(i));
                 }
