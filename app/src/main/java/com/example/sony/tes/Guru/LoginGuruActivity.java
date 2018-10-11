@@ -183,22 +183,20 @@ public class LoginGuruActivity extends AppCompatActivity {
 
                 if (res.isStatus()) {
                     if (res != null) {
-                        Rak.entry("id_guru", res.getId());
-                        Rak.entry("email", res.getEmail());
-                        Rak.entry("passsword", res.getPassword());
-                        Rak.entry("fullname", res.getFullname());
-                        Rak.entry("birthdate", res.getBirthdate());
-                        Rak.entry("lulusan", res.getLulusan());
-                        Rak.entry("birthplace", res.getBirthplace());
-                        Rak.entry("phone", res.getPhone());
-                        Rak.entry("address", res.getAddress());
-                        Rak.entry("gender", res.getGender());
-                        Rak.entry("hobby", res.getHobby());
-                        Rak.entry("images", res.getImages());
-                        Rak.entry("saldo", res.getSaldo());
-                        Rak.entry("pelajaran", res.getPelajaran());
+                        if (res.getId() != null)Rak.entry("id_guru", res.getId());
+                        if (res.getEmail() != null)Rak.entry("email", res.getEmail());
+                        if (res.getPassword() != null)Rak.entry("passsword", res.getPassword());
+                        if (res.getFullname() != null)Rak.entry("fullname", res.getFullname());
+                        if (res.getBirthdate() != null)Rak.entry("birthdate", res.getBirthdate());
+                        if (res.getBirthplace() != null)Rak.entry("birthplace", res.getBirthplace());
+                        if (res.getPhone() != null)Rak.entry("phone", res.getPhone());
+                        if (res.getGender() != null)Rak.entry("gender", res.getGender());
+                        if (res.getHobby() != null) Rak.entry("hobby", res.getHobby());
+                        if (res.getImages() != null) Rak.entry("images", res.getImages());
+                        if (res.getSaldo() !=null) Rak.entry("saldo", res.getSaldo());
+                        if (res.getPelajaran() !=null) Rak.entry("pelajaran", res.getPelajaran());
                         //Rak.entry("jadwal", new Gson().toJson(res.getJadwal()));
-                        Rak.entry("jadwal", res.getJadwal());
+//                        Rak.entry("jadwal", res.getJadwal());
                     }
                     Rak.entry("loginguru", true);
 

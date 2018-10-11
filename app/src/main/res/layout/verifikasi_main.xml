@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@drawable/bg_3"
+    android:background="@drawable/backgroundblue"
     android:layout_height="match_parent">
 
     <include layout="@layout/layout_top"
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="Isi kolom dibawah ini untuk melakukan verifikasi pembayaran Anda, Silahkan isi data berikut"
         android:layout_below="@+id/top"
-        android:textColor="#000000"
+        android:textColor="#fff"
         android:textAlignment="center"
         android:layout_marginTop="20dp"
         android:id="@+id/textView" />

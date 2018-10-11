@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/bg_3">
+    android:background="@drawable/backgroundblue">
 
-    <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
+    <include layout="@layout/layout_top" android:id="@+id/top" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,12 +41,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-           <android.support.v7.widget.RecyclerView
-               android:layout_width="match_parent"
-               android:layout_height="160dp"
-               android:id="@+id/jadwal_home_guru"
-               >
-           </android.support.v7.widget.RecyclerView>
+           <!--<android.support.v7.widget.RecyclerView-->
+               <!--android:layout_width="match_parent"-->
+               <!--android:layout_height="160dp"-->
+               <!--android:id="@+id/jadwal_home_guru"-->
+               <!--&gt;-->
+           <!--</android.support.v7.widget.RecyclerView>-->
 
 
             <!--<ProgressBar-->

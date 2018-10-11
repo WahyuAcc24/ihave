@@ -1,12 +1,10 @@
 package com.example.sony.tes.Guru;
 
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,8 +32,6 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.isfaaghyth.rak.Rak;
-
 public class HistoryGuruDetailActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
@@ -53,7 +49,7 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
 
     private String url, url2, url3;
     private History history;
-    private ImageView home, setting , transaksi, logout;
+//    private ImageView home, setting , transaksi, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +80,7 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
         lstJadwal.setLayoutManager(new LinearLayoutManager(this));
         lstJadwal.setAdapter(new JadwalAdapter(history.getJadwal()));
 
-        if (history.getStatus().equalsIgnoreCase("wait"))  {
+        if (history.getStatus().equalsIgnoreCase("wait")) {
             btnOk.setText("KONFIRMASI");
             btnOk.setBackgroundColor(Color.BLUE);
             btnOk.setTextColor(Color.WHITE);
@@ -116,12 +112,16 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
                     queue.add(request);
                 }
             });
+        }
+            else if (history.getStatus().equalsIgnoreCase("conf"))  {
+                btnselesai.setVisibility(View.GONE);
 
-        } else if (history.getStatus().equalsIgnoreCase("paid") || history.getStatus().equalsIgnoreCase("live")) {
+        } else if (history.getStatus().equalsIgnoreCase("paid")) {
             btnOk.setText("Mulai Streaming");
             btnOk.setBackgroundColor(Color.YELLOW);
             btnOk.setTextColor(Color.BLACK);
             btnOk.setEnabled(true);
+            btnselesai.setVisibility(View.GONE);
             btnOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -150,34 +150,69 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
                     queue.add(request);
                 }
             });
-            btnselesai.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.e("TAG", history.getId_guru() + "\n" + history.getInvoice() + "\n");
-                    StringRequest request = new StringRequest(Request.Method.POST, url3, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            Intent i = new Intent(HistoryGuruDetailActivity.this, HomeGuruActivity.class);
-                            startActivity(i);
-                            onBackPressed();
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(), "terjadi kesalahan", Toast.LENGTH_LONG).show();
-                        }
-                    }) {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            Map<String, String> params = new HashMap<>();
-                            params.put("id_guru", history.getId_guru()); //TODO(minta ke yang bikin API)
-                            params.put("invoice", history.getInvoice());
-                            return params;
-                        }
-                    };
-                    queue.add(request);
-                }
-            });
+        }
+        else if (history.getStatus().equalsIgnoreCase("live")) {
+                btnOk.setText("Mulai Streaming");
+                btnOk.setBackgroundColor(Color.YELLOW);
+                btnOk.setTextColor(Color.BLACK);
+                btnOk.setEnabled(true);
+                btnOk.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.e("TAG", history.getId_guru() + "\n" + history.getInvoice() + "\n");
+                        StringRequest request = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Intent i = new Intent(HistoryGuruDetailActivity.this, VideoChatActivity.class);
+                                startActivity(i);
+                                onBackPressed();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(getApplicationContext(), "terjadi kesalahan", Toast.LENGTH_LONG).show();
+                            }
+                        }) {
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+                                Map<String, String> params = new HashMap<>();
+                                params.put("id_guru", history.getId_guru()); //TODO(minta ke yang bikin API)
+                                params.put("invoice", history.getInvoice());
+                                return params;
+                            }
+                        };
+                        queue.add(request);
+                    }
+                });
+                btnselesai.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.e("TAG", history.getId_guru() + "\n" + history.getInvoice() + "\n");
+                        StringRequest request = new StringRequest(Request.Method.POST, url3, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Intent i = new Intent(HistoryGuruDetailActivity.this, HomeGuruActivity.class);
+                                startActivity(i);
+                                onBackPressed();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(getApplicationContext(), "terjadi kesalahan", Toast.LENGTH_LONG).show();
+                            }
+                        }) {
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+                                Map<String, String> params = new HashMap<>();
+                                params.put("id_guru", history.getId_guru()); //TODO(minta ke yang bikin API)
+                                params.put("invoice", history.getInvoice());
+                                return params;
+                            }
+                        };
+                        queue.add(request);
+                    }
+                });
+
 
         } else if (history.getStatus().equalsIgnoreCase("done")) {
             btnOk.setText("Sesi Telah Berakhir");
@@ -208,49 +243,49 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
                 }
             });
 
-        home = (ImageView) findViewById(R.id.imgMenuHome);
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HistoryGuruDetailActivity.this, HomeGuruActivity.class);
-                startActivity(i);
-            }
-        });
-
-        transaksi = (ImageView) findViewById(R.id.imgMenuSaldo);
-        transaksi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HistoryGuruDetailActivity.this, TransaksiGuruActivity.class);
-                startActivity(i);
-            }
-        });
-
-        setting = (ImageView) findViewById(R.id.imgMenuSetting);
-        setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HistoryGuruDetailActivity.this, SettingGuruActivity.class);
-                startActivity(i);
-
-            }
-        });
-
-        logout = (ImageView) findViewById(R.id.imgMenuLogout);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HistoryGuruDetailActivity.this, LoginGuruActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                Rak.entry("loginguru", false);
-                Rak.removeAll(getApplicationContext());
-                finishAffinity();
-
-            }
-        });
+//        home = (ImageView) findViewById(R.id.imgMenuHome);
+//        home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(HistoryGuruDetailActivity.this, HomeGuruActivity.class);
+//                startActivity(i);
+//            }
+//        });
+//
+//        transaksi = (ImageView) findViewById(R.id.imgMenuSaldo);
+//        transaksi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(HistoryGuruDetailActivity.this, TransaksiGuruActivity.class);
+//                startActivity(i);
+//            }
+//        });
+//
+//        setting = (ImageView) findViewById(R.id.imgMenuSetting);
+//        setting.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(HistoryGuruDetailActivity.this, SettingGuruActivity.class);
+//                startActivity(i);
+//
+//            }
+//        });
+//
+//        logout = (ImageView) findViewById(R.id.imgMenuLogout);
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(HistoryGuruDetailActivity.this, LoginGuruActivity.class);
+//                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(i);
+//                Rak.entry("loginguru", false);
+//                Rak.removeAll(getApplicationContext());
+//                finishAffinity();
+//
+//            }
+//        });
 
         }
 

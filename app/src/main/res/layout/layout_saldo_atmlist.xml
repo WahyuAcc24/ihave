@@ -6,7 +6,7 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:background="@drawable/bg_3"
+        android:background="@drawable/backgroundblue"
         android:layout_height="match_parent">
 
 
@@ -16,7 +16,7 @@
         android:layout_marginTop="10dp"
         android:text="Transfer ATM"
         android:id="@+id/tm"
-        android:textColor="#ff000000"
+        android:textColor="#fff"
             />
 
         <TextView
@@ -25,7 +25,7 @@
         android:layout_below="@+id/bri"
         android:text="Mobile Banking"
         android:layout_marginTop="5dp"
-        android:textColor="#ff000000"
+        android:textColor="#fff"
         android:id="@+id/txtmb"
             />
         <TextView
@@ -34,7 +34,7 @@
         android:layout_below="@+id/bcapay"
         android:text="Mini Market Transfer"
         android:layout_marginTop="5dp"
-        android:textColor="#ff000000"
+        android:textColor="#fff"
         android:id="@+id/MiniMarketTransfer"
             />
 
@@ -45,7 +45,7 @@
         android:layout_below="@+id/indomaret"
         android:text="Kartu Kredit"
         android:layout_marginTop="5dp"
-        android:textColor="#ff000000"
+        android:textColor="#fff"
         android:id="@+id/kredit"
             />
 

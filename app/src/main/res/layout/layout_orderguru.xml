@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:textSize="10sp"
+            android:textColor="#fff"
             android:text="Riwayat Pendidikan :"/>
 
         <TextView
@@ -25,7 +26,7 @@
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:id="@+id/txtRpOrder"
-            android:textColor="#000000"
+            android:textColor="#fff"
             android:paddingLeft="10dp"
             android:text="tes"/>
         <View
@@ -38,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
+            android:textColor="#fff"
             android:textSize="10sp"
             android:text="Hobby :"/>
 
@@ -45,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:textColor="#000000"
+            android:textColor="#fff"
             android:id="@+id/txthobi"
             android:textSize="15sp"
             android:text="tes"/>

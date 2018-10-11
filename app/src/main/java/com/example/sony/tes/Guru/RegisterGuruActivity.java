@@ -36,7 +36,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.sony.tes.Model.DataPart;
 import com.example.sony.tes.Murid.AppController;
-import com.example.sony.tes.Murid.LoginMuridActivity;
 import com.example.sony.tes.R;
 import com.example.sony.tes.Server.server;
 import com.example.sony.tes.util.VolleyMultipartRequest;
@@ -59,7 +58,7 @@ import io.isfaaghyth.rak.Rak;
  */
 public class RegisterGuruActivity extends AppCompatActivity {
 
-    EditText txt_email,txt_pass, txt_nama, txt_hp, txt_jk, txt_tempat, txt_tgllahir, txthobi, txtlulusan;
+    EditText txt_email,txt_pass, txt_nama, txt_hp, txt_jk, txt_tempat, txt_tgllahir, txthobi;
 
     private Connector cn;
 
@@ -139,7 +138,6 @@ public class RegisterGuruActivity extends AppCompatActivity {
         txt_tempat = (EditText) findViewById(R.id.txtBirthplace);
         txt_tgllahir = (EditText) findViewById(R.id.txtBirthday);
         txthobi = (EditText) findViewById(R.id.txtHobbi);
-        txtlulusan = (EditText) findViewById(R.id.txtSertifikat);
         user = (ImageView) findViewById(R.id.imgUser);
 
         ubahFoto.setOnClickListener(new View.OnClickListener() {
@@ -161,13 +159,14 @@ public class RegisterGuruActivity extends AppCompatActivity {
                 String jk = txt_jk.getText().toString();
                 String TmptLahir = txt_tempat.getText().toString();
                 String tglLahir = txt_tgllahir.getText().toString();
+                String hobi = txthobi.getText().toString();
 //                String sertifikat = txtlulusan.getText().toString();
 
                 if (email.trim().length() > 0 && password.trim().length() > 0) {
                     if (conMgr.getActiveNetworkInfo() != null
                             && conMgr.getActiveNetworkInfo().isAvailable()
                             && conMgr.getActiveNetworkInfo().isConnected()) {
-                        uploadImage(email, password, nama, Hp, TmptLahir, jk, tglLahir);
+                        uploadImage(email, password, nama, Hp, TmptLahir, jk, tglLahir, hobi);
 
                     } else {
                         Toast.makeText(getApplicationContext(), "cek internet anda", Toast.LENGTH_SHORT).show();
@@ -291,7 +290,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
         return encodedImage;
     }
 
-    private void uploadImage(final String email, final String password,final String fullname, final String  Hp, final String TmptLahir, final String  jk, final String tglLahir) {
+    private void uploadImage(final String email, final String password,final String fullname, final String  Hp, final String TmptLahir, final String  jk, final String tglLahir, final String hobi) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Mohon Tunggu sebentar ...");
@@ -311,6 +310,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
                     Rak.entry("birthplace", TmptLahir);
                     Rak.entry("phone", Hp);
                     Rak.entry("gender", jk);
+                    Rak.entry("hobby", hobi);
 
                     txt_email.setText("");
                     txt_nama.setText("");
@@ -319,6 +319,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
                     txt_hp.setText("");
                     txt_jk.setText("");
                     txt_tgllahir.setText("");
+                    txthobi.setText("");
 
 
                     Log.d("TAG", response.toString());
@@ -347,6 +348,7 @@ public class RegisterGuruActivity extends AppCompatActivity {
                 params.put("birthplace", TmptLahir);
                 params.put("phone", Hp);
                 params.put("gender", jk);
+                params.put("hobby", hobi);
                 return params;
             }
 

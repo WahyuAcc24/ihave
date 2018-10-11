@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/bg_3">
+    android:background="@drawable/backgroundblue">
 
 
     <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
@@ -23,6 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
+                android:textColor="#fff"
                 android:text="Lupa kata sandi? Masukkan email login Anda di bawah ini."/>
 
             <EditText

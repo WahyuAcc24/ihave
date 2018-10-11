@@ -21,6 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
+            android:textColor="#fff"
+
             android:textSize="10sp"
             android:text="Mata Pelajaran :"/>
 
@@ -28,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:textColor="#000000"
+            android:textColor="#fff"
             android:id="@+id/txtMatpelguru"
             android:paddingLeft="20dp"
             android:text="Tes"/>

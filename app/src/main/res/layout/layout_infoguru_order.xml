@@ -22,13 +22,14 @@
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:textSize="10sp"
+            android:textColor="#fff"
             android:text="Mata Pelajaran :"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:textColor="#000000"
+            android:textColor="#fff"
             android:id="@+id/txtMatpelOrder"
             android:paddingLeft="20dp"
             android:text="Tes"/>

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_3">
+    android:background="@drawable/backgroundblue">
 
     <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
 
@@ -26,6 +26,7 @@
             android:text="Lembaga Pendidikan dan Keterampilan"
             android:id="@+id/txtlpk"
             android:textSize="30px"
+            android:textColor="#fff"
             android:textAlignment="center"
             android:padding="10dp"
             />
@@ -72,6 +73,8 @@
             android:layout_height="wrap_content"
             android:text="Konsultan"
             android:id="@+id/txtkonsultan"
+            android:textColor="#fff"
+
             android:textSize="30px"
             android:textAlignment="center"
             android:padding="10dp"
@@ -118,6 +121,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Seni Dan Musik"
+            android:textColor="#fff"
+
             android:id="@+id/txtsenidanmusik"
             android:textSize="30px"
             android:textAlignment="center"

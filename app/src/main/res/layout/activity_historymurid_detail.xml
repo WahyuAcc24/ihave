@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/bg_3"
+    android:background="@drawable/backgroundblue"
     tools:context=".Murid.HistoryMuridDetailActivity">
 
     <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="nama guru"
-        android:textColor="#000000"
+        android:textColor="#fff"
         android:textSize="40px"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Matpel"
-        android:textColor="#000000"
+        android:textColor="#fff"
         android:textSize="40px"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tanggal"
-        android:textColor="#000000"
+        android:textColor="#fff"
         android:textSize="40px"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total "
-        android:textColor="#000000"
+        android:textColor="#fff"
         android:textSize="40px"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
@@ -69,7 +69,7 @@
             android:id="@+id/jadwalDetail"
             android:textSize="9pt"
             android:layout_marginTop="20dp"
-            android:textColor="#000000"
+            android:textColor="#fff"
             android:text="Jadwal "/>
         <include layout="@layout/list_detailjadwal_rv"
             android:id="@+id/jadwal"

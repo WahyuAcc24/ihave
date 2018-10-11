@@ -23,7 +23,6 @@ import com.example.sony.tes.Adapter.HistoryAdapter;
 import com.example.sony.tes.Adapter.ItemClickListener;
 import com.example.sony.tes.Model.Histories;
 import com.example.sony.tes.Model.History;
-import com.example.sony.tes.Murid.HistoryMuridDetailActivity;
 import com.example.sony.tes.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -31,7 +30,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import io.isfaaghyth.rak.Rak;
@@ -96,6 +94,7 @@ public class HistoryGuruActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HistoryGuruActivity.this,TransaksiGuruActivity.class );
+                startActivity(i);
             }
         });
 

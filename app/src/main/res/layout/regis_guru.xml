@@ -3,11 +3,11 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:fillViewport="false">
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/bg_3">
+    android:background="@drawable/backgroundblue">
 
 
     <include layout="@layout/layout_top_with_back" android:id="@+id/top" />
@@ -64,6 +64,8 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:textColor="#fff"
+
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="Email"/>
@@ -82,6 +84,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password"
+            android:textColor="#fff"
+
             android:layout_marginTop="10dp"/>
 
         <EditText
@@ -98,6 +102,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nama Lengkap"
+            android:textColor="#fff"
+
             android:layout_marginTop="10dp"/>
 
         <EditText
@@ -114,6 +120,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#fff"
+
             android:text="No. HP"
             android:layout_marginTop="10dp"/>
 
@@ -132,6 +140,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:textColor="#fff"
+
             android:text="Pilih Jenis Kelamin"/>
 
 
@@ -184,6 +194,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tempat Lahir"
+            android:textColor="#fff"
+
             android:layout_marginTop="10dp"/>
 
         <EditText
@@ -200,6 +212,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tanggal Lahir"
+            android:textColor="#fff"
+
             android:layout_marginTop="10dp"/>
 
         <EditText
@@ -212,26 +226,13 @@
             android:inputType="text"
             android:textSize="8pt" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sertifikat"
-            android:layout_marginTop="10dp"/>
-
-        <EditText
-            android:id="@+id/txtSertifikat"
-            android:hint="Isi Sertifikatmu"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext_rounded"
-            android:padding="10dp"
-            android:inputType="text"
-            android:textSize="8pt" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hobbi"
+            android:textColor="#fff"
+
             android:layout_marginTop="10dp"/>
 
         <EditText

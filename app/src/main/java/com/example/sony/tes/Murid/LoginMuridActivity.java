@@ -180,10 +180,10 @@ public class LoginMuridActivity extends AppCompatActivity {
                     Rak.entry("email", res.getData_Mrd().getEmail());
                     Rak.entry("passsword", res.getData_Mrd().getPassword());
                     Rak.entry("fullname", res.getData_Mrd().getFullname());
-                    Rak.entry("code", res.getData_Mrd().getCode());
-                    Rak.entry("birthdate", res.getData_Mrd().getBirthdate());
-                    Rak.entry("birthplace", res.getData_Mrd().getBirthplace());
-                    Rak.entry("phone", res.getData_Mrd().getPhone());
+                    if (res.getData_Mrd().getCode() != null)Rak.entry("code", res.getData_Mrd().getCode());
+                    if (res.getData_Mrd().getBirthdate() != null)Rak.entry("birthdate", res.getData_Mrd().getBirthdate());
+                    if (res.getData_Mrd().getBirthplace() != null)Rak.entry("birthplace", res.getData_Mrd().getBirthplace());
+                    if (res.getData_Mrd().getPhone() != null) Rak.entry("phone", res.getData_Mrd().getPhone());
                     if (res.getData_Mrd().getAddress() != null) Rak.entry("address", res.getData_Mrd().getAddress());
                     if (res.getData_Mrd().getGender() != null) Rak.entry("gender", res.getData_Mrd().getGender());
                     if (res.getData_Mrd().getHobby() != null) Rak.entry("hobby", res.getData_Mrd().getHobby());
