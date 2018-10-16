@@ -63,6 +63,8 @@ public class JamHomeAdapter extends RecyclerView.Adapter<JamHomeAdapter.Holder> 
         return jadwals.size();
     }
 
+
+
     class Holder extends RecyclerView.ViewHolder {
 
         private TextView txtHari;

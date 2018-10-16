@@ -15,13 +15,13 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.example.sony.tes.Model.Jadwal;
+import com.example.sony.tes.Adapter.JamHomeAdapter;
 import com.example.sony.tes.Model.LoginGuru;
 import com.example.sony.tes.R;
 import com.google.gson.GsonBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import io.isfaaghyth.rak.Rak;
 
@@ -41,12 +41,12 @@ public class HomeGuruActivity extends AppCompatActivity {
     public List<LoginGuru> loginguru;
     ConnectivityManager conMgr;
 
-//    private JamHomeAdapter adapterJadwal;
+    private JamHomeAdapter adapterJadwal;
     private static final String TAG = HomeGuruActivity.class.getSimpleName();
     String tag_json_obj = "json_obj_req";
 
     private String url;
-//    private Map<String, List<Integer>> collectTime; //PENAMPUNG JAM YANG DI PILIH
+    private Map<String, List<Integer>> collectTime; //PENAMPUNG JAM YANG DI PILIH
 
 
 
@@ -59,7 +59,7 @@ public class HomeGuruActivity extends AppCompatActivity {
         url ="http://demo.t-hisyam.net/ihave/api/guru/get";
 //        lstJadwal = (RecyclerView) findViewById(R.id.jadwal_home_guru);
 //        lstJadwal.setLayoutManager(new LinearLayoutManager(this));
-
+//
 //        collectTime = new LinkedHashMap<>();
 
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -67,7 +67,7 @@ public class HomeGuruActivity extends AppCompatActivity {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
 
-        loginguru = new ArrayList<>();
+//        loginguru = new ArrayList<>();
 
 
         txtjudulguru = (TextView) findViewById(R.id.judulGuru);
@@ -82,7 +82,7 @@ public class HomeGuruActivity extends AppCompatActivity {
         txthobiguru = (TextView) findViewById(R.id.txthobiguru);
         txthobiguru.setText((String)Rak.grab("hobby"));
 
-        List<Jadwal> jadwalJson = Rak.grab("jadwal");
+//        List<Jadwal> jadwalJson = Rak.grab("jadwal");
         //List<Jadwal> jadwalGuru = new Gson().fromJson(jadwalJson, new TypeToken<List<Jadwal>>(){}.getType());
 
 //        adapterJadwal = new JamHomeAdapter(getApplicationContext(), jadwalJson);

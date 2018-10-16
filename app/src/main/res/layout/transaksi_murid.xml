@@ -5,147 +5,186 @@
     android:layout_width="match_parent"
 
     >
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@drawable/backgroundblue"
-    android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:background="@drawable/backgroundblue"
+        android:layout_height="match_parent">
 
-    <include layout="@layout/layout_top"
+        <include layout="@layout/layout_top"
             android:id="@+id/top"
-        >
+            >
 
-            </include>
+        </include>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nomor Invoice
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nomor Invoice
         xxxxx"
-        android:id="@+id/txtinvoice"
-        android:textColor="#fff"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/top"
-        android:layout_centerHorizontal="true" />
+            android:id="@+id/txtinvoice"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/top"
+            android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cek Email anda untuk melihat tagihan pembayaran
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cek Email anda untuk melihat tagihan pembayaran
  Silahkan lakukan pembayaran sebelum tanggal"
-        android:layout_below="@+id/txtinvoice"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:id="@+id/txtlps"
-        android:gravity="center"
-        android:layout_centerHorizontal="true" />
+            android:layout_below="@+id/txtinvoice"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:id="@+id/txtlps"
+            android:gravity="center"
+            android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tgl"
-        android:id="@+id/txttgl"
-        android:textStyle="bold"
-        android:textColor="@color/colorAccent"
-        android:textSize="15sp"
-        android:layout_below="@+id/txtlps"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-
-
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tgl"
+            android:id="@+id/txttgl"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:layout_below="@+id/txtlps"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BANK TRANSFER"
-        android:layout_below="@+id/txtlps"
-        android:layout_marginTop="40dp"
-        android:textColor="#fff"
-        android:id="@+id/txtbt"
-        android:layout_centerHorizontal="true" />
-
-<ImageView
-    android:layout_width="120dp"
-    android:layout_height="80dp"
-    android:layout_marginTop="20dp"
-    android:layout_below="@+id/txtbt"
-    android:layout_centerHorizontal="true"
-    android:src="@drawable/payment_bca"
-    android:id="@+id/bri"
-
-    />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="123 456 7890
- Atas Nama PT. Pendidikan Indonesia"
-        android:layout_below="@+id/bri"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:id="@+id/txtnmrrek"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jumlah Tagihan"
-        android:layout_below="@+id/txtnmrrek"
-        android:layout_marginTop="10dp"
-        android:textColor="#fff"
-        android:id="@+id/txtjmlh"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rp. 0"
-        android:textColor="@color/colorAccent"
-        android:layout_below="@+id/txtjmlh"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:id="@+id/txttotal"
-        android:layout_centerHorizontal="true" />
+            />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cara Pembayaran Bank BCA :"
-        android:textColor="#fff"
-        android:layout_below="@+id/txttotal"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
-        android:id="@+id/txt1"
-         />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BANK TRANSFER"
+            android:layout_below="@+id/txtlps"
+            android:layout_marginTop="40dp"
+            android:textColor="#fff"
+            android:id="@+id/txtbt"
+            android:layout_centerHorizontal="true" />
 
-    <Spinner
-        android:layout_width="350dp"
-        android:layout_height="40dp"
-        android:background="#ffff"
-        android:id="@+id/spinerAtm"
-        android:hint="Melalui Atm"
-        android:layout_below="@id/txt1"
-        android:entries="@array/Melalui_Atm"
-        android:layout_centerHorizontal="true" />
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/txtbt"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/payment_bca"
+            android:id="@+id/bri"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123 456 7890"
+            android:layout_below="@+id/bri"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:id="@+id/txtnmrrek"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Atas Nama PT. Pendidikan Indonesia"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_below="@+id/txtnmrrek"
+            android:layout_centerHorizontal="true"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jumlah Tagihan"
+            android:layout_below="@+id/txtnmrrek"
+            android:layout_marginTop="20dp"
+            android:textColor="#fff"
+            android:id="@+id/txtjmlh"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 0"
+            android:textColor="@color/colorAccent"
+            android:layout_below="@+id/txtjmlh"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:id="@+id/txttotal"
+            android:layout_centerHorizontal="true" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cara Pembayaran Bank BCA :"
+            android:textColor="#000"
+            android:layout_below="@+id/txttotal"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/txt1"
+            />
+
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:background="#ffff"
+            android:id="@+id/btnAtm"
+            android:text="Melalui Atm"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txt1"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:background="#ffff"
+            android:id="@+id/btniBangking"
+            android:text="Melalui Internet Bangking"
+            android:layout_marginTop="1dp"
+            android:layout_below="@id/btnAtm"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:background="#ffff"
+            android:layout_marginTop="1dp"
+            android:id="@+id/btnTeller"
+            android:text="Melalui Teller"
+            android:layout_below="@id/btniBangking"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="1dp"
+            android:background="#ffff"
+            android:id="@+id/btnMb"
+            android:text="Melalui Mobile Bangking"
+            android:layout_below="@id/btnTeller"
+            android:layout_centerHorizontal="true" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="OK"
+            android:id="@+id/btnOkmrd"
+
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="69dp" />
 
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="OK"
-        android:id="@+id/btnOkmrd"
-
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="69dp" />
-
-
-
-</RelativeLayout>
-    </ScrollView>
+    </RelativeLayout>
+</ScrollView>

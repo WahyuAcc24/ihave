@@ -197,7 +197,7 @@ public class LoginGuruActivity extends AppCompatActivity {
                         if (res.getSaldo() !=null) Rak.entry("saldo", res.getSaldo());
                         if (res.getPelajaran() !=null) Rak.entry("pelajaran", res.getPelajaran());
                         //Rak.entry("jadwal", new Gson().toJson(res.getJadwal()));
-//                        Rak.entry("jadwal", res.getJadwal());
+                        if (res.getJadwal() !=null) Rak.entry("jadwal", res.getJadwal());
                     }
                     Rak.entry("loginguru", true);
 

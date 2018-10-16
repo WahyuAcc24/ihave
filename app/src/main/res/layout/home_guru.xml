@@ -41,12 +41,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-           <!--<android.support.v7.widget.RecyclerView-->
-               <!--android:layout_width="match_parent"-->
-               <!--android:layout_height="160dp"-->
-               <!--android:id="@+id/jadwal_home_guru"-->
-               <!--&gt;-->
-           <!--</android.support.v7.widget.RecyclerView>-->
+           <android.support.v7.widget.RecyclerView
+               android:layout_width="match_parent"
+               android:layout_height="160dp"
+               android:id="@+id/jadwal_home_guru"
+               >
+           </android.support.v7.widget.RecyclerView>
 
 
             <!--<ProgressBar-->
