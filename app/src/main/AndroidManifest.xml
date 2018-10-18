@@ -63,7 +63,7 @@
         <activity android:name=".Guru.HomeGuruActivity" />
         <activity android:name=".Guru.TransaksiGuruActivity" />
         <activity android:name=".Murid.BayarMuridActivity" />
-        <activity android:name=".Murid.LainnyaActivity" />
+        <activity android:name=".Pelajaran.LainnyaActivity" />
         <activity android:name=".Murid.LpkActivity" />
         <activity android:name=".Pelajaran.PelajaranSdActivity" />
         <activity android:name=".Pelajaran.PelajaranSmaActivity" />
@@ -75,6 +75,8 @@
         <activity android:name=".Murid.ListGuruSmaActivity" />
         <activity android:name=".Murid.HistoryMuridDetailActivity" />
         <activity android:name=".Guru.HistoryGuruDetailActivity" />
+        <activity android:name=".Pelajaran.PelajaranMusikActivity"/>
+
 
         <provider
             android:name="android.support.v4.content.FileProvider"

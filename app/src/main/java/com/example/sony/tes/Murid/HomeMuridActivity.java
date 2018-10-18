@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.sony.tes.Pelajaran.PelajaranMusikActivity;
 import com.example.sony.tes.Pelajaran.PelajaranSdActivity;
 import com.example.sony.tes.Pelajaran.PelajaranSmaActivity;
 import com.example.sony.tes.Pelajaran.PelajaranSmpActivity;
@@ -89,7 +90,7 @@ public class HomeMuridActivity extends AppCompatActivity {
         lain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (HomeMuridActivity.this, LainnyaActivity.class);
+                Intent i = new Intent (HomeMuridActivity.this, PelajaranMusikActivity.class);
                 startActivity(i);
             }
         });

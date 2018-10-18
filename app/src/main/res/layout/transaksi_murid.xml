@@ -80,7 +80,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123 456 7890"
+            android:text="4450 8570 39"
             android:layout_below="@+id/bri"
             android:gravity="center"
             android:layout_marginTop="10dp"
@@ -92,7 +92,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Atas Nama PT. Pendidikan Indonesia"
+            android:text=" a/n Ade Iman Herdiaman"
             android:textColor="#fff"
             android:textStyle="bold"
             android:layout_below="@+id/txtnmrrek"

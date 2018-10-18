@@ -27,6 +27,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.sony.tes.Adapter.DetailOrderAdapter;
 import com.example.sony.tes.BuildConfig;
 import com.example.sony.tes.Model.DetailOrder;
+import com.example.sony.tes.Model.Status;
 import com.example.sony.tes.R;
 import com.example.sony.tes.util.TimeListener;
 import com.google.gson.Gson;
@@ -73,6 +74,10 @@ public class DetailOrderActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title
 //        getSupportActionBar().hide();
         setContentView(R.layout.activity_detailguru);
+
+        Log.d("TAG", urlSave);
+
+
 
         url = "http://demo.t-hisyam.net/ihave/api/schedule/list_jadwal?id_guru=" + getIntent().getStringExtra("guruId") + "&id_lesson=" + getIntent().getStringExtra("lessonId");
         lstJadwal = (RecyclerView) findViewById(R.id.lst_jadwal);
@@ -261,15 +266,21 @@ public class DetailOrderActivity extends AppCompatActivity {
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-        pDialog.setMessage("Registrasi sedang diproses...");
+        pDialog.setMessage("Order sedang diproses...");
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST, urlSave, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Log.e("TAG", response);
                 hideDialog();
-                startActivity(new Intent(DetailOrderActivity.this, HistoryMuridActivity.class));
-                finish();
+                Status status = new Gson().fromJson(response, Status.class);
+                if (status.isStatus()) {
+                    startActivity(new Intent(DetailOrderActivity.this, HistoryMuridActivity.class));
+                    finish();
+                }else{
+                  Toast.makeText(getApplicationContext(), "Kamu Masih memiliki order yang belum diselesaikan", Toast.LENGTH_LONG).show();
+                }
             }
         }, new Response.ErrorListener() {
             @Override

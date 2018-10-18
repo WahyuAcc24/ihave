@@ -9,6 +9,9 @@ import java.util.List;
  */
 public class DetailOrder {
 
+    @SerializedName("status")
+    public String status;
+
     @SerializedName("fullname")
     public String fullname;
 
@@ -110,4 +113,11 @@ public class DetailOrder {
         this.jadwal = jadwal;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

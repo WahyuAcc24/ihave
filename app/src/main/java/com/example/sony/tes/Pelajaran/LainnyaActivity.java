@@ -1,4 +1,4 @@
-package com.example.sony.tes.Murid;
+package com.example.sony.tes.Pelajaran;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,7 +10,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.android.volley.RequestQueue;
-import com.example.sony.tes.Guru.LoginGuruActivity;
+import com.example.sony.tes.Murid.HistoryMuridActivity;
+import com.example.sony.tes.Murid.LoginMuridActivity;
+import com.example.sony.tes.Murid.SettingMuridActivity;
+import com.example.sony.tes.Murid.TransaksiMuridActivity;
 import com.example.sony.tes.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;

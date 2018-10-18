@@ -114,4 +114,10 @@ public class FormPembayaranActivity extends AppCompatActivity {
         txtSaldo.setText(String.format("Rp. %d", (Integer) Rak.grab("total")));
         txttgl.setText(Rak.grab("due_date") + "WIB");
     }
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+
 }

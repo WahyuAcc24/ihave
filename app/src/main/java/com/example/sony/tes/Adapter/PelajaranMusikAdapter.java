@@ -14,15 +14,14 @@ import java.util.List;
 /**
  * Created by SONY on 28/8/2018.
  */
-public class PelajaranSdAdapter extends RecyclerView.Adapter<PelajaranSdAdapter.Holder> {
+public class PelajaranMusikAdapter extends RecyclerView.Adapter<PelajaranMusikAdapter.Holder> {
 
 
     private List<pel> pels;
     private ItemClickListenerPelajaran listener;
 
-    public PelajaranSdAdapter(List<pel> pels) {
+    public PelajaranMusikAdapter(List<pel> pels) {
         this.pels = pels;
-
 
     }
 
@@ -34,13 +33,13 @@ public class PelajaranSdAdapter extends RecyclerView.Adapter<PelajaranSdAdapter.
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new Holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_course_sd, parent, false));
+        return new Holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_course_musik, parent, false));
     }
 
     @Override
     public void onBindViewHolder(final Holder holder, final int position) {
         holder.btnPel.setText(pels.get(position).getName());
-
+        pels.get(position).getCategory_id();
         holder.btnPel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +59,7 @@ public class PelajaranSdAdapter extends RecyclerView.Adapter<PelajaranSdAdapter.
 
         public Holder(View itemView) {
             super(itemView);
-            btnPel = (Button) itemView.findViewById(R.id.item_course);
+            btnPel = (Button) itemView.findViewById(R.id.item_course_musik);
 
         }
     }

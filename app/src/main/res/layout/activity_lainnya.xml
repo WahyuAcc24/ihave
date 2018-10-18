@@ -117,56 +117,6 @@
         </Button>
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seni Dan Musik"
-            android:textColor="#fff"
-
-            android:id="@+id/txtsenidanmusik"
-            android:textSize="30px"
-            android:textAlignment="center"
-            android:padding="10dp"
-
-            />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/label5"
-            android:layout_marginTop="5px"
-            android:text="Gitar"
-            android:textSize="30px"
-            android:layout_marginBottom="10px"
-            android:background="@drawable/edittext_rounded">
-
-        </Button>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/label6"
-            android:layout_marginTop="1dp"
-            android:text="Vokal"
-            android:textSize="30px"
-            android:layout_marginBottom="10px"
-            android:background="@drawable/edittext_rounded">
-
-        </Button>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/label6.1"
-            android:layout_marginTop="1dp"
-            android:text="Menari"
-            android:textSize="30px"
-            android:layout_marginBottom="10px"
-            android:background="@drawable/edittext_rounded">
-
-        </Button>
-
-
 
     </LinearLayout>
 </ScrollView>
