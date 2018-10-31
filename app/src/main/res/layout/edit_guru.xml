@@ -68,7 +68,7 @@
                 android:text="Email"/>
 
             <EditText
-                android:id="@+id/txtEmail"
+                android:id="@+id/txtEmailEdtGuru"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_rounded"
@@ -84,7 +84,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:id="@+id/txtPassword"
+                android:id="@+id/txtPasswordEdtGuru"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_rounded"
@@ -100,7 +100,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:id="@+id/txtUsername"
+                android:id="@+id/txtUsernameEdtGuru"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_rounded"
@@ -117,7 +117,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:id="@+id/txtPhone"
+                android:id="@+id/txtPhoneEdtGuru"
                 android:hint="No. Hp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
 
 
             <EditText
-                android:id="@+id/txtPilihJk"
+                android:id="@+id/txtPilihJkEdtGuru"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_rounded"
@@ -152,7 +152,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:id="@+id/txtBirthplace"
+                android:id="@+id/txtBirthplaceEdtGuru"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_rounded"
@@ -168,7 +168,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:id="@+id/txtBirthday"
+                android:id="@+id/txtBirthdayEdtGuru"
                 android:hint="DD/MM/YYYY"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -184,7 +184,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:id="@+id/txtSertifikat"
+                android:id="@+id/txtSertifikatEdtGuru"
                 android:hint="Isi Sertifikatmu"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -200,7 +200,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:id="@+id/txtHobbi"
+                android:id="@+id/txtHobbiEdtGuru"
                 android:hint="Hobbi"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -214,7 +214,7 @@
             <ImageView
                 android:layout_width="170dp"
                 android:layout_height="170dp"
-                android:id="@+id/imgUser"
+                android:id="@+id/imgUserEdtGuru"
                 android:src="@drawable/user"
                 android:background="#ffff"
                 android:layout_marginTop="50dp"
@@ -223,11 +223,11 @@
             <Button
                 android:layout_width="180dp"
                 android:layout_height="40dp"
-                android:layout_below="@+id/imgUser"
+                android:layout_below="@+id/imgUserEdtGuru"
                 android:layout_gravity="center"
                 android:text="Ubah foto"
                 android:layout_marginTop="10dp"
-                android:id="@+id/ubahFotoProfil"
+                android:id="@+id/ubahFotoProfilEdtGuru"
                 android:background="#ffff"
                 />
             <Button
@@ -244,8 +244,8 @@
             <Button
                 android:layout_width="250dp"
                 android:layout_height="50dp"
-                android:text="Daftar"
-                android:id="@+id/buttonDaftar"
+                android:text="Simpan"
+                android:id="@+id/buttonDaftarEdtGuru"
                 android:background="#fff"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"

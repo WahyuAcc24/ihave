@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -129,9 +130,9 @@ public class LoginGuruActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Kolom tidak boleh kosong", Toast.LENGTH_LONG).show();
                 }
 
-
-                Intent i = new Intent(LoginGuruActivity.this, HomeGuruActivity.class);
-                startActivity(i);
+//
+//                Intent i = new Intent(LoginGuruActivity.this, HomeGuruActivity.class);
+//                startActivity(i);
             }
         });
 
@@ -182,7 +183,6 @@ public class LoginGuruActivity extends AppCompatActivity {
                 LoginGuru res = new Gson().fromJson(response, LoginGuru.class);
 
                 if (res.isStatus()) {
-                    if (res != null) {
                         if (res.getId() != null)Rak.entry("id_guru", res.getId());
                         if (res.getEmail() != null)Rak.entry("email", res.getEmail());
                         if (res.getPassword() != null)Rak.entry("passsword", res.getPassword());
@@ -196,19 +196,18 @@ public class LoginGuruActivity extends AppCompatActivity {
                         if (res.getImages() != null) Rak.entry("images", res.getImages());
                         if (res.getSaldo() !=null) Rak.entry("saldo", res.getSaldo());
                         if (res.getPelajaran() !=null) Rak.entry("pelajaran", res.getPelajaran());
-                        //Rak.entry("jadwal", new Gson().toJson(res.getJadwal()));
-//                        if (res.getJadwal() !=null) Rak.entry("jadwal", res.getJadwal());
-                    }
-                    Rak.entry("loginguru", true);
+//                        Rak.entry("jadwal", new Gson().toJson(res.getJadwal()));
+                        Rak.entry("jadwal", res.getJadwal());
+                        Rak.entry("loginguru", true);
 
 
                     hideDialog();
                     Intent i = new Intent(LoginGuruActivity.this, HomeGuruActivity.class);
-//                    i.putExtra("data", new Gson().toJson(LoginGuru));
+                    i.putExtra("jadwalguru", new Gson().toJson(res));
                     startActivity(i);
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "gagal bro", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Username dan Password salah", Toast.LENGTH_SHORT).show();
                     hideDialog();
                 }
 
@@ -254,9 +253,19 @@ public class LoginGuruActivity extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+//    @Override
+//    public void onBackPressed() {
+//        finish();
+//    }
+
     @Override
-    public void onBackPressed() {
-        finish();
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

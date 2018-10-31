@@ -1,13 +1,11 @@
 package com.example.sony.tes.Video;
 
 import android.Manifest;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 
-import com.example.sony.tes.Murid.HomeMuridActivity;
 import com.example.sony.tes.R;
 import com.opentok.android.OpentokError;
 import com.opentok.android.Publisher;
@@ -25,8 +23,8 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class VideoChatActivity extends AppCompatActivity implements Session.SessionListener, PublisherKit.PublisherListener{
 
     private static String API_KEY = "46171282";
-    private static String SESSION_ID = "1_MX40NjE3MTI4Mn5-MTUzNzUyMDUwMjY3M35HMzgrMU5yZ1RpTERUWnRuV3JtU1dpRHh-UH4";
-    private static String TOKEN = "T1==cGFydG5lcl9pZD00NjE3MTI4MiZzaWc9NDM3MWQxOGYyMGIxZGFjYzkxNjUwY2NiMDE2OGMwNzU0YmE2OTJiYzpzZXNzaW9uX2lkPTFfTVg0ME5qRTNNVEk0TW41LU1UVXpOelV5TURVd01qWTNNMzVITXpnck1VNXlaMVJwVEVSVVduUnVWM0p0VTFkcFJIaC1VSDQmY3JlYXRlX3RpbWU9MTUzNzUyMDU3MCZub25jZT0wLjI4OTc3NjU4Mzc3NjA2MTk3JnJvbGU9cHVibGlzaGVyJmV4cGlyZV90aW1lPTE1NDAxMTI1NjgmaW5pdGlhbF9sYXlvdXRfY2xhc3NfbGlzdD0=";
+    private static String SESSION_ID = "1_MX40NjE3MTI4Mn5-MTU0MDcwMDIzNDQ1M35hT2ZYT21YNW5CNXFXUkdwa0kxQUxCdkt-fg";
+    private static String TOKEN = "T1==cGFydG5lcl9pZD00NjE3MTI4MiZzaWc9ZmU0Njc3Y2YzNjMwNzhmYzU2NmQzYzViNTMyMDIzNTgyNDE1NDUwMjpzZXNzaW9uX2lkPTFfTVg0ME5qRTNNVEk0TW41LU1UVTBNRGN3TURJek5EUTFNMzVoVDJaWVQyMVlOVzVDTlhGWFVrZHdhMGt4UVV4Q2RrdC1mZyZjcmVhdGVfdGltZT0xNTQwNzAwMzEwJm5vbmNlPTAuMzk5MDYzNzYxMDYwMDA3NCZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTQzMjk1OTE0JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9";
     private static final String LOG_TAG = VideoChatActivity.class.getSimpleName();
     private static final int RC_SETTINGS_SCREEN_PERM = 123;
     private static final int RC_VIDEO_APP_PERM = 124;

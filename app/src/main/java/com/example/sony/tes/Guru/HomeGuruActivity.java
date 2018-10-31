@@ -59,7 +59,7 @@ public class HomeGuruActivity extends AppCompatActivity {
         url ="http://demo.t-hisyam.net/ihave/api/guru/get";
 //        lstJadwal = (RecyclerView) findViewById(R.id.jadwal_home_guru);
 //        lstJadwal.setLayoutManager(new LinearLayoutManager(this));
-//
+
 //        collectTime = new LinkedHashMap<>();
 
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -82,8 +82,11 @@ public class HomeGuruActivity extends AppCompatActivity {
         txthobiguru = (TextView) findViewById(R.id.txthobiguru);
         txthobiguru.setText((String)Rak.grab("hobby"));
 
+//        List<Jadwal> jadwal = getIntent().("jadwalguru");
+
+
 //        List<Jadwal> jadwalJson = Rak.grab("jadwal");
-        //List<Jadwal> jadwalGuru = new Gson().fromJson(jadwalJson, new TypeToken<List<Jadwal>>(){}.getType());
+//        List<Jadwal> jadwalGuru = new Gson().fromJson(jadwalJson, new TypeToken<List<Jadwal>>(){}.getType());
 
 //        adapterJadwal = new JamHomeAdapter(getApplicationContext(), jadwalJson);
 //        lstJadwal.setAdapter(adapterJadwal);

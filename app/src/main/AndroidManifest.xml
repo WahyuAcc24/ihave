@@ -76,6 +76,8 @@
         <activity android:name=".Murid.HistoryMuridDetailActivity" />
         <activity android:name=".Guru.HistoryGuruDetailActivity" />
         <activity android:name=".Pelajaran.PelajaranMusikActivity"/>
+        <activity android:name=".Murid.FormPembayaranActivity" />
+        <activity android:name=".Guru.LengkapiDataGuruActivity"></activity>
 
 
         <provider
@@ -88,8 +90,6 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".Murid.FormPembayaranActivity" />
-        <activity android:name=".Guru.LengkapiDataGuruActivity"></activity>
     </application>
 
 </manifest>
