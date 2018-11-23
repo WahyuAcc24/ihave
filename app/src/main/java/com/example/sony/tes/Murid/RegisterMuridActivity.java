@@ -2,6 +2,7 @@ package com.example.sony.tes.Murid;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,6 +24,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -46,6 +48,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -61,7 +64,8 @@ public class RegisterMuridActivity extends AppCompatActivity {
     EditText txt_email,txt_pass, txt_nama, txt_hp, txt_jk, txt_tempat, txt_tgllahir;
 
     private Connector cn;
-
+    private DatePickerDialog datePickerDialog;
+    private SimpleDateFormat dateFormatter;
     RadioButton guru, murid;
     RadioGroup radioGroup;
     Button daftar, ubahFoto;
@@ -94,6 +98,24 @@ public class RegisterMuridActivity extends AppCompatActivity {
     public static final String my_shared_preferences = "my_shared_preferences";
     public static final String session_status = "session_status";
 
+    public void showDate() {
+
+        Calendar newCalendar = Calendar.getInstance();
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+
+                txt_tgllahir.setText(dateFormatter.format(newDate.getTime()));
+            }
+
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+        datePickerDialog.show();
+    }
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +136,8 @@ public class RegisterMuridActivity extends AppCompatActivity {
         });
 
         Rak.initialize(this);
+
+        dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
 
 
@@ -138,6 +162,17 @@ public class RegisterMuridActivity extends AppCompatActivity {
         txt_tempat = (EditText) findViewById(R.id.txtBirthplace);
         txt_tgllahir = (EditText) findViewById(R.id.txtBirthday);
         user = (ImageView) findViewById(R.id.imgUser);
+
+        txt_tgllahir.setFocusable(false);
+        txt_tgllahir.setClickable(true);
+
+        txt_tgllahir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDate();
+            }
+        });
+
 
 //        txt_nama.setText("isfa");
 //        txt_email.setText("a@a.com");

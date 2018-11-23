@@ -11,10 +11,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,7 +55,10 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
     String tag_json_obj = "json_obj_req";
 
     private String url;
+    private String urlrate;
     private History history;
+    RatingBar rb;
+    EditText edtkomen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +73,7 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
         btnOk = (Button) findViewById(R.id.btnOK);
 
         url = "http://demo.t-hisyam.net/ihave/api/order/pay_order"; //TODO(ganti untuk verifikasi aja)
+        urlrate ="http://demo.t-hisyam.net/ihave/api/order/review";
 
         final RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -154,7 +161,7 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
                     }
                 }
             });
-        } else if (history.getStatus().equalsIgnoreCase("live") || history.getStatus().equalsIgnoreCase("paid")) {
+        } else if (history.getStatus().equalsIgnoreCase("live")) {
             btnOk.setText("NONTON VIDEO");
             btnOk.setBackgroundColor(Color.YELLOW);
             btnOk.setTextColor(Color.BLACK);
@@ -167,7 +174,41 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
 
                 }
             });
+        }else if (history.getStatus().equalsIgnoreCase("done")){
+            btnOk.setText("Beri Ulasan");
+            btnOk.setBackgroundColor(Color.GREEN);
+            btnOk.setTextColor(Color.WHITE);
+            btnOk.setEnabled(true);
+            btnOk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final AlertDialog dialog = new AlertDialog.Builder(HistoryMuridDetailActivity.this).create();
+                    View view = LayoutInflater.from(HistoryMuridDetailActivity.this).inflate(R.layout.rating, null);
+
+
+                    rb = (RatingBar) view.findViewById(R.id.ratingBar);
+                    edtkomen = (EditText) view.findViewById(R.id.edtKomen);
+
+
+                    view.findViewById(R.id.btnRating).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            String komen = edtkomen.getText().toString();
+                            String rating = String.valueOf(rb.getRating());
+
+                            doRate(komen,rating);
+                            dialog.dismiss();
+
+                        }
+                    });
+                    dialog.setView(view);
+                    dialog.show();
+                }
+            });
+
         }
+
 
         //  tombol back
         ImageView backButton = (ImageView) this.findViewById(R.id.btn_back);
@@ -179,6 +220,45 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
         });
 
     }
+    public void doRate(final String komen, final String rating){
+
+        StringRequest strReq = new StringRequest(Request.Method.POST, urlrate, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Intent i = new Intent(HistoryMuridDetailActivity.this, HomeMuridActivity.class);
+                startActivity(i);
+
+                Toast.makeText(getApplicationContext(), "Terimakasih", Toast.LENGTH_SHORT).show();
+            }
+
+
+    }, new Response.ErrorListener() {
+
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            Log.e(TAG, "Rate Error: " + error.getMessage());
+            Toast.makeText(getApplicationContext(),error.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }) {
+
+        @Override
+        protected Map<String, String> getParams() {
+            // Posting parameters to login url
+            Map<String, String> params = new HashMap<String, String>();
+            params.put("komentar", komen);
+            params.put("rating", String.valueOf(rating));
+            params.put("id_murid", history.getId_murid());
+            params.put("invoice", history.getInvoice());
+            return params;
+        }
+
+    };
+
+    // Adding request to request queue
+    AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+
+}
 
 }
 

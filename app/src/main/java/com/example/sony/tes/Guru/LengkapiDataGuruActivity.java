@@ -8,10 +8,11 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -28,30 +29,27 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sony.tes.Adapter.DetailOrderAdapter;
-import com.example.sony.tes.BuildConfig;
+import com.example.sony.tes.Adapter.ItemClickListenerRb;
+import com.example.sony.tes.Adapter.rbAdapter;
+import com.example.sony.tes.Model.Data;
 import com.example.sony.tes.Model.DataPart;
 import com.example.sony.tes.Model.DetailOrder;
 import com.example.sony.tes.Model.Jadwal;
+import com.example.sony.tes.Model.MatpelGuru;
 import com.example.sony.tes.Murid.AppController;
 import com.example.sony.tes.R;
 import com.example.sony.tes.util.PathUtil;
 import com.example.sony.tes.util.TimeListener;
 import com.example.sony.tes.util.VolleyMultipartRequest;
-import com.google.common.io.Files;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -70,16 +68,20 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
     };
 
     EditText edtSertifikat;
-    RecyclerView listjam;
+    RecyclerView listjam, listmatpeledit;
     Button ok;
     ProgressDialog pDialog;
     ProgressBar pgList;
     public List<DetailOrder> detailorders;
+    public List<MatpelGuru> matpeledt;
+    private List<Data> datas;
+
     ConnectivityManager conMgr;
     Gson gson;
     private RequestQueue requestQueue;
     public TextView txt_namaguru, txt_mp, txt_rp, txt_hobi;
     private DetailOrderAdapter adapterJadwal;
+    private rbAdapter adapterMatpel;
     private static final String TAG = LengkapiDataGuruActivity.class.getSimpleName();
     String tag_json_obj = "json_obj_req";
 
@@ -87,7 +89,7 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
 
     private File certificateFile;
 
-    private String url;
+    private String url, url2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,9 +97,21 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lengkapi_data_guru);
 
         url = "http://demo.t-hisyam.net/ihave/api/guru/update_jadwal_file";
+        url2 ="http://demo.t-hisyam.net/ihave/api/lesson/all";
+
         listjam = (RecyclerView) findViewById(R.id.rvJam);
         listjam.setLayoutManager(new LinearLayoutManager(this));
 
+        listmatpeledit = (RecyclerView) findViewById(R.id.rvPel);
+        LinearLayoutManager recyclematpel= new LinearLayoutManager(this);
+        listmatpeledit.setLayoutManager(recyclematpel);
+
+
+
+
+        requestQueue = Volley.newRequestQueue(this);
+
+        matpeledt = new ArrayList<>();
         collectTime = new LinkedHashMap<>();
 
         checkPermissions();
@@ -110,10 +124,14 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
         detailorders = new ArrayList<>();
 
         Edit();
+        MatpelEdt();
 
         edtSertifikat =(EditText) findViewById(R.id.edtSertifikat);
         listjam = (RecyclerView) findViewById(R.id.rvJam);
         ok =(Button) findViewById(R.id.btnOkUpdate);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(listmatpeledit.getContext(),recyclematpel.getOrientation());
+        listmatpeledit.addItemDecoration(dividerItemDecoration);
 
         edtSertifikat.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
@@ -126,6 +144,12 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                String idlesson = String.valueOf(listmatpeledit.getId());
+
+                int idlesson = listmatpeledit.getId();
+
+
                 List<String> day = new ArrayList<>();
                 for (Map.Entry<String, List<Integer>> data : collectTime.entrySet()) {
                     String times = "";
@@ -135,7 +159,10 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
                     day.add(times.substring(1));
                     Log.d("TAG", data.getKey() + ":" + times);
                 }
-                requestLengkapiGuru("1", day, certificateFile);
+
+                requestLengkapiGuru("1", day, certificateFile, idlesson);
+
+
             }
         });
 
@@ -173,7 +200,7 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
 
     private Jadwal jadwalGuru(String namaHari) {
         List<Integer> jam = new ArrayList<>();
-        for (int i = 9; i <= 20; i++) {
+        for (int i = 9; i <= 24; i++) {
             jam.add(i);
         }
         return new Jadwal()
@@ -182,7 +209,7 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
                 .setHours(jam);
     }
 
-    private void requestLengkapiGuru(final String guruId, final List<String> jadwal, final File certificate) {
+    private void requestLengkapiGuru(final String guruId, final List<String> jadwal, final File certificate, final int idlesson) {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         builder.addPart("certificate1", new FileBody(certificate));
         final HttpEntity partBody = builder.build();
@@ -192,6 +219,8 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
             @Override
             public void onResponse(NetworkResponse response) {
                 Log.e(TAG, "Daftar Response: " + response.statusCode);
+
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -203,6 +232,7 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("id_guru", guruId);
+                params.put("id_lesson", String.valueOf(idlesson));
                 for (int i = 0; i < jadwal.size(); i++) {
                     params.put("jadwal[" + (i + 1) + "]", jadwal.get(i));
                 }
@@ -270,4 +300,52 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
         return values != null && values.contains(value);
     }
 
-}
+    private void MatpelEdt(){
+
+        StringRequest request = new StringRequest(Request.Method.GET, url2,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            MatpelGuru result = new Gson().fromJson(response, MatpelGuru.class);
+
+
+                            adapterMatpel = new rbAdapter(getApplicationContext(), result.getData());
+
+                            adapterMatpel.setListenerRb(new ItemClickListenerRb() {
+                                @Override
+                                public void onClickedRb(Data data, int position, View view) {
+                                    Toast.makeText(LengkapiDataGuruActivity.this,
+                                            "selected offer is " + data.getId(),
+                                            Toast.LENGTH_LONG).show();
+
+                                }
+                            });
+
+                            listmatpeledit.setAdapter(adapterMatpel);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+                });
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
+
+
+
+    }
+
+    }
+
+
+

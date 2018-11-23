@@ -3,5 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="biruIhave">#467bbb</color>
+    <color name="abu">#cbcccc</color>
+
 
 </resources>

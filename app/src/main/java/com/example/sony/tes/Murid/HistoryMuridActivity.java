@@ -22,9 +22,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sony.tes.Adapter.HistoryAdapter;
 import com.example.sony.tes.Adapter.ItemClickListener;
-import com.example.sony.tes.Guru.LoginGuruActivity;
-import com.example.sony.tes.Model.History;
 import com.example.sony.tes.Model.Histories;
+import com.example.sony.tes.Model.History;
 import com.example.sony.tes.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -67,6 +66,7 @@ public class HistoryMuridActivity extends AppCompatActivity {
         Log.d("TAG", url);
 
         lstHistori = (RecyclerView) findViewById(R.id.lst_historyMurid);
+        pgList = (ProgressBar) findViewById(R.id.progressBar);
 
         // definisi antrian akses data web service
         requestQueue = Volley.newRequestQueue(this);
@@ -183,6 +183,7 @@ public class HistoryMuridActivity extends AppCompatActivity {
             Log.e("TAG", response);
             //gambar loading akan menghilang ketika proses berjalan dengan baik
 
+
             Type collectionType = new TypeToken<Histories<History>>(){}.getType();
             Histories<History> histories = new Gson().fromJson(response, collectionType);
 
@@ -204,10 +205,12 @@ public class HistoryMuridActivity extends AppCompatActivity {
                     lstHistori.setAdapter(adapter);
                 } catch (Exception ignored) {}
             } else {
+                pgList.setVisibility(View.GONE);
                 Toast.makeText(HistoryMuridActivity.this, "Tidak ada data", Toast.LENGTH_LONG).show();
             }
 
         }
 
     };
+
 }

@@ -58,12 +58,31 @@
             android:id="@+id/rvJam"
             android:layout_alignParentStart="true"/>
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mata Pelajaran"
+            android:layout_below="@+id/rvJam"
+            android:layout_marginTop="30dp"
+            android:textColor="#000000"
+            android:textSize="15sp"
+
+            android:id="@+id/textView4" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView4"
+            android:id="@+id/rvPel"
+            android:layout_alignParentStart="true"/>
+
         <Button
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:text="OK"
             android:id="@+id/btnOkUpdate"
-            android:layout_below="@+id/rvJam"
+            android:layout_below="@+id/rvPel"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp" />
 
