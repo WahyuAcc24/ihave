@@ -93,6 +93,7 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
             btnOk.setText("BAYAR KELAS");
             btnOk.setBackgroundColor(Color.BLUE);
             btnOk.setTextColor(Color.WHITE);
+            pDialog = new ProgressDialog(this);
             btnOk.setEnabled(true);
             btnOk.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -124,11 +125,16 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
                                 .setPositiveButton("YA", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
+//                                        pDialog = new ProgressDialog(this);
+                                        pDialog.setCancelable(false);
+                                        pDialog.setMessage("Pembayaran sedang diproses...");
+                                        showDialog();
 
                                         Log.e("TAG", history.getId_guru()+"\n"+history.getInvoice()+"\n");
                                         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                                             @Override
                                             public void onResponse(String response) {
+                                                hideDialog();
                                                 onBackPressed();
                                             }
                                         }, new Response.ErrorListener() {
@@ -161,8 +167,14 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
                     }
                 }
             });
+
+        } else if (history.getStatus().equalsIgnoreCase("paid")) {
+            btnOk.setText("Menunggu Guru Live");
+            btnOk.setBackgroundColor(Color.GRAY);
+            btnOk.setTextColor(Color.BLACK);
+
         } else if (history.getStatus().equalsIgnoreCase("live")) {
-            btnOk.setText("NONTON VIDEO");
+            btnOk.setText("Ayooo mulai belajar..!");
             btnOk.setBackgroundColor(Color.YELLOW);
             btnOk.setTextColor(Color.BLACK);
             btnOk.setEnabled(true);
@@ -222,13 +234,17 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
     }
     public void doRate(final String komen, final String rating){
 
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Mohon Tunggu .....");
+        showDialog();
+
         StringRequest strReq = new StringRequest(Request.Method.POST, urlrate, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                hideDialog();
                 Intent i = new Intent(HistoryMuridDetailActivity.this, HomeMuridActivity.class);
                 startActivity(i);
-
                 Toast.makeText(getApplicationContext(), "Terimakasih", Toast.LENGTH_SHORT).show();
             }
 
@@ -259,6 +275,16 @@ public class HistoryMuridDetailActivity extends AppCompatActivity {
     AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
 
 }
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
 
 }
 

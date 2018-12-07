@@ -12,13 +12,12 @@ public class Data {
     @SerializedName("name") private String name;
     @SerializedName("subtotal") private String subtotal;
 
-
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int setId() {
+        return id;
     }
 
     public int getCategory_id() {
@@ -45,5 +44,6 @@ public class Data {
     public void setSubtotal(String subtotal) {
         this.subtotal = subtotal;
     }
+
 
 }

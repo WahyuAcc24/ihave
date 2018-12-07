@@ -85,14 +85,20 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
             btnOk.setBackgroundColor(Color.BLUE);
             btnOk.setTextColor(Color.WHITE);
             btnOk.setEnabled(true);
+            pDialog = new ProgressDialog(this);
             btnselesai.setVisibility(View.GONE);
             btnOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    pDialog.setCancelable(false);
+                    pDialog.setMessage("Menkomfirmasi order....");
+                    showDialog();
+
                     Log.e("TAG", "\n" + history.getId_guru() + "\n" + history.getInvoice() + "\n");
                     StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            hideDialog();
                             onBackPressed();
                         }
                     }, new Response.ErrorListener() {
@@ -187,10 +193,15 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
                 btnselesai.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        pDialog.setCancelable(false);
+                        pDialog.setMessage("Mohon Tunggu.....");
+                        showDialog();
+
                         Log.e("TAG", history.getId_guru() + "\n" + history.getInvoice() + "\n");
                         StringRequest request = new StringRequest(Request.Method.POST, url3, new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
+                                hideDialog();
                                 Intent i = new Intent(HistoryGuruDetailActivity.this, HomeGuruActivity.class);
                                 startActivity(i);
                                 onBackPressed();
@@ -243,52 +254,18 @@ public class HistoryGuruDetailActivity extends AppCompatActivity {
                 }
             });
 
-//        home = (ImageView) findViewById(R.id.imgMenuHome);
-//        home.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(HistoryGuruDetailActivity.this, HomeGuruActivity.class);
-//                startActivity(i);
-//            }
-//        });
-//
-//        transaksi = (ImageView) findViewById(R.id.imgMenuSaldo);
-//        transaksi.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(HistoryGuruDetailActivity.this, TransaksiGuruActivity.class);
-//                startActivity(i);
-//            }
-//        });
-//
-//        setting = (ImageView) findViewById(R.id.imgMenuSetting);
-//        setting.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(HistoryGuruDetailActivity.this, SettingGuruActivity.class);
-//                startActivity(i);
-//
-//            }
-//        });
-//
-//        logout = (ImageView) findViewById(R.id.imgMenuLogout);
-//        logout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(HistoryGuruDetailActivity.this, LoginGuruActivity.class);
-//                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(i);
-//                Rak.entry("loginguru", false);
-//                Rak.removeAll(getApplicationContext());
-//                finishAffinity();
-//
-//            }
-//        });
-
         }
-
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
     }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
+
+}
 
 

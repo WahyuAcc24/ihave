@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -61,6 +62,8 @@ public class DetailOrderActivity extends AppCompatActivity {
     String tag_json_obj = "json_obj_req";
 
     private String url;
+
+    Button ok;
 
     private String urlSave = "http://demo.t-hisyam.net/ihave/api/order/save_order";
     /**
@@ -143,6 +146,7 @@ public class DetailOrderActivity extends AppCompatActivity {
         txt_mp = (TextView) findViewById(R.id.txtMatpelOrder);
         txt_hobi = (TextView) findViewById(R.id.txthobi);
         txt_rp = (TextView) findViewById(R.id.txtRpOrder);
+        ok = (Button) findViewById(R.id.btnOK);
 
 //        txt_namaguru.setText(getIntent().getStringExtra("blaa"));
 
@@ -161,6 +165,7 @@ public class DetailOrderActivity extends AppCompatActivity {
         findViewById(R.id.btnOK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String idMurid = Rak.grab("id"); //ini ane reference dari LoginMuridActivity
                 String idGuru = getIntent().getStringExtra("guruId"); //dari intent
                 String idLesson = getIntent().getStringExtra("lessonId"); //dari intent
@@ -269,18 +274,26 @@ public class DetailOrderActivity extends AppCompatActivity {
         pDialog.setMessage("Order sedang diproses...");
         showDialog();
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, urlSave, new Response.Listener<String>() {
+        final StringRequest strReq = new StringRequest(Request.Method.POST, urlSave, new Response.Listener<String>() {
+
             @Override
             public void onResponse(String response) {
-                Log.e("TAG", response);
+//                strReq.setRetryPolicy(new DefaultRetryPolicy(20 * 1000, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
                 hideDialog();
+
                 Status status = new Gson().fromJson(response, Status.class);
-                if (status.isStatus()) {
-                    startActivity(new Intent(DetailOrderActivity.this, HistoryMuridActivity.class));
-                    finish();
-                }else{
-                  Toast.makeText(getApplicationContext(), "Kamu Masih memiliki order yang belum diselesaikan", Toast.LENGTH_LONG).show();
-                }
+                Log.e("TAG", response);
+
+                Intent i = new Intent (new Intent(DetailOrderActivity.this, HistoryMuridActivity.class));
+                startActivity(i);
+                finish();
+
+//
+//                if (status.isStatus()) {
+//                }else{
+//                  Toast.makeText(getApplicationContext(), "Kamu Masih memiliki order yang belum diselesaikan", Toast.LENGTH_LONG).show();
+//                }
             }
         }, new Response.ErrorListener() {
             @Override

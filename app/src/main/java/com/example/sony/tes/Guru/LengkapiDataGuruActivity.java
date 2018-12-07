@@ -68,7 +68,8 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
     };
 
     EditText edtSertifikat;
-    RecyclerView listjam, listmatpeledit;
+    RecyclerView listjam;
+    RecyclerView listmatpeledit;
     Button ok;
     ProgressDialog pDialog;
     ProgressBar pgList;
@@ -145,9 +146,8 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                String idlesson = String.valueOf(listmatpeledit.getId());
+                String idlesson = String.valueOf(listmatpeledit.getId());
 
-                int idlesson = listmatpeledit.getId();
 
 
                 List<String> day = new ArrayList<>();
@@ -209,7 +209,7 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
                 .setHours(jam);
     }
 
-    private void requestLengkapiGuru(final String guruId, final List<String> jadwal, final File certificate, final int idlesson) {
+    private void requestLengkapiGuru(final String guruId, final List<String> jadwal, final File certificate, final String idlesson) {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         builder.addPart("certificate1", new FileBody(certificate));
         final HttpEntity partBody = builder.build();
@@ -219,6 +219,9 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
             @Override
             public void onResponse(NetworkResponse response) {
                 Log.e(TAG, "Daftar Response: " + response.statusCode);
+
+                Log.e("TAG", String.valueOf(response));
+
 
 
             }
@@ -232,7 +235,7 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("id_guru", guruId);
-                params.put("id_lesson", String.valueOf(idlesson));
+                params.put("id_lesson", idlesson);
                 for (int i = 0; i < jadwal.size(); i++) {
                     params.put("jadwal[" + (i + 1) + "]", jadwal.get(i));
                 }
@@ -307,6 +310,10 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            Log.e(TAG, "ambil matpel: " + response);
+
+
+
                             MatpelGuru result = new Gson().fromJson(response, MatpelGuru.class);
 
 
@@ -315,12 +322,15 @@ public class LengkapiDataGuruActivity extends AppCompatActivity {
                             adapterMatpel.setListenerRb(new ItemClickListenerRb() {
                                 @Override
                                 public void onClickedRb(Data data, int position, View view) {
+
                                     Toast.makeText(LengkapiDataGuruActivity.this,
                                             "selected offer is " + data.getId(),
                                             Toast.LENGTH_LONG).show();
 
                                 }
                             });
+
+
 
                             listmatpeledit.setAdapter(adapterMatpel);
 

@@ -43,9 +43,11 @@ public class rbAdapter extends RecyclerView.Adapter<rbAdapter.Holder> {
 
     @Override
     public void onBindViewHolder(final Holder holder, final int position) {
+
+
+
         holder.txtMatpel.setText(datas.get(position).getName());
-        holder.rbpel.getId();
-        holder.rbpel.setId(position);
+        holder.rbpel.setId(datas.get(position).getId());
         holder.rbpel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
